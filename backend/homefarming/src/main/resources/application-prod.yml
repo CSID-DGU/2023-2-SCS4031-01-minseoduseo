@@ -1,0 +1,26 @@
+server:
+  port: 5000
+  servlet:
+    encoding:
+      charset: UTF-8
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${rds.hostname}:${rds.port}/${rds.db.name}
+    username: ${rds.username}
+    password: ${rds.password}
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
+
+myapp:
+  host: "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com"
