@@ -37,7 +37,7 @@ public class JwtTokenProvider
         return true;
     }
 
-    public Long getPrincipalId(String jwtToken)
+    public Long getId(String jwtToken)
     {
         Long id;
 
@@ -56,7 +56,7 @@ public class JwtTokenProvider
     }
 
 
-    public String getPrincipalUsername(String jwtToken)
+    public String getUsername(String jwtToken)
     {
         String username;
 
@@ -74,7 +74,7 @@ public class JwtTokenProvider
         return username;
     }
 
-    public String getPrincipalNickname(String jwtToken)
+    public String getNickname(String jwtToken)
     {
         String nickname;
 
