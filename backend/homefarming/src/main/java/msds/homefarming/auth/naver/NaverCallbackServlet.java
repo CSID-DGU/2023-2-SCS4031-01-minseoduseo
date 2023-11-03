@@ -11,6 +11,7 @@ import msds.homefarming.auth.naver.dto.NaverAccessTokenResponseDto;
 import msds.homefarming.auth.naver.dto.NaverMemberDto;
 import msds.homefarming.domain.Member;
 import msds.homefarming.repository.MemberRepository;
+import msds.homefarming.service.MemberService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -34,7 +35,9 @@ public class NaverCallbackServlet extends HttpServlet
     static String NAVER_AUTH_CODE;
     static String NAVER_TOKEN_REQUEST_QUERY_PARAMETER;
 
-    private final MemberRepository memberRepository;
+    private final MemberService memberService;
+
+//    private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Override
@@ -83,16 +86,16 @@ public class NaverCallbackServlet extends HttpServlet
         String nickname = naverMember.getNickname();
         String profileImage = naverMember.getProfileImage();
 
-        Member memberEntity = memberRepository.findMemberByUsername(username);
+        Member memberEntity = memberService.findMemberByUsername(username);
 
         if (memberEntity == null)
         {
             Member member = new Member(username, nickname, profileImage);
-            memberRepository.save(member);
+            memberService.joinMember(member);
         }
 
         // JWT토큰 생성 후 클라이언트에게 전송
-        Member member = memberRepository.findMemberByUsername(username);
+        Member member = memberService.findMemberByUsername(username);
         String jwtToken = jwtTokenProvider.createJwtToken(member);
 
         String memberJsonData = "{"

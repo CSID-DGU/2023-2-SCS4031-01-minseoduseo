@@ -12,6 +12,7 @@ import msds.homefarming.auth.kakao.dto.KakaoAccessTokenResponseDto;
 import msds.homefarming.auth.kakao.dto.KakaoMemberDto;
 import msds.homefarming.domain.Member;
 import msds.homefarming.repository.MemberRepository;
+import msds.homefarming.service.MemberService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -34,7 +35,9 @@ public class KakaoCallbackServlet extends HttpServlet
     static String KAKAO_AUTH_GRANT_TYPE = "authorization_code";
     static String KAKAO_AUTH_CODE;
 
-    private final MemberRepository memberRepository;
+
+    private final MemberService memberService;
+//    private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Override
@@ -75,15 +78,15 @@ public class KakaoCallbackServlet extends HttpServlet
         String nickname = kakaoMember.getNickname();
         String profileImage = kakaoMember.getProfileImage();
 
-        Member memberEntity = memberRepository.findMemberByUsername(username);
+        Member memberEntity = memberService.findMemberByUsername(username);
         if (memberEntity == null)
         {
             Member member = new Member(username, nickname, profileImage);
-            memberRepository.save(member);
+            memberService.joinMember(member);
         }
 
         // JWT토큰 생성 후 클라이언트에게 전송
-        Member member = memberRepository.findMemberByUsername(username);
+        Member member = memberService.findMemberByUsername(username);
         String jwtToken = jwtTokenProvider.createJwtToken(member);
 
         String memberJsonData = "{"
