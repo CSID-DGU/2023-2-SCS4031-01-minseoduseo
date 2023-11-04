@@ -88,8 +88,10 @@ public class NaverCallbackServlet extends HttpServlet
 
         Member memberEntity = memberService.findMemberByUsername(username);
 
+        System.out.println("???? 여긴 오긴하는 거야??");
         if (memberEntity == null)
         {
+            System.out.println("네이버 회원 최초 가입!");
             Member member = new Member(username, nickname, profileImage);
             memberService.joinMember(member);
         }

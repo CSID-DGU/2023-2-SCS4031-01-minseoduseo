@@ -43,6 +43,7 @@ public class KakaoCallbackServlet extends HttpServlet
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println("2~~");
         KAKAO_AUTH_CODE = request.getParameter("code");
         RestTemplate restTemplate = new RestTemplate();
 
@@ -78,9 +79,11 @@ public class KakaoCallbackServlet extends HttpServlet
         String nickname = kakaoMember.getNickname();
         String profileImage = kakaoMember.getProfileImage();
 
+        System.out.println("???? 여기 오긴 하는 거야???");
         Member memberEntity = memberService.findMemberByUsername(username);
         if (memberEntity == null)
         {
+            System.out.println("카카오 최초 회원 가입!");
             Member member = new Member(username, nickname, profileImage);
             memberService.joinMember(member);
         }

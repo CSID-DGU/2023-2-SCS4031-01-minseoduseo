@@ -32,7 +32,7 @@ public class MemberRepository
         TypedQuery<Member> query = entityManager.createQuery(jpql, Member.class);
         query.setParameter("username", username);
         List<Member> members = query.getResultList();
-        if(members.size() == 0)
+        if(members.size() <= 0)
         {
             return null;
         }
