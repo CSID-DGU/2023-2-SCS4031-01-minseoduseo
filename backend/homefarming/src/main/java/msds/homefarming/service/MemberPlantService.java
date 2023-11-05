@@ -8,6 +8,7 @@ import msds.homefarming.domain.dto.memberPlantDto.DeletePlantResponseDto;
 import msds.homefarming.domain.dto.memberPlantDto.GetPlantsResponseDto;
 import msds.homefarming.domain.dto.memberPlantDto.RegisterPlantRequestDto;
 import msds.homefarming.domain.dto.memberPlantDto.RegisterPlantResponseDto;
+import msds.homefarming.exception.NoAuthorityException;
 import msds.homefarming.exception.NoExistPlantException;
 import msds.homefarming.repository.MemberPlantRepository;
 import msds.homefarming.repository.MemberRepository;
@@ -83,6 +84,12 @@ public class MemberPlantService
         {
             throw new NoExistPlantException("존재하지 않는 회원식물 입니다.");
         }
+
+        if(!plant.getOwner().getUsername().equals(userPrincipal.getUsername()))
+        {
+            throw new NoAuthorityException("해당 식물 조회 권한이 없는 회원입니다.");
+        }
+
         return new RegisterPlantResponseDto(
                 plant.getId(),
                 plant.getImage(),
@@ -102,6 +109,12 @@ public class MemberPlantService
         {
             throw new NoExistPlantException("존재하지 않는 회원식물 입니다.");
         }
+
+        if(!plant.getOwner().getUsername().equals(userPrincipal.getUsername()))
+        {
+            throw new NoAuthorityException("해당 식물 수정 권한이 없는 회원입니다.");
+        }
+        
         plant.setImage(updatePlant.getImage());
         plant.setName(updatePlant.getName());
         plant.setNickname(updatePlant.getNickname());
@@ -124,6 +137,11 @@ public class MemberPlantService
         if(plant == null)
         {
             throw new NoExistPlantException("존재하지 않는 회원식물 입니다.");
+        }
+
+        if(!plant.getOwner().getUsername().equals(userPrincipal.getUsername()))
+        {
+            throw new NoAuthorityException("해당 식물 삭제 권한이 없는 회원입니다.");
         }
 
         Boolean result = memberPlantRepository.deleteByMemberPlantId(plantId);

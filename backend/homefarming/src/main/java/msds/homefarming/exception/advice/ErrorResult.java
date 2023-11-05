@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ErrorResult
 {
-    private Long code;
-    private String status;
+    private Long status;
+    private String error;
     private String message;
 }
