@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Member
 {
@@ -24,6 +23,11 @@ public class Member
         this.image = image;
         this.username = username;
         this.nickname = nickname;
+    }
+
+    //여기 수정함 오류 안 나는지 체크!!
+    protected Member()
+    {
     }
 
     public static Member create(String image, String username, String nickname)

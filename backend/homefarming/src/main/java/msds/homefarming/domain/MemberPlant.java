@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class MemberPlant
 {
@@ -32,6 +31,11 @@ public class MemberPlant
         this.name = name;
         this.nickname = nickname;
         this.createDate = createDate;
+    }
+
+    //여기 수정함 오류 안 나는지 체크!!
+    protected MemberPlant()
+    {
     }
 
     public static MemberPlant create(String image, String name, String nickname, LocalDateTime createDate)

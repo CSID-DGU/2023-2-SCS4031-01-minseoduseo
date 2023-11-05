@@ -1,6 +1,7 @@
 package msds.homefarming.exception.advice;
 
 import msds.homefarming.exception.NoAuthorityException;
+import msds.homefarming.exception.NoExistDiaryException;
 import msds.homefarming.exception.NoExistMemberException;
 import msds.homefarming.exception.NoExistPlantException;
 import org.springframework.http.HttpStatus;
@@ -31,5 +32,12 @@ public class ExceptionControllerAdvice
     public ErrorResult noAuthorityException(NoAuthorityException e)
     {
         return new ErrorResult(403L, "FORBIDDEN", e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler
+    public ErrorResult noExistDiaryException(NoExistDiaryException e)
+    {
+        return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
     }
 }
