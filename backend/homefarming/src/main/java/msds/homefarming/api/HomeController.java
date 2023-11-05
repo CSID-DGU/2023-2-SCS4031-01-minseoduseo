@@ -1,4 +1,4 @@
-package msds.homefarming.controller;
+package msds.homefarming.api;
 
 import lombok.RequiredArgsConstructor;
 import msds.homefarming.auth.UserPrincipal;

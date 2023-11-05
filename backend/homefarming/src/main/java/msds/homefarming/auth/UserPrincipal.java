@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class UserPrincipal
 {
     private Long id;
+    private String image;
     private String username;
     private String nickname;
 

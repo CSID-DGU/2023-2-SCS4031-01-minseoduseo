@@ -15,14 +15,26 @@ public class Member
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String image;
     private String username;
     private String nickname;
-    private String image;
 
-    public Member(String username, String nickname, String image)
+    protected Member(String image, String username, String nickname)
     {
+        this.image = image;
         this.username = username;
         this.nickname = nickname;
+    }
+
+    public static Member create(String image, String username, String nickname)
+    {
+        return new Member(image, username, nickname);
+    }
+
+    public Member update(String image, String nickname)
+    {
         this.image = image;
+        this.nickname = nickname;
+        return this;
     }
 }

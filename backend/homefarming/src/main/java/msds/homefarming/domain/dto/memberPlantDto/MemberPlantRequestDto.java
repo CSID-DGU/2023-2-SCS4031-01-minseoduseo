@@ -1,4 +1,4 @@
-package msds.homefarming.domain.dto;
+package msds.homefarming.domain.dto.memberPlantDto;
 
 import lombok.Getter;
 import lombok.Setter;

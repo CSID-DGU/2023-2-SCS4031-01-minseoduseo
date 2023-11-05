@@ -10,7 +10,6 @@ import msds.homefarming.auth.JwtTokenProvider;
 import msds.homefarming.auth.naver.dto.NaverAccessTokenResponseDto;
 import msds.homefarming.auth.naver.dto.NaverMemberDto;
 import msds.homefarming.domain.Member;
-import msds.homefarming.repository.MemberRepository;
 import msds.homefarming.service.MemberService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,8 +35,6 @@ public class NaverCallbackServlet extends HttpServlet
     static String NAVER_TOKEN_REQUEST_QUERY_PARAMETER;
 
     private final MemberService memberService;
-
-//    private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Override
@@ -76,28 +73,22 @@ public class NaverCallbackServlet extends HttpServlet
 
         NaverMemberDto naverMember = restTemplate.postForObject(NAVER_AUTH_USERINFO_URI, userinfoRequestEntity, NaverMemberDto.class);
 
-        System.out.println("naverMember.getNickname() = " + naverMember.getNickname());
-        System.out.println("naverMember.getId() = " + naverMember.getId());
-        System.out.println("naverMember.getProfileImage() = " + naverMember.getProfileImage());
-        System.out.println("naverMember.getRealName() = " + naverMember.getRealName());
-
         // 처음 로그인한 회원은 강제 회원가입.
         String username = "naver_" + naverMember.getId();
         String nickname = naverMember.getNickname();
         String profileImage = naverMember.getProfileImage();
 
-        Member memberEntity = memberService.findMemberByUsername(username);
+        Member memberEntity = memberService.findByUsername(username);
 
-        System.out.println("???? 여긴 오긴하는 거야??");
         if (memberEntity == null)
         {
             System.out.println("네이버 회원 최초 가입!");
-            Member member = new Member(username, nickname, profileImage);
-            memberService.joinMember(member);
+//            Member member = new Member(username, nickname, profileImage);
+            memberService.join(Member.create(profileImage, username, nickname));
         }
 
         // JWT토큰 생성 후 클라이언트에게 전송
-        Member member = memberService.findMemberByUsername(username);
+        Member member = memberService.findByUsername(username);
         String jwtToken = jwtTokenProvider.createJwtToken(member);
 
         String memberJsonData = "{"

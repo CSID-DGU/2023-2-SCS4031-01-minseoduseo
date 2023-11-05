@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import msds.homefarming.auth.JwtTokenProvider;
 import msds.homefarming.auth.UserPrincipal;
 import msds.homefarming.domain.Member;
-import msds.homefarming.repository.MemberRepository;
 import msds.homefarming.service.MemberService;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -36,15 +35,16 @@ public class LoginInterceptor implements HandlerInterceptor
             String testUsername = "msds_test_username";
             String testNickname = "민서두서";
 
-            Member testMember = memberService.findMemberByUsername(testUsername);
+            Member testMember = memberService.findByUsername(testUsername);
             if (testMember == null)
             {
-                Member newTestMember = new Member(testUsername, testNickname, null);
-                memberService.joinMember(newTestMember);
+//                Member newTestMember = new Member(testUsername, testNickname, null);
+                memberService.join(Member.create(null, testUsername, testNickname));
 
             }
-            testMember = memberService.findMemberByUsername(testUsername);
+            testMember = memberService.findByUsername(testUsername);
             userPrincipal.setId(testMember.getId());
+            userPrincipal.setImage(testMember.getImage());
             userPrincipal.setUsername(testMember.getUsername());
             userPrincipal.setNickname(testMember.getNickname());
             return true;

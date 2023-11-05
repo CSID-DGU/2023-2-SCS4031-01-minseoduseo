@@ -11,7 +11,6 @@ import msds.homefarming.auth.JwtTokenProvider;
 import msds.homefarming.auth.kakao.dto.KakaoAccessTokenResponseDto;
 import msds.homefarming.auth.kakao.dto.KakaoMemberDto;
 import msds.homefarming.domain.Member;
-import msds.homefarming.repository.MemberRepository;
 import msds.homefarming.service.MemberService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -34,10 +33,8 @@ public class KakaoCallbackServlet extends HttpServlet
     static String KAKAO_AUTH_USERINFO_URI = "https://kapi.kakao.com/v2/user/me";
     static String KAKAO_AUTH_GRANT_TYPE = "authorization_code";
     static String KAKAO_AUTH_CODE;
-
-
+    
     private final MemberService memberService;
-//    private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Override
@@ -79,17 +76,16 @@ public class KakaoCallbackServlet extends HttpServlet
         String nickname = kakaoMember.getNickname();
         String profileImage = kakaoMember.getProfileImage();
 
-        System.out.println("???? 여기 오긴 하는 거야???");
-        Member memberEntity = memberService.findMemberByUsername(username);
+        Member memberEntity = memberService.findByUsername(username);
         if (memberEntity == null)
         {
             System.out.println("카카오 최초 회원 가입!");
-            Member member = new Member(username, nickname, profileImage);
-            memberService.joinMember(member);
+//            Member member = new Member(username, nickname, profileImage);
+            memberService.join(Member.create(profileImage,username,nickname));
         }
 
         // JWT토큰 생성 후 클라이언트에게 전송
-        Member member = memberService.findMemberByUsername(username);
+        Member member = memberService.findByUsername(username);
         String jwtToken = jwtTokenProvider.createJwtToken(member);
 
         String memberJsonData = "{"
