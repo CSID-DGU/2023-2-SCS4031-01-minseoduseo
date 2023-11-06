@@ -1,10 +1,12 @@
 package msds.homefarming.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 
 @Getter
 @Setter
@@ -15,7 +17,16 @@ public class Diary
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diary_id")
     private Long id;
+
     private LocalDateTime createDate;
+
+    @JsonIgnore
+    private int createYear;
+    @JsonIgnore
+    private int createMonth;
+    @JsonIgnore
+    private int createDay;
+
     private LocalDateTime modifyDate;
     private String title;
     private String plantName;
@@ -29,7 +40,12 @@ public class Diary
     {
         this.title = title;
         this.plantName = plantName;
+
         this.createDate = createDate;
+        this.createYear = createDate.getYear();
+        this.createMonth = createDate.getMonthValue();
+        this.createDay = createDate.getDayOfMonth();
+
         this.contents = contents;
     }
 

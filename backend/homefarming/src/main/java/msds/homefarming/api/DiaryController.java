@@ -22,12 +22,23 @@ public class DiaryController
     }
 
     //==일기상세조회(아이디)==//
-    @GetMapping("/api/member/diary")
+    @GetMapping("/api/member/diary/detail")
     public GetSingleDiaryResponseDto getDiary(
             @RequestParam("diaryId") Long diaryId)
     {
         return diaryService.findOne(diaryId);
     }
+
+    //==일기 날짜별 조회(날짜)==//
+    @GetMapping("/api/member/diary")
+    public GetDateDiaryResponseDto getDateDiary(
+            @RequestParam("year") int year,
+            @RequestParam("month") int month,
+            @RequestParam("day") int day)
+    {
+        return diaryService.findByDate(year, month, day);
+    }
+
 
     //==일기 업데이트==//
     @PutMapping("/api/member/diary")
@@ -35,6 +46,7 @@ public class DiaryController
             @RequestParam("diaryId") Long diaryId,
             @RequestBody UpdateDiaryRequestDto requestDto)
     {
+
         return diaryService.update(diaryId, requestDto);
     }
 
