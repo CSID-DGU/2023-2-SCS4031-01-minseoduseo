@@ -1,0 +1,42 @@
+@import url("./fonts.scss");
+
+* {
+  box-sizing: border-box;
+  font-family: "HakgyoansimWoojuR";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+#app,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: unset;
+  cursor: pointer;
+}
