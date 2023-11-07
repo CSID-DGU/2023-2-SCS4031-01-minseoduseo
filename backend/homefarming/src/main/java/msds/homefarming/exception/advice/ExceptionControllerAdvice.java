@@ -1,9 +1,6 @@
 package msds.homefarming.exception.advice;
 
-import msds.homefarming.exception.NoAuthorityException;
-import msds.homefarming.exception.NoExistDiaryException;
-import msds.homefarming.exception.NoExistMemberException;
-import msds.homefarming.exception.NoExistPlantException;
+import msds.homefarming.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -37,6 +34,20 @@ public class ExceptionControllerAdvice
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler
     public ErrorResult noExistDiaryException(NoExistDiaryException e)
+    {
+        return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler
+    public ErrorResult noExistDictionaryException(NoExistDictionaryException e)
+    {
+        return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler
+    public ErrorResult alreadyExistDictionaryException(AlreadyExistDictionaryException e)
     {
         return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
     }
