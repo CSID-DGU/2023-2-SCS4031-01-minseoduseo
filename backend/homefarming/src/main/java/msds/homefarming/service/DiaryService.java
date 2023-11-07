@@ -69,6 +69,34 @@ public class DiaryService
                 diary.getContents());
     }
 
+    //==일기 월별 조회==//
+    public GetMonthDiaryResponseDto findByMonth(int year, int month)
+    {
+        Member principal = memberRepository.findById(userPrincipal.getId());
+        List<Diary> diaries = diaryRepository.findByMonth(principal, year, month);
+        List<GetSingleDiaryResponseDto> diaryList = new ArrayList<>();
+        int count = 0;
+        for (Diary diary : diaries)
+        {
+            GetSingleDiaryResponseDto diaryDto =
+                    new GetSingleDiaryResponseDto(
+                            diary.getId(),
+                            diary.getCreateDate(),
+                            diary.getTitle(),
+                            diary.getAuthor().getNickname(),
+                            diary.getPlantName(),
+                            diary.getContents());
+            diaryList.add(diaryDto);
+            count++;
+        }
+        return new GetMonthDiaryResponseDto(
+                year,
+                month,
+                count,
+                userPrincipal.getNickname(),
+                diaryList);
+    }
+
     //==일기 날짜별 조회==//
     public GetDateDiaryResponseDto findByDate(int year, int month, int day)
     {
@@ -76,17 +104,16 @@ public class DiaryService
         List<Diary> diaries = diaryRepository.findByDate(principal, year, month, day);
         List<GetSingleDiaryResponseDto> diaryList = new ArrayList<>();
         int count = 0;
-        for(Diary diary : diaries)
+        for (Diary diary : diaries)
         {
             GetSingleDiaryResponseDto diaryDto =
                     new GetSingleDiaryResponseDto(
-                    diary.getId(),
-                    diary.getCreateDate(),
-                    diary.getTitle(),
-                    diary.getAuthor().getNickname(),
-                    diary.getPlantName(),
-                    diary.getContents()
-            );
+                            diary.getId(),
+                            diary.getCreateDate(),
+                            diary.getTitle(),
+                            diary.getAuthor().getNickname(),
+                            diary.getPlantName(),
+                            diary.getContents());
             diaryList.add(diaryDto);
             count++;
         }

@@ -29,8 +29,18 @@ public class DiaryController
         return diaryService.findOne(diaryId);
     }
 
-    //==일기 날짜별 조회(날짜)==//
-    @GetMapping("/api/member/diary")
+    //==일기 월별 조회(년도, 월)==//
+    @GetMapping("/api/member/diary/monthly")
+    public GetMonthDiaryResponseDto getMonthDiary(
+            @RequestParam("year")int year,
+            @RequestParam("month")int month
+    )
+    {
+        return diaryService.findByMonth(year, month);
+    }
+
+    //==일기 날짜별 조회(년도, 월, 일)==//
+    @GetMapping("/api/member/diary/daily")
     public GetDateDiaryResponseDto getDateDiary(
             @RequestParam("year") int year,
             @RequestParam("month") int month,
@@ -46,7 +56,6 @@ public class DiaryController
             @RequestParam("diaryId") Long diaryId,
             @RequestBody UpdateDiaryRequestDto requestDto)
     {
-
         return diaryService.update(diaryId, requestDto);
     }
 

@@ -6,9 +6,6 @@ import msds.homefarming.domain.Diary;
 import msds.homefarming.domain.Member;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Year;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -30,6 +27,22 @@ public class DiaryRepository
         return entityManager.find(Diary.class, diaryId);
     }
 
+    //==월별 일기 조회==//
+    public List<Diary> findByMonth(Member member, int year, int month)
+    {
+        String jpql = "select d from Diary d " +
+                "where d.author =: author " +
+                "and d.createYear = :year " +
+                "and d.createMonth =: month " +
+                "order by d.createDate desc";
+
+        return entityManager.createQuery(jpql, Diary.class)
+                .setParameter("author", member)
+                .setParameter("year", year)
+                .setParameter("month", month)
+                .getResultList();
+    }
+    
     //==일별 일기 조회==//
     public List<Diary> findByDate(Member member, int year, int month, int day)
     {
