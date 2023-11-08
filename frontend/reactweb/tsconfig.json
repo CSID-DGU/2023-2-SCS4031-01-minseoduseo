@@ -7,7 +7,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "baseUrl": "./src", // 추가된 것 ./src를 절대 경로로 지정
+    "baseUrl": "src", // 추가된 것 ./src를 절대 경로로 지정
     "allowJs": true, //ts안에서 js허용(js파일 import가능)
     "skipLibCheck": true,
     "esModuleInterop": true,
