@@ -57,5 +57,6 @@ const StyledHeader = styled.header`
   > svg {
     color: ${(props) => props.color || COLOR.FONT_BLACK_24};
     fill: ${(props) => props.color || COLOR.FONT_BLACK_24};
+    cursor: pointer;
   }
 `;

@@ -18,6 +18,7 @@ const COLOR = {
   FONT_BLACK_1F: "#1f1f1f",
   FONT_BLACK_24: "#242424",
   BTN_GRAY_97: "#979797",
+  BTN_GRAY_D8: "#d8d3d3",
   BTN_RED_F8: "#F85B5B",
   BORDER_GREEN_8A: "#8ACC92",
 };

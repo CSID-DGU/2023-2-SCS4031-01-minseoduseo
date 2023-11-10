@@ -19,19 +19,15 @@ interface StyledBtnProps {
 const StyledContainer = styled.div`
   display: flex;
   gap: 1rem;
-  padding: 0 5rem;
+  padding: 0 6rem;
 `;
 
 const StyledBtn = styled.button<StyledBtnProps>`
   border-radius: 1.8rem;
   width: 100%;
   height: 3.7rem;
-  color: ${(props) => (props.selected ? "white" : COLOR.FONT_GRAY_AB)};
+  box-shadow: 0px 3px 4px 0px rgba(13, 63, 103, 0.1);
+  color: white;
   background-color: ${(props) =>
-    props.selected ? COLOR.BG_GREEN_28 : COLOR.BG_GRAY_F};
-
-  ${({ selected }) =>
-    !selected &&
-    `border: 0.1rem solid ${COLOR.FONT_GRAY_AB}
-  `}
+    props.selected ? COLOR.BG_GREEN_28 : COLOR.BTN_GRAY_D8};
 `;

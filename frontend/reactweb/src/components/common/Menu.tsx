@@ -80,7 +80,7 @@ export default function Menu() {
 }
 
 const StyledNav = styled.nav`
-  animation: moveForward 1.3s forwards ease;
+  animation: moveForward 1s forwards ease;
   background-color: ${COLOR.BG_GREEN_28};
   height: 100vh;
   width: 24rem;
