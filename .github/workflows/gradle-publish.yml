@@ -1,8 +1,8 @@
-name: aws-v5
+name: msds-v2
 on:
   push:
     branches:
-      - main
+      - backend
 
 # https://github.com/actions/setup-java
 # actions/setup-java@v2는 사용자 정의 배포를 지원하고 Zulu OpenJDK, Eclipse Temurin 및 Adopt OpenJDK를 기본적으로 지원합니다. v1은 Zulu OpenJDK만 지원합니다.
