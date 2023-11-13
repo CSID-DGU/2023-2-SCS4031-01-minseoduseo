@@ -21,7 +21,7 @@ public class NaverAuthServlet extends HttpServlet
     //    public static String NAVER_AUTH_REDIRECT_URI = "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com/naver/callback";
 
     //==EC2 서버V2==//
-    public static String NAVER_AUTH_REDIRECT_URI = "Homefarming-v2-env.eba-fjp82mhn.ap-northeast-2.elasticbeanstalk.com/naver/callback";
+    public static String NAVER_AUTH_REDIRECT_URI = "http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/naver/callback";
 
     public static String NAVER_AUTH_STATE = "msdshomefarmingapplication";
 

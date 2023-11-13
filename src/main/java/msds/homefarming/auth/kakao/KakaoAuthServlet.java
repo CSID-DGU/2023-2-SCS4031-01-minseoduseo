@@ -21,7 +21,7 @@ public class KakaoAuthServlet extends HttpServlet
     //    public static String KAKAO_AUTH_REDIRECT_URI = "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com/kakao/callback";
 
     //==EC2서버 V2==//
-    public static String KAKAO_AUTH_REDIRECT_URI = "Homefarming-v2-env.eba-fjp82mhn.ap-northeast-2.elasticbeanstalk.com/kakao/callback";
+    public static String KAKAO_AUTH_REDIRECT_URI = "http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback";
 
     public static String KAKAO_AUTH_RESPONSE_TYPE = "code";
 
