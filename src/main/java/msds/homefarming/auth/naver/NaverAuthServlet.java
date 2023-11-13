@@ -16,8 +16,8 @@ public class NaverAuthServlet extends HttpServlet
     public static String NAVER_AUTH_CODE_URI = "https://nid.naver.com/oauth2.0/authorize";
     public static String NAVER_AUTH_CLIENT_ID = "PHCg_5rwDgHfJ4YlvmAW";
     public static String NAVER_AUTH_RESPONSE_TYPE = "code";
-    public static String NAVER_AUTH_REDIRECT_URI = "http://localhost:8080/naver/callback";
-//    public static String NAVER_AUTH_REDIRECT_URI = "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com/naver/callback";
+//    public static String NAVER_AUTH_REDIRECT_URI = "http://localhost:8080/naver/callback";
+    public static String NAVER_AUTH_REDIRECT_URI = "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com/naver/callback";
     public static String NAVER_AUTH_STATE = "msdshomefarmingapplication";
 
     static String NAVER_CODE_REQUEST_QUERY_PARAMETER = "?"
