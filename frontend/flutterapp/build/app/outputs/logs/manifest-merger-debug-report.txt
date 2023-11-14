@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:2:5-32:19
-MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
-MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
-MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
-MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:2:5-34:19
+MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
+MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
+MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
@@ -20,17 +20,17 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/muns
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
 	android:name
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-MERGED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/minseoduseo/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-50:12
-MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
-MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/minseoduseo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-50:12
+MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
+MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/munseoyeon/.gradle/caches/transforms-3/224222a8cee5dc0337aec6f0aea8f64c/transformed/jetified-appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
@@ -64,41 +64,41 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/munseoyeon/.gra
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/munseoyeon/.gradle/caches/transforms-3/18a049e1666f232681b5ce47e8b737d8/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/munseoyeon/.gradle/caches/transforms-3/d67fb65d423f69a271e62fa0f5833fa6/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/munseoyeon/.gradle/caches/transforms-3/937d6edc8055f6701a18eeac1a67afe6/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:1-34:12
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:33:8-69
-MERGED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:33:8-69
-MERGED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:33:8-69
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
 	android:name
-		ADDED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml:33:25-67
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:25-67
 uses-sdk
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/minseoduseo/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/minseoduseo/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/minseoduseo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/minseoduseo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
@@ -165,90 +165,90 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/munseoyeon/.gradle/ca
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/munseoyeon/.gradle/caches/transforms-3/d67fb65d423f69a271e62fa0f5833fa6/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/munseoyeon/.gradle/caches/transforms-3/937d6edc8055f6701a18eeac1a67afe6/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/munseoyeon/.gradle/caches/transforms-3/937d6edc8055f6701a18eeac1a67afe6/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/munseoyeon/plantweb/minseoduseo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 queries
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-13:15
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-13:15
 intent#action:name:android.support.customtabs.action.CustomTabsService
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
 action#android.support.customtabs.action.CustomTabsService
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-90
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-90
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-87
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-87
 activity#com.pichillilorenzo.flutter_inappwebview.in_app_browser.InAppBrowserActivity
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-20:47
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-20:47
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-37
 	android:configChanges
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-137
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-137
 	android:theme
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-104
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-104
 activity#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivity
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-24:55
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-24:55
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
 	android:theme
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-52
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-52
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-112
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-112
 activity#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivity
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-28:55
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-28:55
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-37
 	android:theme
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-52
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-52
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-106
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-106
 activity#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:29:9-33:55
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:29:9-33:55
 	android:launchMode
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-48
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-48
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-37
 	android:theme
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-52
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-52
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-126
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-126
 activity#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivitySingleInstance
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:34:9-38:55
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:34:9-38:55
 	android:launchMode
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-48
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-48
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
 	android:theme
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-52
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-52
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-120
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-120
 receiver#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ActionBroadcastReceiver
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:40:9-43:40
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:40:9-43:40
 	android:enabled
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-35
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-35
 	android:exported
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-37
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-37
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-111
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-111
 meta-data#io.flutter.embedded_views_preview
-ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:45:9-47:36
+ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:45:9-47:36
 	android:value
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-33
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-33
 	android:name
-		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-61
+		ADDED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-61
 activity#io.flutter.plugins.urllauncher.WebViewActivity
-ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
 	android:exported
-		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
 	android:theme
-		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
 	android:name
-		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/minseoduseo/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+		ADDED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 	android:required
