@@ -1959,24 +1959,7 @@
             "outputFile": "com.example.minseoduseo.app-merged_res-28:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/munseoyeon/.gradle/caches/transforms-3/a6cd1a8d66f0256b3312db6c32eeddc2/transformed/appcompat-1.5.1/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
-                    },
-                    "to": {
-                        "startLines": "9,10,11,12,13,14,15,16",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "405,475,559,643,739,841,943,1037",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "470,554,638,734,836,938,1032,1121"
-                    }
-                },
-                {
-                    "source": "/Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -1992,6 +1975,23 @@
                         "endLines": "5,8",
                         "endColumns": "12,12",
                         "endOffsets": "231,400"
+                    }
+                },
+                {
+                    "source": "/Users/munseoyeon/.gradle/caches/transforms-3/a6cd1a8d66f0256b3312db6c32eeddc2/transformed/appcompat-1.5.1/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "405,475,559,643,739,841,943,1037",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "470,554,638,734,836,938,1032,1121"
                     }
                 }
             ]
@@ -2844,22 +2844,22 @@
                     }
                 },
                 {
-                    "source": "/Users/munseoyeon/plantweb/minseoduseo/build/flutter_inappwebview/intermediates/packaged_res/debug/values/values.xml",
+                    "source": "/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,11,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,102,153,210,259,306,353,426,502",
-                        "endLines": "2,3,4,5,6,7,10,13,21",
-                        "endColumns": "46,50,56,48,46,46,12,12,12",
-                        "endOffsets": "97,148,205,254,301,348,421,497,949"
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
                     },
                     "to": {
-                        "startLines": "312,313,314,315,316,329,337,1423,1763",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "20092,20139,20190,20247,20296,21220,21833,90904,116613",
-                        "endLines": "312,313,314,315,316,329,339,1425,1770",
-                        "endColumns": "46,50,56,48,46,46,12,12,12",
-                        "endOffsets": "20134,20185,20242,20291,20338,21262,21901,90975,117060"
+                        "startLines": "1426,1430",
+                        "startColumns": "4,4",
+                        "startOffsets": "90980,91161",
+                        "endLines": "1429,1432",
+                        "endColumns": "12,12",
+                        "endOffsets": "91156,91325"
                     }
                 },
                 {
@@ -2916,6 +2916,25 @@
                     }
                 },
                 {
+                    "source": "/Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/packaged_res/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,11,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,102,153,210,259,306,353,426,502",
+                        "endLines": "2,3,4,5,6,7,10,13,21",
+                        "endColumns": "46,50,56,48,46,46,12,12,12",
+                        "endOffsets": "97,148,205,254,301,348,421,497,949"
+                    },
+                    "to": {
+                        "startLines": "312,313,314,315,316,329,337,1423,1763",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "20092,20139,20190,20247,20296,21220,21833,90904,116613",
+                        "endLines": "312,313,314,315,316,329,339,1425,1770",
+                        "endColumns": "46,50,56,48,46,46,12,12,12",
+                        "endOffsets": "20134,20185,20242,20291,20338,21262,21901,90975,117060"
+                    }
+                },
+                {
                     "source": "/Users/munseoyeon/.gradle/caches/transforms-3/224222a8cee5dc0337aec6f0aea8f64c/transformed/jetified-appcompat-resources-1.5.1/res/values/values.xml",
                     "from": {
                         "startLines": "2,18,24,34,50",
@@ -2968,25 +2987,6 @@
                         "startOffsets": "17799",
                         "endColumns": "49",
                         "endOffsets": "17844"
-                    }
-                },
-                {
-                    "source": "/Users/munseoyeon/plantweb/minseoduseo/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "1426,1430",
-                        "startColumns": "4,4",
-                        "startOffsets": "90980,91161",
-                        "endLines": "1429,1432",
-                        "endColumns": "12,12",
-                        "endOffsets": "91156,91325"
                     }
                 }
             ]

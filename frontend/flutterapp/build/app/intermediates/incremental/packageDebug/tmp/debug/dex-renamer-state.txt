@@ -1,4 +1,4 @@
-#Fri Oct 27 21:26:24 KST 2023
-base.0=/Users/munseoyeon/plantweb/minseoduseo/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Tue Nov 14 20:24:05 KST 2023
+base.0=/Users/munseoyeon/plantweb/frontend/flutterapp/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
