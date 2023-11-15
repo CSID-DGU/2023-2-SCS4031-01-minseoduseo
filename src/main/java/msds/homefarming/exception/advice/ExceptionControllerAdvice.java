@@ -51,4 +51,11 @@ public class ExceptionControllerAdvice
     {
         return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
     }
+
+    @ResponseStatus(HttpStatus.GATEWAY_TIMEOUT)
+    @ExceptionHandler
+    public ErrorResult chatbotTimeOutException(ChatbotTimeoutException e)
+    {
+        return new ErrorResult(504L, "GATEWAY_TIMEOUT", e.getMessage());
+    }
 }
