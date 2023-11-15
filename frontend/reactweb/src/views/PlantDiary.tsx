@@ -2,36 +2,36 @@ import COLOR from "styles/colors";
 import styled from "styled-components";
 import Header from "components/common/Header";
 import SelectBtn from "components/PlantDiary/SelectBtn";
-import Diary from "components/PlantDiary/Diary";
 import { ReactComponent as RightArrow } from "assets/icons/icon_right-arrow.svg";
 import { ReactComponent as LeftArrow } from "assets/icons/icon_left-arrow.svg";
 import { FONT_STYLES } from "styles/fontStyle";
 import CommonBtn from "components/common/CommonBtn";
 import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
+import { useState } from "react";
+import DiaryList from "components/PlantDiary/DiaryList";
+import Calendar from "components/PlantDiary/Calendar";
 export default function PlantDiary() {
-  const diaryTxt = {
-    title: "고구마 식물일지",
-    date: "2021년 07월 21일(월) 오후 24:00",
-    content: "오늘 고구마 잎 3개 정도 떡잎이 나왔어요...",
-    tag: "고구마",
-    color: "#8A3141",
-  };
   const navigate = useNavigate();
+  const [curState, setCurState] = useState("일기");
+
   return (
     <StyledDiaryWrapper>
       <Header title="식물일지" icon="menu" />
       <StyledDiaryContainer>
-        <SelectBtn BtnTxt={["달력", "일기"]} Selected="일기" />
+        <SelectBtn
+          BtnTxt={["달력", "일기"]}
+          Selected={curState}
+          handler={(name) => {
+            setCurState(name);
+          }}
+        />
         <StyledSelectDate>
           <LeftArrow />
-          2023년 7월
+          2023년 11월
           <RightArrow />
         </StyledSelectDate>
-        <StyledDiaryList>
-          <Diary {...diaryTxt} />
-          <Diary {...diaryTxt} />
-        </StyledDiaryList>
+        {curState === "달력" ? <Calendar /> : <DiaryList />}
       </StyledDiaryContainer>
       <StyledBtnContainer>
         <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
@@ -65,11 +65,4 @@ const StyledBtnContainer = styled.div`
   position: fixed;
   padding: 0 2rem;
   bottom: 2rem;
-`;
-
-const StyledDiaryList = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 8rem;
 `;
