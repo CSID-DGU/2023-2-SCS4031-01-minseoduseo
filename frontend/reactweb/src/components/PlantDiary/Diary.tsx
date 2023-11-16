@@ -40,11 +40,11 @@ const StyledDiaryContainer = styled.div`
 `;
 const StyledDiary = styled.div``;
 const StyledTitle = styled.h3`
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: ${COLOR.FONT_BLACK_1F};
   margin-bottom: 0.5rem;
-  ${FONT_STYLES.GM_M}
-  letter-spacing: -0.03rem;
+  ${FONT_STYLES.PR_M}
+  letter-spacing: -0.09rem;
 `;
 const StyledDate = styled.h6`
   margin-bottom: 1rem;

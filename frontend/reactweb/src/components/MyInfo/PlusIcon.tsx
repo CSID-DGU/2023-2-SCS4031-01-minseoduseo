@@ -21,4 +21,7 @@ const StyledPlusIcon = styled.button`
   border-radius: 50%;
   background-color: ${COLOR.BG_GREEN_28};
   box-shadow: 0px 1.6rem 1.5rem 0px rgba(13, 63, 103, 0.1);
+  > svg {
+    color: white;
+  }
 `;

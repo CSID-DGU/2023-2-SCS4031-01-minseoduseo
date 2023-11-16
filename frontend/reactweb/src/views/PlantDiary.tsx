@@ -2,40 +2,42 @@ import COLOR from "styles/colors";
 import styled from "styled-components";
 import Header from "components/common/Header";
 import SelectBtn from "components/PlantDiary/SelectBtn";
-import Diary from "components/PlantDiary/Diary";
 import { ReactComponent as RightArrow } from "assets/icons/icon_right-arrow.svg";
 import { ReactComponent as LeftArrow } from "assets/icons/icon_left-arrow.svg";
 import { FONT_STYLES } from "styles/fontStyle";
-import CommonBtn from "components/common/CommonBtn";
-import { useNavigate } from "react-router-dom";
-import Routes from "router/Routes";
+import { useMemo, useState } from "react";
+import DiaryList from "components/PlantDiary/DiaryList";
+import Calendar from "components/PlantDiary/Calendar";
 export default function PlantDiary() {
-  const diaryTxt = {
-    title: "고구마 식물일지",
-    date: "2021년 07월 21일(월) 오후 24:00",
-    content: "오늘 고구마 잎 3개 정도 떡잎이 나왔어요...",
-    tag: "고구마",
-    color: "#8A3141",
+  const btnTxts = ["달력", "일기"];
+  const [curState, setCurState] = useState(btnTxts[0]);
+  const [curDate, setCurDate] = useState(new Date());
+  const nxtMonth = useMemo(() => curDate.getMonth() + 1, [curDate]);
+  const preMonth = useMemo(() => curDate.getMonth() - 1, [curDate]);
+  const currYM = {
+    year: curDate.getFullYear(),
+    month: curDate.getMonth() + 1,
   };
-  const navigate = useNavigate();
+  const setMonth = (month: number) => {
+    const nxtMonthDate = new Date(curDate.setMonth(month));
+    setCurDate(nxtMonthDate);
+  };
   return (
     <StyledDiaryWrapper>
       <Header title="식물일지" icon="menu" />
       <StyledDiaryContainer>
-        <SelectBtn BtnTxt={["달력", "일기"]} Selected="일기" />
+        <SelectBtn
+          BtnTxt={btnTxts}
+          Selected={curState}
+          handler={(name) => setCurState(name)}
+        />
         <StyledSelectDate>
-          <LeftArrow />
-          2023년 7월
-          <RightArrow />
+          <LeftArrow onClick={() => setMonth(preMonth)} />
+          {currYM.year}년 {currYM.month}월
+          <RightArrow onClick={() => setMonth(nxtMonth)} />
         </StyledSelectDate>
-        <StyledDiaryList>
-          <Diary {...diaryTxt} />
-          <Diary {...diaryTxt} />
-        </StyledDiaryList>
+        {curState === "달력" ? <Calendar currYM={currYM} /> : <DiaryList />}
       </StyledDiaryContainer>
-      <StyledBtnContainer>
-        <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
-      </StyledBtnContainer>
     </StyledDiaryWrapper>
   );
 }
@@ -58,18 +60,4 @@ const StyledSelectDate = styled.section`
   font-size: 1.6rem;
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.PR_R}
-`;
-
-const StyledBtnContainer = styled.div`
-  width: 100%;
-  position: fixed;
-  padding: 0 2rem;
-  bottom: 2rem;
-`;
-
-const StyledDiaryList = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 8rem;
 `;

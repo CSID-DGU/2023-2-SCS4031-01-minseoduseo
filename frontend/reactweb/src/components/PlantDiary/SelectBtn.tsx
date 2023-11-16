@@ -3,12 +3,21 @@ import COLOR from "styles/colors";
 interface selectBtnParams {
   BtnTxt: string[];
   Selected: string;
+  handler: (txt: string) => void;
 }
-export default function SelectBtn({ BtnTxt, Selected }: selectBtnParams) {
+export default function SelectBtn({
+  BtnTxt,
+  Selected,
+  handler,
+}: selectBtnParams) {
   return (
     <StyledContainer>
       {BtnTxt.map((txt) => {
-        return <StyledBtn selected={Selected === txt}>{txt}</StyledBtn>;
+        return (
+          <StyledBtn selected={Selected === txt} onClick={() => handler(txt)}>
+            {txt}
+          </StyledBtn>
+        );
       })}
     </StyledContainer>
   );

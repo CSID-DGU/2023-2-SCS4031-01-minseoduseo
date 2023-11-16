@@ -7,7 +7,7 @@ interface btnParams {
 }
 export default function CommonBtn({ type, label, handler }: btnParams) {
   let TxtColor = "";
-  let BgColor = "";
+  let bgcolor = "";
   switch (type) {
     case "cancel":
       TxtColor = COLOR.BTN_GRAY_97;
@@ -22,20 +22,20 @@ export default function CommonBtn({ type, label, handler }: btnParams) {
   switch (type) {
     case "cancel":
     case "delete":
-      BgColor = COLOR.BG_GRAY_F;
+      bgcolor = COLOR.BG_GRAY_F;
       break;
     default:
-      BgColor = COLOR.BG_GREEN_28;
+      bgcolor = COLOR.BG_GREEN_28;
   }
 
   return (
-    <Button color={TxtColor} BgColor={BgColor} onClick={handler}>
+    <Button color={TxtColor} bgcolor={bgcolor} onClick={handler}>
       {label}
     </Button>
   );
 }
 interface Colors {
-  BgColor: string;
+  bgcolor: string;
   color: string;
 }
 
@@ -46,7 +46,7 @@ const Button = styled.button<Colors>`
   justify-content: center;
   align-items: center;
   font-size: 1.6rem;
-  background-color: ${(props) => props.BgColor};
+  background-color: ${(props) => props.bgcolor};
   color: ${(props) => props.color};
   border: 0.1rem solid ${(props) => props.color};
   border-radius: 1.6rem;
