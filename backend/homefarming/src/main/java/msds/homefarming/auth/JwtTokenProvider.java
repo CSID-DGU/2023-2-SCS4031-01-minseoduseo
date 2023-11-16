@@ -16,7 +16,7 @@ public class JwtTokenProvider
     {
         return JWT.create()
                 .withSubject(member.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 60000 * 10))
+                .withExpiresAt(new Date(System.currentTimeMillis() + 60000 * 100))
                 .withClaim("id", member.getId())
                 .withClaim("username", member.getUsername())
                 .withClaim("nickname", member.getNickname())
