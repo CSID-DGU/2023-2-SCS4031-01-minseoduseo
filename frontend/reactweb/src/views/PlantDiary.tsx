@@ -8,30 +8,39 @@ import { FONT_STYLES } from "styles/fontStyle";
 import CommonBtn from "components/common/CommonBtn";
 import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import DiaryList from "components/PlantDiary/DiaryList";
 import Calendar from "components/PlantDiary/Calendar";
 export default function PlantDiary() {
   const navigate = useNavigate();
-  const [curState, setCurState] = useState("일기");
-
+  const btnTxts = ["달력", "일기"];
+  const [curState, setCurState] = useState(btnTxts[0]);
+  const [curDate, setCurDate] = useState(new Date());
+  const nxtMonth = useMemo(() => curDate.getMonth() + 1, [curDate]);
+  const preMonth = useMemo(() => curDate.getMonth() - 1, [curDate]);
+  const currYM = {
+    year: curDate.getFullYear(),
+    month: curDate.getMonth() + 1,
+  };
+  const setMonth = (month: number) => {
+    const nxtMonthDate = new Date(curDate.setMonth(month));
+    setCurDate(nxtMonthDate);
+  };
   return (
     <StyledDiaryWrapper>
       <Header title="식물일지" icon="menu" />
       <StyledDiaryContainer>
         <SelectBtn
-          BtnTxt={["달력", "일기"]}
+          BtnTxt={btnTxts}
           Selected={curState}
-          handler={(name) => {
-            setCurState(name);
-          }}
+          handler={(name) => setCurState(name)}
         />
         <StyledSelectDate>
-          <LeftArrow />
-          2023년 11월
-          <RightArrow />
+          <LeftArrow onClick={() => setMonth(preMonth)} />
+          {currYM.year}년 {currYM.month}월
+          <RightArrow onClick={() => setMonth(nxtMonth)} />
         </StyledSelectDate>
-        {curState === "달력" ? <Calendar /> : <DiaryList />}
+        {curState === "달력" ? <Calendar currYM={currYM} /> : <DiaryList />}
       </StyledDiaryContainer>
       <StyledBtnContainer>
         <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
