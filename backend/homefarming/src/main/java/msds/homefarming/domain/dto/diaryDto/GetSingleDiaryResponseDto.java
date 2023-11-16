@@ -13,6 +13,8 @@ public class GetSingleDiaryResponseDto
     private LocalDateTime createDate;
     private String title;
     private String author;
+    //==색추가==//
+    private String color;
     private String plantName;
     private String contents;
 }

@@ -8,6 +8,7 @@ import msds.homefarming.domain.dto.diaryDto.*;
 import msds.homefarming.exception.NoAuthorityException;
 import msds.homefarming.exception.NoExistDiaryException;
 import msds.homefarming.repository.DiaryRepository;
+import msds.homefarming.repository.MemberPlantRepository;
 import msds.homefarming.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import java.util.List;
 @Service
 public class DiaryService
 {
+    private final MemberPlantRepository memberPlantRepository;
     private final MemberRepository memberRepository;
     private final DiaryRepository diaryRepository;
     private final UserPrincipal userPrincipal;
@@ -38,20 +40,26 @@ public class DiaryService
         Diary diary = diaryRepository.save(createDiary);
         Member member = memberRepository.findById(memberId);
         diary.setAuthor(member);
+        String plantColor = memberPlantRepository
+                .findColor(memberId, requestDto.getPlantName());
 
+        //==식물 색 추가==//
         return new SaveDiaryResponseDto(
                 diary.getId(),
                 diary.getCreateDate(),
                 diary.getTitle(),
                 diary.getAuthor().getNickname(),
+                plantColor,
                 diary.getPlantName(),
                 diary.getContents());
+        //====//
     }
 
     //==일기 단건 조회==//
-    public GetSingleDiaryResponseDto findOne(Long diaryId)
+    public GetSingleDiaryResponseDto findOne(Long memberId, Long diaryId)
     {
         Diary diary = diaryRepository.findById(diaryId);
+
         if (diary == null)
         {
             throw new NoExistDiaryException("존재하지 않는 일지입니다.");
@@ -60,13 +68,21 @@ public class DiaryService
         {
             throw new NoAuthorityException("해당 일지를 조회할 권한이 없습니다.");
         }
+
+        //==색깔 추가==//
+        String plantColor = memberPlantRepository.findColor(memberId,diary.getPlantName());
+        //====//
+
+        //==색추가==//
         return new GetSingleDiaryResponseDto(
                 diary.getId(),
                 diary.getCreateDate(),
                 diary.getTitle(),
                 diary.getAuthor().getNickname(),
+                plantColor,
                 diary.getPlantName(),
                 diary.getContents());
+        //====//
     }
 
     //==일기 월별 조회==//
@@ -78,16 +94,21 @@ public class DiaryService
         int count = 0;
         for (Diary diary : diaries)
         {
+            //==색깔 추가==//
+            String plantColor = memberPlantRepository
+                    .findColor(principal.getId(), diary.getPlantName());
             GetSingleDiaryResponseDto diaryDto =
                     new GetSingleDiaryResponseDto(
                             diary.getId(),
                             diary.getCreateDate(),
                             diary.getTitle(),
                             diary.getAuthor().getNickname(),
+                            plantColor,
                             diary.getPlantName(),
                             diary.getContents());
             diaryList.add(diaryDto);
             count++;
+            //====//
         }
         return new GetMonthDiaryResponseDto(
                 year,
@@ -106,16 +127,22 @@ public class DiaryService
         int count = 0;
         for (Diary diary : diaries)
         {
+            //==색깔 추가==//
+            String plantColor = memberPlantRepository
+                    .findColor(principal.getId(), diary.getPlantName());
+
             GetSingleDiaryResponseDto diaryDto =
                     new GetSingleDiaryResponseDto(
                             diary.getId(),
                             diary.getCreateDate(),
                             diary.getTitle(),
                             diary.getAuthor().getNickname(),
+                            plantColor,
                             diary.getPlantName(),
                             diary.getContents());
             diaryList.add(diaryDto);
             count++;
+            //====//
         }
 
         return new GetDateDiaryResponseDto(
@@ -130,6 +157,7 @@ public class DiaryService
     public UpdateDiaryResponseDto update(Long diaryId, UpdateDiaryRequestDto requestDto)
     {
         Diary diary = diaryRepository.findById(diaryId);
+
         if (diary == null)
         {
             throw new NoExistDiaryException("해당 일지가 존재하지 않습니다.");
@@ -144,11 +172,18 @@ public class DiaryService
                 requestDto.getModifyDate(),
                 requestDto.getContents());
 
+        //==식물색 추가==//
+        String plantColor = memberPlantRepository
+                .findColor(userPrincipal.getId(), requestDto.getPlantName());
+        //====//
+
         return new UpdateDiaryResponseDto(
                 diary.getId(),
                 diary.getCreateDate(),
                 diary.getTitle(),
                 diary.getAuthor().getNickname(),
+                //==식물 색==//
+                plantColor,
                 diary.getPlantName(),
                 diary.getContents());
     }

@@ -28,7 +28,6 @@ public class MemberPlant
     @JoinColumn(name = "member_id")
     private Member owner;
 
-    //==식물색깔 추가==//
     protected MemberPlant(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         this.image = image;
@@ -38,20 +37,16 @@ public class MemberPlant
         this.createDate = createDate;
 
     }
-    //==식물색깔 추가 끝==//
 
     protected MemberPlant()
     {
     }
 
-    //==식물색깔 추가 ==//
     public static MemberPlant create(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         return new MemberPlant(image, color, name, nickname, createDate);
     }
-    //==식물색깔 추가 끝==//
 
-    //==식물색깔 추가==//
     public MemberPlant update(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         this.image = image;
@@ -61,5 +56,4 @@ public class MemberPlant
         this.createDate = createDate;
         return this;
     }
-    //==식물색깔 추가 끝==//
 }

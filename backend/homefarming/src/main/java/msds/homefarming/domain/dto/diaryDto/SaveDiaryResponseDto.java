@@ -14,6 +14,8 @@ public class SaveDiaryResponseDto
     private LocalDateTime createDate;
     private String title;
     private String author;
+    //==식물색 추가==//
+    private String color;
     private String plantName;
     private String contents;
 }
