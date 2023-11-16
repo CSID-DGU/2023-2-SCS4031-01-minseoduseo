@@ -1,5 +1,6 @@
 import { css, styled } from "styled-components";
 import COLOR from "styles/colors";
+import CalendarItem from "components/PlantDiary/CalendarItem";
 import { ReactComponent as PlusIcon } from "assets/icons/icon_plus.svg";
 import { FONT_STYLES } from "styles/fontStyle";
 import getCalendar from "utils/getCalendar";
@@ -13,9 +14,10 @@ export default function Calendar({ currYM }: calendarProps) {
   const curDateTxt = useMemo(() => {
     const strYear = String(currYM.year).slice(-2);
     const strMonth = String(currYM.month).padStart(2, "0");
+    const strDate = String(selDate).padStart(2, "0");
     const day = new Date(currYM.year, currYM.month - 1, selDate).getDay();
     const strDay = DAYS[day];
-    return `${strYear}.${strMonth}.${selDate} (${strDay})`;
+    return `${strYear}.${strMonth}.${strDate} (${strDay})`;
   }, [currYM, selDate]);
 
   const onSelect = (date: number | null) => {
@@ -56,6 +58,11 @@ export default function Calendar({ currYM }: calendarProps) {
           <StyledPreviewDate>{curDateTxt}</StyledPreviewDate>
           <PlusIcon />
         </StyledPreviewHeader>
+        <StyledPreviewContent>
+          <CalendarItem />
+          <CalendarItem />
+          <CalendarItem />
+        </StyledPreviewContent>
       </StyledPreview>
     </StyledContainer>
   );
@@ -72,7 +79,7 @@ const StyledCalendar = styled.section`
   flex-direction: column;
   background-color: white;
   border-radius: 1.8rem;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   height: 30rem;
   padding: 2.3rem 2rem 1.75rem 2rem;
@@ -85,13 +92,14 @@ const StyledPreviewHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 `;
 const StyledPreviewDate = styled.h3`
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.PR_R}
   font-size: 1.7rem;
   > svg {
-    color: ${COLOR.FONT_BLACK_1F};
+    color: ${COLOR.BG_GREEN_28};
   }
 `;
 const StyledDayContainer = styled.div`
@@ -144,4 +152,11 @@ const StyledSpot = styled.div`
   height: 0.5rem;
   border-radius: 50%;
   background-color: ${({ color }) => color};
+`;
+
+const StyledPreviewContent = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
 `;

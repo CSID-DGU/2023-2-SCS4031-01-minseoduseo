@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import CommonBtn from "components/common/CommonBtn";
 import Diary from "components/PlantDiary/Diary";
+import Routes from "router/Routes";
 import { useNavigate } from "react-router-dom";
 export default function DiaryList() {
   const diaryTxt = {
@@ -14,6 +16,9 @@ export default function DiaryList() {
     <StContainer>
       <Diary {...diaryTxt} />
       <Diary {...diaryTxt} />
+      <StyledBtnContainer>
+        <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
+      </StyledBtnContainer>
     </StContainer>
   );
 }
@@ -23,4 +28,12 @@ const StContainer = styled.section`
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 8rem;
+`;
+
+const StyledBtnContainer = styled.div`
+  width: 100%;
+  left: 0;
+  position: fixed;
+  padding: 0 2rem;
+  bottom: 2rem;
 `;

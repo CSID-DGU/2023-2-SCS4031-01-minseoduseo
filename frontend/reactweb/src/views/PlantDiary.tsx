@@ -5,14 +5,10 @@ import SelectBtn from "components/PlantDiary/SelectBtn";
 import { ReactComponent as RightArrow } from "assets/icons/icon_right-arrow.svg";
 import { ReactComponent as LeftArrow } from "assets/icons/icon_left-arrow.svg";
 import { FONT_STYLES } from "styles/fontStyle";
-import CommonBtn from "components/common/CommonBtn";
-import { useNavigate } from "react-router-dom";
-import Routes from "router/Routes";
 import { useMemo, useState } from "react";
 import DiaryList from "components/PlantDiary/DiaryList";
 import Calendar from "components/PlantDiary/Calendar";
 export default function PlantDiary() {
-  const navigate = useNavigate();
   const btnTxts = ["달력", "일기"];
   const [curState, setCurState] = useState(btnTxts[0]);
   const [curDate, setCurDate] = useState(new Date());
@@ -42,9 +38,6 @@ export default function PlantDiary() {
         </StyledSelectDate>
         {curState === "달력" ? <Calendar currYM={currYM} /> : <DiaryList />}
       </StyledDiaryContainer>
-      <StyledBtnContainer>
-        <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
-      </StyledBtnContainer>
     </StyledDiaryWrapper>
   );
 }
@@ -67,11 +60,4 @@ const StyledSelectDate = styled.section`
   font-size: 1.6rem;
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.PR_R}
-`;
-
-const StyledBtnContainer = styled.div`
-  width: 100%;
-  position: fixed;
-  padding: 0 2rem;
-  bottom: 2rem;
 `;
