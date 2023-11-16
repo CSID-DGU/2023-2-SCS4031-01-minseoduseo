@@ -16,7 +16,7 @@ public class KakaoAuthServlet extends HttpServlet
     public final static String KAKAO_AUTH_CODE_URI = "https://kauth.kakao.com/oauth/authorize";
 
     public static String KAKAO_AUTH_CLIENT_ID = "f698ae044a771060c21588e56dcb50f0";
-    //    public static String KAKAO_AUTH_REDIRECT_URI = "http://localhost:8080/kakao/callback";
+//    public static String KAKAO_AUTH_REDIRECT_URI = "http://localhost:8080/kakao/callback";
     //==EC2서버 V1==//
     //    public static String KAKAO_AUTH_REDIRECT_URI = "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com/kakao/callback";
 

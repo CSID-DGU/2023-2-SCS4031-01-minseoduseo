@@ -3,9 +3,16 @@ package msds.homefarming.service;
 import lombok.RequiredArgsConstructor;
 import msds.homefarming.domain.Member;
 import msds.homefarming.domain.dto.memberDto.UpdatePrincipalRequestDto;
+import msds.homefarming.exception.NoExistMemberException;
 import msds.homefarming.repository.MemberRepository;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
 @Service
@@ -42,10 +49,57 @@ public class MemberService
                         requestDto.getNickname());
     }
 
-    //==회원정보 삭제==//
+    //==회원 탈퇴==//
     @Transactional
-    public Boolean deleteById(Long memberId)
+    public Boolean deleteById(Long memberId, String username)
     {
+        final String kakaoUnlinkUrl = "https://kapi.kakao.com/v1/user/unlink";
+        final String kakaoAk = "e7b9831a8c75f96849106ed77375ab0f";
+
+        final String naverUnlinkUrl = "https://nid.naver.com/oauth2.0/token";
+        final String naverClientId = "PHCg_5rwDgHfJ4YlvmAW";
+        final String naverClientSecret = "IxgS1qy4U1";
+        final String naverGrantType = "delete";
+        final String naverServiceProvider = "NAVER";
+
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders requestHeaders = new HttpHeaders();
+        MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
+        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, requestHeaders);
+
+        //--회원 존재 여부 검사--//
+        if (memberRepository.findById(memberId) == null)
+        {
+            throw new NoExistMemberException("존재하지 않는 회원입니다.");
+        }
+
+        String[] splitUsername = username.split("_",2);
+        String provider = splitUsername[0];
+        String clientId = splitUsername[1];
+
+        //--카카오 유저--//
+        if(provider.equals("kakao"))
+        {
+            requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+            requestHeaders.set("Authorization", "KakaoAK " + kakaoAk);
+            requestBody.add("target_id_type", "user_id");
+            requestBody.add("target_id", clientId);
+
+            restTemplate.postForEntity(kakaoUnlinkUrl, requestEntity, String.class);
+        }
+        //--네이버 유저--//
+        else if(provider.equals("naver"))
+        {
+            requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+            requestBody.add("grant_type", naverGrantType);
+            requestBody.add("client_id", naverClientId);
+            requestBody.add("client_secret", naverClientSecret);
+            requestBody.add("access_token", clientId);
+            requestBody.add("service_provider", naverServiceProvider);
+
+            restTemplate.postForEntity(naverUnlinkUrl, requestEntity, String.class);
+        }
+
         return memberRepository.deleteById(memberId);
     }
 }

@@ -11,12 +11,12 @@ import java.util.Date;
 public class JwtTokenProvider
 {
     private final static String SECRET_KEY = "msdshomefarmingapplication";
-
+    private final static int MIN = 60000;
     public String createJwtToken(Member member)
     {
         return JWT.create()
                 .withSubject(member.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 60000 * 10))
+                .withExpiresAt(new Date(System.currentTimeMillis() + MIN * 100))
                 .withClaim("id", member.getId())
                 .withClaim("username", member.getUsername())
                 .withClaim("nickname", member.getNickname())

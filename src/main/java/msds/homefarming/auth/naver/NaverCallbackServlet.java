@@ -73,8 +73,10 @@ public class NaverCallbackServlet extends HttpServlet
 
         NaverMemberDto naverMember = restTemplate.postForObject(NAVER_AUTH_USERINFO_URI, userinfoRequestEntity, NaverMemberDto.class);
 
-        // 처음 로그인한 회원은 강제 회원가입.
-        String username = "naver_" + naverMember.getId();
+        // 네이버는 username을 만들 때, id가 아닌, accessToken을 이용해야함!!
+        // 그래야 삭제할 때, 이 accessToken을 보고 삭제를 할 수있음.
+//        String username = "naver_" + naverMember.getId();
+        String username = "naver_" + tokenResponse.getAccessToken();
         String nickname = naverMember.getNickname();
         String profileImage = naverMember.getProfileImage();
 
