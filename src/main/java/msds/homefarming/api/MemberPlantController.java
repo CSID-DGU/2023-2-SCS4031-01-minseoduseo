@@ -39,21 +39,24 @@ public class MemberPlantController
         return memberPlantService.findOne(plantId);
     }
 
-    //==회원식물 갱신==/
+    //==회원식물 갱신==//
     @PutMapping("/api/member/plant")
     public RegisterPlantResponseDto updateMemberPlantApi(
             @RequestParam(name = "plantId") Long plantId,
             @RequestBody MemberPlantRequestDto requestDto)
     {
+        //==식물색 추가==//
         MemberPlant plant = MemberPlant.create(
                 requestDto.getImage(),
+                requestDto.getColor(),
                 requestDto.getName(),
                 requestDto.getNickname(),
                 requestDto.getCreateDate());
         return memberPlantService.update(plantId, plant);
+        //==식물색 추가==//
     }
 
-    //회원식물 삭제
+    //==회원식물 삭제==//
     @DeleteMapping("/api/member/plant")
     public DeletePlantResponseDto deleteMemberPlantApi(
             @RequestParam(name = "plantId") Long plantId)

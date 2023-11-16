@@ -17,6 +17,7 @@ public class MemberPlant
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String image;
+    private String color;
     private String name;
     private String nickname;
     private LocalDateTime createDate;
@@ -25,12 +26,14 @@ public class MemberPlant
     @JoinColumn(name = "member_id")
     private Member owner;
 
-    protected MemberPlant(String image, String name, String nickname, LocalDateTime createDate)
+    protected MemberPlant(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         this.image = image;
+        this.color = color;
         this.name = name;
         this.nickname = nickname;
         this.createDate = createDate;
+
     }
 
     //여기 수정함 오류 안 나는지 체크!!
@@ -38,14 +41,15 @@ public class MemberPlant
     {
     }
 
-    public static MemberPlant create(String image, String name, String nickname, LocalDateTime createDate)
+    public static MemberPlant create(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
-        return new MemberPlant(image, name, nickname, createDate);
+        return new MemberPlant(image, color, name, nickname, createDate);
     }
 
-    public MemberPlant update(String image, String name, String nickname, LocalDateTime createDate)
+    public MemberPlant update(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         this.image = image;
+        this.color = color;
         this.name = name;
         this.nickname = nickname;
         this.createDate = createDate;

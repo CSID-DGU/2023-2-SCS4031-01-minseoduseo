@@ -10,13 +10,17 @@ import java.time.LocalDateTime;
 public class MemberPlantRequestDto
 {
     private String image;
+    //==식물색 추가==//
+    private String color;
     private String name;
     private String nickname;
     private LocalDateTime createDate;
 
-    public MemberPlantRequestDto(String image, String name, String nickname, LocalDateTime createDate)
+    //==식물색 추가==//
+    public MemberPlantRequestDto(String image, String color, String name, String nickname, LocalDateTime createDate)
     {
         this.image = image;
+        this.color = color;
         this.name = name;
         this.nickname = nickname;
         this.createDate = createDate;
