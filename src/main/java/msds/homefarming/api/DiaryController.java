@@ -22,14 +22,15 @@ public class DiaryController
     }
 
     //==일기상세조회(아이디)==//
+    //== 색깔 수정 ==//
     @GetMapping("/api/member/diary/detail")
     public GetSingleDiaryResponseDto getDiary(
             @RequestParam("diaryId") Long diaryId)
     {
-        return diaryService.findOne(diaryId);
+        return diaryService.findOne(userPrincipal.getId(), diaryId);
     }
 
-    //==일기 월별 조회(년도, 월)==//
+    //==일기 월별 조회(년도,월)==//
     @GetMapping("/api/member/diary/monthly")
     public GetMonthDiaryResponseDto getMonthDiary(
             @RequestParam("year")int year,

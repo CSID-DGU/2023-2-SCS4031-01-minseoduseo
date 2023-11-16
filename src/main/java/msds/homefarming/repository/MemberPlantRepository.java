@@ -35,7 +35,23 @@ public class MemberPlantRepository
                 .getResultList();
     }
 
-    // 회원 식물 삭제하기 
+    //==특정 회원식물의 색깔 조회==//
+    public String findColor(Long memberId, String plantName)
+    {
+        String color = "000000";
+        List<MemberPlant> plants = findByMemberId(memberId);
+        for(MemberPlant p : plants)
+        {
+            if(p.getName().equals(plantName))
+            {
+                color = p.getColor();
+                break;
+            }
+        }
+        return color;
+    }
+
+    //==회원 식물 삭제==//
     public Boolean deleteByMemberPlantId(Long plantId)
     {
         MemberPlant plantEntity = entityManager.find(MemberPlant.class, plantId);

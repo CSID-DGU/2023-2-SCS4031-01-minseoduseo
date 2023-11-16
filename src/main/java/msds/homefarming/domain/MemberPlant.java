@@ -17,10 +17,12 @@ public class MemberPlant
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String image;
+    //==식물 색깔==//
     private String color;
     private String name;
     private String nickname;
     private LocalDateTime createDate;
+
 
     @ManyToOne
     @JoinColumn(name = "member_id")
@@ -36,7 +38,6 @@ public class MemberPlant
 
     }
 
-    //여기 수정함 오류 안 나는지 체크!!
     protected MemberPlant()
     {
     }

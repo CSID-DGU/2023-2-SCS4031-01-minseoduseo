@@ -13,6 +13,8 @@ public class UpdateDiaryResponseDto
     private LocalDateTime createDate;
     private String title;
     private String author;
+    //==식물색==//
+    private String color;
     private String plantName;
     private String contents;
 }
