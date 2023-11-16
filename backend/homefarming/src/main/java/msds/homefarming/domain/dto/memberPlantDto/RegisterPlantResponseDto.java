@@ -9,8 +9,10 @@ import java.time.LocalDateTime;
 @Data
 public class RegisterPlantResponseDto
 {
+    //==식물색깔 추가==//
     private Long id;
     private String image;
+    private String color;
     private String name;
     private String nickname;
     private LocalDateTime creatDate;

@@ -31,8 +31,10 @@ public class MemberPlantService
     @Transactional
     public RegisterPlantResponseDto register(Long memberId, RegisterPlantRequestDto requestDto)
     {
+        //==색깔 추가==//
         MemberPlant createPlant = MemberPlant.create(
                 requestDto.getImage(),
+                requestDto.getColor(),
                 requestDto.getName(),
                 requestDto.getNickname(),
                 requestDto.getCreateDate());
@@ -41,13 +43,16 @@ public class MemberPlantService
         Member member = memberRepository.findById(memberId);
         plant.setOwner(member);
 
+        //==식물색 추가==//
         return new RegisterPlantResponseDto(
                 plant.getId(),
                 plant.getImage(),
+                plant.getColor(),
                 plant.getName(),
                 plant.getNickname(),
                 plant.getCreateDate(),
                 plant.getOwner().getNickname());
+        //==식물색 추가==//
     }
 
     //==회원식물 리스트 조회==//
@@ -60,10 +65,12 @@ public class MemberPlantService
         Integer count = 0;
         for(MemberPlant plant : plants)
         {
+            //==식물색 추가==//
             RegisterPlantResponseDto myPlant =
                     new RegisterPlantResponseDto(
                     plant.getId(),
                     plant.getImage(),
+                    plant.getColor(),
                     plant.getName(),
                     plant.getNickname(),
                     plant.getCreateDate(),
@@ -90,14 +97,17 @@ public class MemberPlantService
             throw new NoAuthorityException("해당 식물 조회 권한이 없는 회원입니다.");
         }
 
+        //==식물색 추가==//
         return new RegisterPlantResponseDto(
                 plant.getId(),
                 plant.getImage(),
+                plant.getColor(),
                 plant.getName(),
                 plant.getNickname(),
                 plant.getCreateDate(),
                 plant.getOwner().getNickname()
         );
+        //==식물색 추가==//
     }
 
     //==회원식물 업데이트==//
@@ -116,17 +126,22 @@ public class MemberPlantService
         }
         
         plant.setImage(updatePlant.getImage());
+        //==식물색 추가==//
+        plant.setColor(updatePlant.getColor());
         plant.setName(updatePlant.getName());
         plant.setNickname(updatePlant.getNickname());
         plant.setCreateDate(updatePlant.getCreateDate());
 
+        //==식물색 추가==//
         return new RegisterPlantResponseDto(
                 plant.getId(),
                 plant.getImage(),
+                plant.getColor(),
                 plant.getName(),
                 plant.getNickname(),
                 plant.getCreateDate(),
                 plant.getOwner().getNickname());
+        //==식물색 추가==//
     }
 
     //==회원식물 삭제==//
