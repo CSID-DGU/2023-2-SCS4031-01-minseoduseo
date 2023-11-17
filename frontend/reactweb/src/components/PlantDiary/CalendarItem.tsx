@@ -5,8 +5,11 @@ import { FONT_STYLES } from "styles/fontStyle";
 export default function CalendarItem() {
   return (
     <StyledContainer>
-      <Tag type="고구마" color="#8A3141" />
       <StyledTitle>고구마 식물일지 3일차</StyledTitle>
+      <StyledTagContainer>
+        <Tag type="고구마" color="#b75d6e" />
+        <Tag type="토마토" color="#af1a1a" />
+      </StyledTagContainer>
     </StyledContainer>
   );
 }
@@ -18,8 +21,13 @@ const StyledContainer = styled.section`
   padding: 2rem;
 `;
 
+const StyledTagContainer = styled.div`
+  display: flex;
+  gap: 0.6rem;
+`;
+
 const StyledTitle = styled.h3`
   font-size: 1.5rem;
   ${FONT_STYLES.PR_R};
-  margin-top: 0.8rem;
+  margin-bottom: 1rem;
 `;
