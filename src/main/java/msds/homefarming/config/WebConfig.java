@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer
                 .excludePathPatterns("/css/**", "/*.ico", "/error");
     }
 
-    //==CORS 설정==//
+    //==CORS 설정==///
 //    @Override
 //    public void addCorsMappings(CorsRegistry registry)
 //    {
