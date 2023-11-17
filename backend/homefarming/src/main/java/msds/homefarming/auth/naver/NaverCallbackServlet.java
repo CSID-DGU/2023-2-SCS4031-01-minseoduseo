@@ -65,6 +65,7 @@ public class NaverCallbackServlet extends HttpServlet
         HttpHeaders userinfoRequestHeaders = new HttpHeaders();
         userinfoRequestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         System.out.println("tokenResponse.getAccessToken() = " + tokenResponse.getAccessToken());
+        System.out.println("tokenResponse.getRefreshToken() = " + tokenResponse.getRefreshToken());
         userinfoRequestHeaders.set("Authorization", "Bearer " + tokenResponse.getAccessToken());
 
         MultiValueMap<String, String> userinfoRequestBody = new LinkedMultiValueMap<>();
@@ -76,18 +77,23 @@ public class NaverCallbackServlet extends HttpServlet
         // 처음 로그인한 회원은 강제 회원가입.
         // 네이버는 username을 만들 때, id가 아닌, accessToken을 이용해야함!!
         // 그래야 삭제할 때, 이 accessToken을 보고 삭제를 할 수있음.
-//        String username = "naver_" + naverMember.getId();
-        String username = "naver_" + tokenResponse.getAccessToken();
+        String username = "naver_" + naverMember.getId();
         String nickname = naverMember.getNickname();
         String profileImage = naverMember.getProfileImage();
+        
+        //==리프레시 토큰 저장==//
+        String refreshToken = tokenResponse.getRefreshToken();
 
         Member memberEntity = memberService.findByUsername(username);
 
         if (memberEntity == null)
         {
             System.out.println("네이버 회원 최초 가입!");
-            memberService.join(Member.create(profileImage, username, nickname));
+            Member joinMember = Member.create(profileImage, username, nickname);
+            joinMember.setRefreshToken(refreshToken);
+            memberService.join(joinMember);
         }
+        //====//
 
         // JWT토큰 생성 후 클라이언트에게 전송
         Member member = memberService.findByUsername(username);
