@@ -18,6 +18,15 @@ public class Member
     private String username;
     private String nickname;
 
+    //==네이버 리프레시 토큰==//
+    private String refreshToken;
+
+    public void setRefreshToken(String refreshToken)
+    {
+        this.refreshToken = refreshToken;
+    }
+    //====//
+
     protected Member(String image, String username, String nickname)
     {
         this.image = image;

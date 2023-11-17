@@ -40,7 +40,6 @@ public class KakaoCallbackServlet extends HttpServlet
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("2~~");
         KAKAO_AUTH_CODE = request.getParameter("code");
         RestTemplate restTemplate = new RestTemplate();
 

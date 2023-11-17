@@ -1,5 +1,7 @@
 package msds.homefarming.service;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import msds.homefarming.domain.Member;
 import msds.homefarming.domain.dto.memberDto.UpdatePrincipalRequestDto;
@@ -8,6 +10,7 @@ import msds.homefarming.repository.MemberRepository;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
@@ -68,7 +71,8 @@ public class MemberService
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, requestHeaders);
 
         //--회원 존재 여부 검사--//
-        if (memberRepository.findById(memberId) == null)
+        Member principal = memberRepository.findById(memberId);
+        if (principal == null)
         {
             throw new NoExistMemberException("존재하지 않는 회원입니다.");
         }
@@ -90,16 +94,44 @@ public class MemberService
         //--네이버 유저--//
         else if(provider.equals("naver"))
         {
+            //==리프레시 토큰으로 액세스토큰 재발급 요청==//
+            String acUrl = "https://nid.naver.com/oauth2.0/token";
+            RestTemplate acTemplate = new RestTemplate();
+            HttpHeaders acHeaders = new HttpHeaders();
+            MultiValueMap<String, String> acRequestBody = new LinkedMultiValueMap<>();
+            acHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+            acRequestBody.add("client_id",naverClientId);
+            acRequestBody.add("client_secret",naverClientSecret);
+            acRequestBody.add("refresh_token",principal.getRefreshToken());
+            acRequestBody.add("grant_type","refresh_token");
+            HttpEntity<MultiValueMap<String, String>> acRequestEntity = new HttpEntity<>(acRequestBody, acHeaders);
+
+            ResponseEntity<acResponse> acResponseEntity = restTemplate.postForEntity(acUrl, acRequestEntity, acResponse.class);
+            //==혹시 몰라서 refresh토큰을 저장==//
+            principal.setRefreshToken(acResponseEntity.getBody().getRefreshToken());
+            String accessToken = acResponseEntity.getBody().getAccessToken();
+            //====//
+            //====//
+
+            //==재발급 받은 액세스토큰으로 네이버에 회원탈퇴 요청==//
             requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
             requestBody.add("grant_type", naverGrantType);
             requestBody.add("client_id", naverClientId);
             requestBody.add("client_secret", naverClientSecret);
-            requestBody.add("access_token", clientId);
+            requestBody.add("access_token", accessToken);
             requestBody.add("service_provider", naverServiceProvider);
 
             restTemplate.postForEntity(naverUnlinkUrl, requestEntity, String.class);
         }
-
         return memberRepository.deleteById(memberId);
     }
+}
+
+@Data
+class acResponse
+{
+    @JsonProperty("access_token")
+    private String accessToken;
+    @JsonProperty("refresh_token")
+    private String refreshToken;
 }

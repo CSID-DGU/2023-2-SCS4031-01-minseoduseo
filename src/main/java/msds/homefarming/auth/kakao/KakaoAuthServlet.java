@@ -33,7 +33,6 @@ public class KakaoAuthServlet extends HttpServlet
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("1~~");
         response.setStatus(HttpServletResponse.SC_FOUND);
         response.setHeader("Location", KAKAO_AUTH_CODE_URI + KAKAO_CODE_REQUEST_QUERY_PARAMETER);
     }
