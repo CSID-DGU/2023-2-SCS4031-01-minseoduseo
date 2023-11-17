@@ -14,7 +14,7 @@ public class ExceptionControllerAdvice
     @ExceptionHandler
     public ErrorResult noExistMemberException(NoExistMemberException e)
     {
-        return new ErrorResult(400L, "BAD_REQUEST", e.getMessage());
+        return new ErrorResult(401L, "BAD_REQUEST", e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
