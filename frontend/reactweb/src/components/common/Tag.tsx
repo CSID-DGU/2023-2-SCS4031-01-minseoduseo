@@ -6,7 +6,7 @@ interface params {
 }
 export default function Tag({ type, color }: params) {
   return (
-    <StyledTagContainer>
+    <StyledTagContainer color={color}>
       <StyledColorPoint color={color} />
       <StyledType>{type}</StyledType>
     </StyledTagContainer>
@@ -19,7 +19,7 @@ const StyledTagContainer = styled.div`
   padding: 0.4rem;
   border-radius: 0.7rem;
   width: fit-content;
-  background-color: ${COLOR.BG_YELLOW_FF};
+  background-color: ${({ color }) => `${color}25`};
 `;
 const StyledColorPoint = styled.div`
   width: 1.2rem;
