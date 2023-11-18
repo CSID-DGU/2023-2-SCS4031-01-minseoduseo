@@ -40,7 +40,7 @@ const menuLinks = [
   {
     txt: "챗봇",
     Icon: MsgIcon,
-    link: "/",
+    link: "/chatbot",
   },
   {
     txt: "설정",

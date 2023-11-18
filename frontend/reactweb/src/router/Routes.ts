@@ -6,6 +6,7 @@ const Routes = {
   MyInfo: "/my-info",
   Enroll: "/my-info/enroll",
   Login: "/login",
+  Chatbot: "/chatbot",
 };
 
 export default Routes;
