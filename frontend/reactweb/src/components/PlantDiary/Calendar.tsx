@@ -5,11 +5,14 @@ import { ReactComponent as PlusIcon } from "assets/icons/icon_plus.svg";
 import { FONT_STYLES } from "styles/fontStyle";
 import getCalendar from "utils/getCalendar";
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import Routes from "router/Routes";
 interface calendarProps {
   currYM: { month: number; year: number };
 }
 export default function Calendar({ currYM }: calendarProps) {
   const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+  const navigate = useNavigate();
   const [selDate, setSelDate] = useState(new Date().getDate());
   const curDateTxt = useMemo(() => {
     const strYear = String(currYM.year).slice(-2);
@@ -56,7 +59,9 @@ export default function Calendar({ currYM }: calendarProps) {
       <StyledPreview>
         <StyledPreviewHeader>
           <StyledPreviewDate>{curDateTxt}</StyledPreviewDate>
-          <PlusIcon />
+          <StyledBtn onClick={() => navigate(Routes.DiaryWrite)}>
+            <PlusIcon />
+          </StyledBtn>
         </StyledPreviewHeader>
         <StyledPreviewContent>
           <CalendarItem />
@@ -94,6 +99,11 @@ const StyledPreviewHeader = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
 `;
+
+const StyledBtn = styled.button`
+  background: transparent;
+`;
+
 const StyledPreviewDate = styled.h3`
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.PR_R}
@@ -102,6 +112,7 @@ const StyledPreviewDate = styled.h3`
     color: ${COLOR.BG_GREEN_28};
   }
 `;
+
 const StyledDayContainer = styled.div`
   display: flex;
 `;
