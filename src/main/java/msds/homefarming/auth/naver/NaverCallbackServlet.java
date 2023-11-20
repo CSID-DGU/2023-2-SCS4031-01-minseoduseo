@@ -2,6 +2,7 @@ package msds.homefarming.auth.naver;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -64,8 +65,6 @@ public class NaverCallbackServlet extends HttpServlet
         // 사용자 정보 요청 및 응답받기.
         HttpHeaders userinfoRequestHeaders = new HttpHeaders();
         userinfoRequestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        System.out.println("tokenResponse.getAccessToken() = " + tokenResponse.getAccessToken());
-        System.out.println("tokenResponse.getRefreshToken() = " + tokenResponse.getRefreshToken());
         userinfoRequestHeaders.set("Authorization", "Bearer " + tokenResponse.getAccessToken());
 
         MultiValueMap<String, String> userinfoRequestBody = new LinkedMultiValueMap<>();
@@ -86,14 +85,14 @@ public class NaverCallbackServlet extends HttpServlet
 
         Member memberEntity = memberService.findByUsername(username);
 
+        //==네이버 최초 회원가입==//
         if (memberEntity == null)
         {
-            System.out.println("네이버 회원 최초 가입!");
             Member joinMember = Member.create(profileImage, username, nickname);
             joinMember.setRefreshToken(refreshToken);
             memberService.join(joinMember);
         }
-        //====//
+
 
         // JWT토큰 생성 후 클라이언트에게 전송
         Member member = memberService.findByUsername(username);
@@ -108,6 +107,21 @@ public class NaverCallbackServlet extends HttpServlet
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(memberJsonData);
+
+        //==쿠키에 토큰을 넣고 홈으로 리다이렉트==//
+//        response.getWriter().write(memberJsonData);
+        Cookie cookie = new Cookie("Authorization", jwtToken);
+        cookie.setMaxAge(36000); //10시간
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        //==1. 아래는 Spring의 /home으로 리다이렉트 시킴==//
+//        response.setHeader("Location","/");
+        
+        //==2. 아래는 React의 /으로 리다이렉트 시킴==//
+        //==실제 서비스 시 React서버  홈 URI로 변경해야 함.==//
+        response.setHeader("Location","http://localhost:3000");
+
+        response.setStatus(HttpServletResponse.SC_FOUND);
+        //====//
     }
 }

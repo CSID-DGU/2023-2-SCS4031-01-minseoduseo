@@ -44,6 +44,7 @@ public class MemberController
     @DeleteMapping("/api/member")
     public DeletePrincipalResponseDto deletePrincipal()
     {
+        System.out.println("userPrincipal.getNickname() = " + userPrincipal.getNickname());
         Boolean result = memberService.deleteById(userPrincipal.getId(),userPrincipal.getUsername());
         return new DeletePrincipalResponseDto(result, "회원 삭제 완료");
     }

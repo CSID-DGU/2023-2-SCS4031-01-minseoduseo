@@ -58,4 +58,12 @@ public class ExceptionControllerAdvice
     {
         return new ErrorResult(504L, "GATEWAY_TIMEOUT", e.getMessage());
     }
+
+    //==로그인을 안한 사용자==//
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler
+    public ErrorResult unAuthorizeException(Exception e)
+    {
+        return new ErrorResult(401L, "UNAUTHORIZED", e.getMessage());
+    }
 }

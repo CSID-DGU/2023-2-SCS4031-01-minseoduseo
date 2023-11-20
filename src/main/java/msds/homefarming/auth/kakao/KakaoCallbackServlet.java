@@ -2,6 +2,7 @@ package msds.homefarming.auth.kakao;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -96,6 +97,21 @@ public class KakaoCallbackServlet extends HttpServlet
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(memberJsonData);
+        //==쿠키에 토큰을 넣고 홈으로 리다이렉트==//
+//        response.getWriter().write(memberJsonData);
+        Cookie cookie = new Cookie("Authorization", jwtToken);
+        cookie.setMaxAge(36000); //10시간
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        //==1. 아래는 Spring의 /home으로 리다이렉트 시킴==//
+//        response.setHeader("Location","/");
+
+        //==2. 아래는 React의 /으로 리다이렉트 시킴==//
+        //==실제 서비스 시 React서버  홈 URI로 변경해야 함.==//
+        response.setHeader("Location","http://localhost:3000");
+
+        response.setStatus(HttpServletResponse.SC_FOUND);
+        //====//
+
     }
 }

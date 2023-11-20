@@ -56,6 +56,7 @@ public class MemberService
     @Transactional
     public Boolean deleteById(Long memberId, String username)
     {
+        System.out.println("memberService - deleteById!!");
         final String kakaoUnlinkUrl = "https://kapi.kakao.com/v1/user/unlink";
         final String kakaoAk = "e7b9831a8c75f96849106ed77375ab0f";
 
@@ -71,19 +72,25 @@ public class MemberService
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, requestHeaders);
 
         //--회원 존재 여부 검사--//
+        System.out.println("memberId !! "+memberId);
         Member principal = memberRepository.findById(memberId);
         if (principal == null)
         {
             throw new NoExistMemberException("존재하지 않는 회원입니다.");
         }
 
+        System.out.println("username = " + username);
         String[] splitUsername = username.split("_",2);
         String provider = splitUsername[0];
         String clientId = splitUsername[1];
 
-        //--카카오 유저--//
+        System.out.println("provider!! = " +  provider);
+        System.out.println("clientId!! = " + clientId);
+
+        //==카카오 유저 회원탈퇴==//
         if(provider.equals("kakao"))
         {
+            System.out.println("카카오 탈퇴!!");
             requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
             requestHeaders.set("Authorization", "KakaoAK " + kakaoAk);
             requestBody.add("target_id_type", "user_id");
@@ -91,7 +98,7 @@ public class MemberService
 
             restTemplate.postForEntity(kakaoUnlinkUrl, requestEntity, String.class);
         }
-        //--네이버 유저--//
+        //==네이버 유저 회원탈퇴==//
         else if(provider.equals("naver"))
         {
             //==리프레시 토큰으로 액세스토큰 재발급 요청==//

@@ -1,12 +1,13 @@
 package msds.homefarming.config;
 
+import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import msds.homefarming.auth.JwtTokenProvider;
 import msds.homefarming.auth.UserPrincipal;
-import msds.homefarming.repository.MemberRepository;
 import msds.homefarming.service.MemberService;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -20,7 +21,6 @@ public class WebConfig implements WebMvcConfigurer
     private final MemberService memberService;
     //배포 시에는 삭제할 것.
 
-
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
@@ -31,15 +31,17 @@ public class WebConfig implements WebMvcConfigurer
                 .excludePathPatterns("/css/**", "/*.ico", "/error");
     }
 
-    //==CORS 설정==///
-    @Override
-    public void addCorsMappings(CorsRegistry registry)
+    //==CORS 필터 등록==//
+    @Bean
+    public FilterRegistrationBean<Filter> corsFilter()
     {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("Authorization", "Content-Type")
-                .exposedHeaders("Custom-Header")
-                .maxAge(3600);
+        FilterRegistrationBean<Filter> filterFilterRegistrationBean
+                = new FilterRegistrationBean<>();
+        filterFilterRegistrationBean.setFilter(new CorsConfig());
+        filterFilterRegistrationBean.setOrder(1);
+        filterFilterRegistrationBean.addUrlPatterns("/*");
+        return filterFilterRegistrationBean;
     }
+    //==CORS 필터 등록 끝==//
+
 }

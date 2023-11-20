@@ -1,11 +1,13 @@
 package msds.homefarming.config;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import msds.homefarming.auth.JwtTokenProvider;
 import msds.homefarming.auth.UserPrincipal;
 import msds.homefarming.domain.Member;
+import msds.homefarming.exception.UnAuthorizeException;
 import msds.homefarming.service.MemberService;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -22,16 +24,41 @@ public class LoginInterceptor implements HandlerInterceptor
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
-        String jwtToken = request.getHeader("Authorization");
+        //==쿠키를 꺼낸다.==//
+        String jwtToken = null;
+        Cookie[] cookies = request.getCookies();
 
+        if(cookies != null)
+        {
+            for(Cookie cookie : cookies)
+            {
+                if ("Authorization".equals(cookie.getName()))
+                {
+                    jwtToken = cookie.getValue();
+                    break;
+                }
+            }
+        }
+        System.out.println("jwtToken!! = " + jwtToken);
+        //==쿠키 로직끝==//
         if (jwtToken == null || !jwtTokenProvider.validateJwtToken(jwtToken))
         {
-            // 실제 배포용 코드
+            //==실제 배포용 코드==//
 //            System.out.println("권한이 없음!");
-//            response.sendError(HttpServletResponse.SC_FORBIDDEN);
-//            return false;
+//            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 
-            // 테스트 계정을 위한, 강제 회원 가입 코드
+            //==찐 배포인듯?==//
+//            if(!request.getRequestURI().toString().equals("/index")){
+//                throw new UnAuthorizeException("권한이 없는 사용자입니다.");
+//            }
+//
+//            return true;
+            //==찐 배포인듯?==//
+
+//            return false;
+            //==실제 배포용 코드 끝==//
+
+            //==테스트 계정 코드==//
             String testUsername = "msds_test_username";
             String testNickname = "민서두서";
 
@@ -48,7 +75,7 @@ public class LoginInterceptor implements HandlerInterceptor
             userPrincipal.setUsername(testMember.getUsername());
             userPrincipal.setNickname(testMember.getNickname());
             return true;
-            // 배포 시에는 이 부분은 반드시 제거할 것!
+            //==테스트 계정 코드 끝==//
         }
         else
         {
