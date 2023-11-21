@@ -18,9 +18,14 @@ import java.io.IOException;
 @WebServlet(name = "kakaoRedirectServlet", urlPatterns = "/kakao/login")
 public class KakaoAuthServlet extends HttpServlet
 {
-    public final static String KAKAO_AUTH_CODE_URI = "https://kauth.kakao.com/oauth/authorize";
 
-    public static String KAKAO_AUTH_CLIENT_ID = "f698ae044a771060c21588e56dcb50f0";
+    @Value("${kakao.auth.code-uri}")
+    public String KAKAO_AUTH_CODE_URI;
+//    public final static String KAKAO_AUTH_CODE_URI = "https://kauth.kakao.com/oauth/authorize";
+
+    @Value("${kakao.auth.client-id}")
+    public String KAKAO_AUTH_CLIENT_ID;
+//    public static String KAKAO_AUTH_CLIENT_ID = "f698ae044a771060c21588e56dcb50f0";
 
     @Value("${kakao.auth.redirect-uri}")
     public String KAKAO_AUTH_REDIRECT_URI;

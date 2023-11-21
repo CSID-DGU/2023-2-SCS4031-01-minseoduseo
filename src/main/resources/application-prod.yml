@@ -26,11 +26,13 @@ msds:
   back:
     home-uri: http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com
   front:
-    home-uri: http://localhost:3000
+#    소셜 로그인 완료시 이 경로로 front 화면을 리다이렉스 시킴
+    home-uri: https://social-login-front.d2q2g823gv40cu.amplifyapp.com/
 
 kakao:
   auth:
     redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback
+    code-uri: https://kauth.kakao.com/oauth/authorize
 
 naver:
   auth:
@@ -38,4 +40,6 @@ naver:
 
 config:
   cors:
-    allowed-origin: http://localhost:3000/
+#    여기에 front 서버 홈 주소를 넣어야, cors에러가 안남.
+#    credentials = true라서 반드시 적어야 함. 이 주소만 유일하게 cors 막음.
+    allowed-origin: https://social-login-front.d2q2g823gv40cu.amplifyapp.com/

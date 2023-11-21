@@ -28,10 +28,15 @@ msds:
 kakao:
   auth:
     redirect-uri: http://localhost:8080/kakao/callback
+    code-uri: https://kauth.kakao.com/oauth/authorize
+    client-id: f698ae044a771060c21588e56dcb50f0
+
+
 
 naver:
   auth:
     redirect-uri: http://localhost:8080/naver/callback
+
 
 config:
   cors:

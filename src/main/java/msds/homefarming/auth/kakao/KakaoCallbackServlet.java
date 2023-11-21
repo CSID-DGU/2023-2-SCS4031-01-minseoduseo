@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 
-import static msds.homefarming.auth.kakao.KakaoAuthServlet.KAKAO_AUTH_CLIENT_ID;
+//import static msds.homefarming.auth.kakao.KakaoAuthServlet.KAKAO_AUTH_CLIENT_ID;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -48,6 +48,9 @@ public class KakaoCallbackServlet extends HttpServlet
     //====//
 //    static String HOME_REDIRECT_URI = "https://social-login-front.d2q2g823gv40cu.amplifyapp.com/";
     //====//
+
+    @Value("${kakao.auth.client-id}")
+    String KAKAO_AUTH_CLIENT_ID;
 
     private final MemberService memberService;
     private final JwtTokenProvider jwtTokenProvider;
