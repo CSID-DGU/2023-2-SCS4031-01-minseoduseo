@@ -33,6 +33,7 @@ kakao:
   auth:
     redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback
     code-uri: https://kauth.kakao.com/oauth/authorize
+    client-id: f698ae044a771060c21588e56dcb50f0
 
 naver:
   auth:
