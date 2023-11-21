@@ -22,5 +22,20 @@ logging:
   level:
     '[org.springframework.boot.web]': INFO
 
-myapp:
-  host: "http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com"
+msds:
+  back:
+    home-uri: http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com
+  front:
+    home-uri: http://localhost:3000
+
+kakao:
+  auth:
+    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback
+
+naver:
+  auth:
+    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/naver/callback
+
+config:
+  cors:
+    allowed-origin: http://localhost:3000/

@@ -19,7 +19,20 @@ spring:
       ddl-auto: create
     show-sql: true
 
-myapp:
-  host: "http://localhost:8080"
+msds:
+  back:
+    home-uri: http://localhost:8080
+  front:
+    home-uri: http://localhost:3000
 
+kakao:
+  auth:
+    redirect-uri: http://localhost:8080/kakao/callback
 
+naver:
+  auth:
+    redirect-uri: http://localhost:8080/naver/callback
+
+config:
+  cors:
+    allowed-origin: http://localhost:3000/

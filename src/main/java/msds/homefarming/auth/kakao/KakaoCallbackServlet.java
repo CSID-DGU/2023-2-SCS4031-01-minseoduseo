@@ -13,6 +13,7 @@ import msds.homefarming.auth.kakao.dto.KakaoAccessTokenResponseDto;
 import msds.homefarming.auth.kakao.dto.KakaoMemberDto;
 import msds.homefarming.domain.Member;
 import msds.homefarming.service.MemberService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -23,7 +24,6 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 
 import static msds.homefarming.auth.kakao.KakaoAuthServlet.KAKAO_AUTH_CLIENT_ID;
-import static msds.homefarming.auth.kakao.KakaoAuthServlet.KAKAO_AUTH_REDIRECT_URI;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -34,7 +34,21 @@ public class KakaoCallbackServlet extends HttpServlet
     static String KAKAO_AUTH_USERINFO_URI = "https://kapi.kakao.com/v2/user/me";
     static String KAKAO_AUTH_GRANT_TYPE = "authorization_code";
     static String KAKAO_AUTH_CODE;
-    
+
+    @Value("${kakao.auth.redirect-uri}")
+    String KAKAO_AUTH_REDIRECT_URI;
+
+    //==yml 도입하기==//
+    @Value("${msds.front.home-uri}")
+    String HOME_REDIRECT_URI;
+    //====//
+
+    //==리액트 홈 리다이렉트 URI==//
+//    static String HOME_REDIRECT_URI = "http://localhost:3000";
+    //====//
+//    static String HOME_REDIRECT_URI = "https://social-login-front.d2q2g823gv40cu.amplifyapp.com/";
+    //====//
+
     private final MemberService memberService;
     private final JwtTokenProvider jwtTokenProvider;
 
@@ -108,8 +122,8 @@ public class KakaoCallbackServlet extends HttpServlet
 
         //==2. 아래는 React의 /으로 리다이렉트 시킴==//
         //==실제 서비스 시 React서버  홈 URI로 변경해야 함.==//
-//        response.setHeader("Location","http://localhost:3000");
-        response.setHeader("Location","https://social-login-front.d2q2g823gv40cu.amplifyapp.com/");
+        response.setHeader("Location",HOME_REDIRECT_URI);
+//        response.setHeader("Location","https://social-login-front.d2q2g823gv40cu.amplifyapp.com/");
 
         response.setStatus(HttpServletResponse.SC_FOUND);
         //====//

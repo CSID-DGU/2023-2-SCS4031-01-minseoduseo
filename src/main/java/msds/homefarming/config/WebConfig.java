@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer
 {
+    private final CorsConfig corsConfig;
     private final UserPrincipal userPrincipal;
 
     //테스트계정 강제회원가입을 위한 의존성 추가
@@ -37,7 +38,7 @@ public class WebConfig implements WebMvcConfigurer
     {
         FilterRegistrationBean<Filter> filterFilterRegistrationBean
                 = new FilterRegistrationBean<>();
-        filterFilterRegistrationBean.setFilter(new CorsConfig());
+        filterFilterRegistrationBean.setFilter(corsConfig);
         filterFilterRegistrationBean.setOrder(1);
         filterFilterRegistrationBean.addUrlPatterns("/*");
         return filterFilterRegistrationBean;
