@@ -108,7 +108,8 @@ public class KakaoCallbackServlet extends HttpServlet
 
         //==2. 아래는 React의 /으로 리다이렉트 시킴==//
         //==실제 서비스 시 React서버  홈 URI로 변경해야 함.==//
-        response.setHeader("Location","http://localhost:3000");
+//        response.setHeader("Location","http://localhost:3000");
+        response.setHeader("Location","https://social-login-front.d2q2g823gv40cu.amplifyapp.com/");
 
         response.setStatus(HttpServletResponse.SC_FOUND);
         //====//
