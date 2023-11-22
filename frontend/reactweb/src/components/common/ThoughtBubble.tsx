@@ -4,10 +4,12 @@ import { FONT_STYLES } from "styles/fontStyle";
 interface directionType {
   direction: "left" | "right";
   txt?: string;
+  time?: Date;
 }
-export default function ThoughtBubble({ direction, txt }: directionType) {
+export default function ThoughtBubble({ direction, txt, time }: directionType) {
   return (
     <StyledContainer direction={direction}>
+      <StyledTime direction={direction}>오후 1:00</StyledTime>
       <StyledBubbleTriangle direction={direction} />
       <StyledBubble direction={direction}>
         <StyledInnerTxt direction={direction}>{txt}</StyledInnerTxt>
@@ -20,6 +22,14 @@ const StyledContainer = styled.section<directionType>`
   display: flex;
   gap: 0;
   margin-left: ${({ direction }) => (direction === "left" ? 0 : "auto")};
+`;
+
+const StyledTime = styled.span<directionType>`
+  ${FONT_STYLES.PR_R};
+  font-size: 1rem;
+  color: ${COLOR.FONT_GRAY_9A};
+  margin: auto 0.7rem 0.1rem 0.7rem;
+  order: ${({ direction }) => (direction === "left" ? 1 : -1)};
 `;
 
 const StyledBubbleTriangle = styled.div<directionType>`
@@ -44,7 +54,7 @@ const StyledBubbleTriangle = styled.div<directionType>`
 
 const StyledBubble = styled.div<directionType>`
   padding: 1.5rem;
-  max-width: 19rem;
+  max-width: 23.5rem;
   ${({ direction }) => {
     if (direction === "left") {
       return css`

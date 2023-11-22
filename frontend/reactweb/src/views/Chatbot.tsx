@@ -11,6 +11,7 @@ export default function Chatbot() {
         <Header icon="previous" title="챗봇" />
       </StyledHeader>
       <StyledBubbleContainer>
+        <StyledDate>2023.01.07 (화)</StyledDate>
         <ThoughtBubble direction={"left"} txt={"안녕하세요"} />
         <ThoughtBubble direction={"right"} txt={"안녕하세요 👋"} />
         <ThoughtBubble direction={"left"} txt={"안녕하십니까"} />
@@ -41,6 +42,14 @@ const StyledHeader = styled.div`
   width: -webkit-fill-available;
   width: -moz-fill-available;
 `;
+
+const StyledDate = styled.div`
+  ${FONT_STYLES.PR_R};
+  color: ${COLOR.FONT_GRAY_59};
+  font-size: 1.4rem;
+  margin: 0 auto;
+`;
+
 const StyledBubbleContainer = styled.section`
   background: ${COLOR.BG_GRAY_F5};
   min-height: 100vh;
