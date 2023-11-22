@@ -29,7 +29,6 @@ public class CorsConfig implements Filter
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException
     {
-
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //==아래의 React서버URI에 대해서만 CORS정책을 적용함.==//
         corsConfiguration.addAllowedOrigin(CORS_ALLOWED_ORIGIN);
