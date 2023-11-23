@@ -2,6 +2,7 @@ package msds.homefarming.api;
 
 import lombok.Data;
 import msds.homefarming.exception.ChatbotTimeoutException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,7 +15,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ChatBotController
 {
-    private final String openAiUri = "https://zzwa5nwag2.execute-api.ap-northeast-2.amazonaws.com/api/chatbot";
+    @Value("${msds.chatbot.open-ai-uri}")
+    private String AI_CHATBOT_URI;
 
     @PostMapping("/api/chatbot")
     public AnswerDto getChatBotAnswer(@RequestBody QuestionDto request)
@@ -27,7 +29,7 @@ public class ChatBotController
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
         try
         {
-            ResponseEntity<AnswerDto> responseEntity = restTemplate.postForEntity(openAiUri, requestEntity, AnswerDto.class);
+            ResponseEntity<AnswerDto> responseEntity = restTemplate.postForEntity(AI_CHATBOT_URI, requestEntity, AnswerDto.class);
             return responseEntity.getBody();
         }
         catch (Exception e)

@@ -71,6 +71,7 @@ public class KakaoCallbackServlet extends HttpServlet
                 .build()
                 .post()
                 .getAccessToken();
+        System.out.println("1.카카오에 AccessToken요청 후 받은 토큰 == " + accessToken);
         
         //== 2.카카오에 사용자 정보 요청==//
         Map<String, String> miHeaders = Map.of(
@@ -89,15 +90,24 @@ public class KakaoCallbackServlet extends HttpServlet
                 "kakao_" + kakaoMember.getId(),
                 kakaoMember.getNickname());
 
+        System.out.println("2.카카오에 회원정보 요청 후 받은 회원이름 == " + memberEntity.getNickname());
+
         //== 3.처음 로그인 시 강제 회원가입==//
         if(!isExist(memberEntity)) memberService.join(memberEntity);
 
         String jwtToken = jwtTokenProvider.createJwtToken(
                 memberService.findByUsername(memberEntity.getUsername()));
 
+        System.out.println("3. 받은 회원정보를 바탕으로 생성한 JWT토큰 == " + jwtToken);
+
         Cookie cookie = new Cookie("Authorization", jwtToken);
         cookie.setMaxAge(36000); //10시간
+
+        //==FE가 서버의 해당 경로와 하위 경로를 갈 때 쿠키를 주도록 함==//
         cookie.setPath("/");
+        //==이 도메인을 갈 때도 FE가 쿠키를 주도록 만듦==//
+        //==서버 배포시 반드시 기입할 것==//
+        cookie.setDomain("msds-capstone.store");
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

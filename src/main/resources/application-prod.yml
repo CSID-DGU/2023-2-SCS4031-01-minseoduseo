@@ -29,6 +29,8 @@ msds:
 #    소셜 로그인 완료시 이 경로로 front 화면을 리다이렉트 시킴
 #    home-uri: https://social-login-front.d2q2g823gv40cu.amplifyapp.com/
     home-uri: http://localhost:3000
+  chatbot:
+    open-ai-uri: https://zzwa5nwag2.execute-api.ap-northeast-2.amazonaws.com/api/chatbot
 
 kakao:
   auth:

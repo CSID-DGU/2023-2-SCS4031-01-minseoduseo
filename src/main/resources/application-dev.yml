@@ -23,7 +23,9 @@ msds:
   back:
     home-uri: http://localhost:8080
   front:
-    home-uri: http://localhost:8080
+    home-uri: http://localhost:3000
+  chatbot:
+    open-ai-uri: https://zzwa5nwag2.execute-api.ap-northeast-2.amazonaws.com/api/chatbot
 
 kakao:
   auth:

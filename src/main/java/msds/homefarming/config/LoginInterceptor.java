@@ -39,7 +39,7 @@ public class LoginInterceptor implements HandlerInterceptor
                 }
             }
         }
-        System.out.println("jwtToken!! = " + jwtToken);
+
         //==쿠키 로직끝==//
         if (jwtToken == null || !jwtTokenProvider.validateJwtToken(jwtToken))
         {
