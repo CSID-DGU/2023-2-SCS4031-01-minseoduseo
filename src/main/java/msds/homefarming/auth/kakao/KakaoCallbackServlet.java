@@ -107,7 +107,7 @@ public class KakaoCallbackServlet extends HttpServlet
         cookie.setPath("/");
         //==이 도메인을 갈 때도 FE가 쿠키를 주도록 만듦==//
         //==서버 배포시 반드시 기입할 것==//
-        cookie.setDomain("msds-capstone.store");
+        cookie.setDomain("localhost");
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
