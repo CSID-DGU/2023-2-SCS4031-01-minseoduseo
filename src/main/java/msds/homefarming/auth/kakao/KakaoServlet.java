@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.io.IOException;
 
 @Slf4j
-@CrossOrigin(origins = "*")
 @WebServlet(name = "kakaoServlet", urlPatterns = "/kakao/login")
 public class KakaoServlet extends HttpServlet
 {

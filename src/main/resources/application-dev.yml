@@ -23,7 +23,7 @@ msds:
   back:
     home-uri: http://localhost:8080
   front:
-    home-uri: http://localhost:3000
+    home-uri: http://localhost:8080
 
 kakao:
   auth:

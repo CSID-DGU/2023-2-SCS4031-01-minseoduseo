@@ -40,7 +40,7 @@ public class MemberController
         );
     }
 
-    //==회원정보 삭제==/
+    //==회원정보 삭제==//
     @DeleteMapping("/api/member")
     public DeletePrincipalResponseDto deletePrincipal()
     {

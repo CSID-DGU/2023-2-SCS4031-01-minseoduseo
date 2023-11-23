@@ -40,7 +40,6 @@ kakao:
     userinfo-uri: https://kapi.kakao.com/v2/user/me
     grant-type: authorization_code
 
-
 naver:
   auth:
     redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/naver/callback

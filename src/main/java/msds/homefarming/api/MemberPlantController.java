@@ -45,7 +45,6 @@ public class MemberPlantController
             @RequestParam(name = "plantId") Long plantId,
             @RequestBody MemberPlantRequestDto requestDto)
     {
-        //==식물색 추가==//
         MemberPlant plant = MemberPlant.create(
                 requestDto.getImage(),
                 requestDto.getColor(),
@@ -53,7 +52,6 @@ public class MemberPlantController
                 requestDto.getNickname(),
                 requestDto.getCreateDate());
         return memberPlantService.update(plantId, plant);
-        //==식물색 추가==//
     }
 
     //==회원식물 삭제==//
