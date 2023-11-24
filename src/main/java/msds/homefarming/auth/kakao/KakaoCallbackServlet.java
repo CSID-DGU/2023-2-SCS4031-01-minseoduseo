@@ -51,6 +51,7 @@ public class KakaoCallbackServlet extends HttpServlet
     @Value("${kakao.auth.client-id}")
     String KAKAO_AUTH_CLIENT_ID;
 
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -107,7 +108,7 @@ public class KakaoCallbackServlet extends HttpServlet
         cookie.setPath("/");
         //==이 도메인을 갈 때도 FE가 쿠키를 주도록 만듦==//
         //==서버 배포시 반드시 기입할 것==//
-        cookie.setDomain("localhost");
+        cookie.setDomain("ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com");
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

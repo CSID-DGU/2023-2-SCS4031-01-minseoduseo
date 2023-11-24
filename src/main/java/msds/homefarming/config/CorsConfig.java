@@ -31,11 +31,12 @@ public class CorsConfig implements Filter
     {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //==아래의 React서버URI에 대해서만 CORS정책을 적용함.==//
-        corsConfiguration.addAllowedOrigin(CORS_ALLOWED_ORIGIN);
+        //원래는 CORS_ALLOWED_ORIGIN이었음!
+        corsConfiguration.addAllowedOrigin("*");
 //        corsConfiguration.addAllowedOrigin("https://accounts.kakao.com");
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.setAllowCredentials(true);
+//        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
