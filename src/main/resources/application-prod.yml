@@ -24,7 +24,6 @@ logging:
 
 msds:
   back:
-#    home-uri: http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com
     home-uri: http://msds-capstone.store
   front:
 #    소셜 로그인 완료시 이 경로로 front 화면을 리다이렉트 시킴
@@ -35,7 +34,6 @@ msds:
 
 kakao:
   auth:
-#    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback
     redirect-uri: http://msds-capstone.store/kakao/callback
     code-uri: https://kauth.kakao.com/oauth/authorize
     client-id: f698ae044a771060c21588e56dcb50f0
@@ -46,7 +44,6 @@ kakao:
 
 naver:
   auth:
-#    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/naver/callback
     redirect-uri: http://msds-capstone.store/naver/callback
 
 config:

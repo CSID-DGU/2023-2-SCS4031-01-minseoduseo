@@ -29,22 +29,24 @@ public class CorsConfig implements Filter
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException
     {
+        System.out.println("//==doFilter()실행시작==//");
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //==아래의 React서버URI에 대해서만 CORS정책을 적용함.==//
         //원래는 CORS_ALLOWED_ORIGIN이었음!
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedOrigin("localhost:3000");
+        corsConfiguration.addAllowedOrigin("localhost:53729");
+        corsConfiguration.addAllowedOrigin("http://172.30.1.9:3000/");
 //        corsConfiguration.addAllowedOrigin("https://accounts.kakao.com");
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
-//        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
 
         CorsFilter corsFilter = new CorsFilter(source);
-
+        System.out.println("//==doFilter()실행 끝==//");
         corsFilter.doFilter(request,response,chain);
-
     }
 
     @Override

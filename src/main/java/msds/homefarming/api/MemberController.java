@@ -18,6 +18,7 @@ public class MemberController
     @GetMapping("/api/member")
     public GetPrincipalResponseDto getPrincipal()
     {
+        System.out.println("//==[/api/member] Cotroller진입==//");
         return new GetPrincipalResponseDto(
                 userPrincipal.getId(),
                 userPrincipal.getImage(),

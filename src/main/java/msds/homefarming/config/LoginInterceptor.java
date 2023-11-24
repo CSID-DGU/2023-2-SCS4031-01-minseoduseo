@@ -24,6 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
+        System.out.println("//==LoginIntercepter()실행시작==//");
         //==쿠키를 꺼낸다.==//
         String jwtToken = null;
         Cookie[] cookies = request.getCookies();
@@ -74,6 +75,7 @@ public class LoginInterceptor implements HandlerInterceptor
             userPrincipal.setImage(testMember.getImage());
             userPrincipal.setUsername(testMember.getUsername());
             userPrincipal.setNickname(testMember.getNickname());
+            System.out.println("//==LoginInterceptor()실행 끝==//");
             return true;
             //==테스트 계정 코드 끝==//
         }
@@ -82,6 +84,7 @@ public class LoginInterceptor implements HandlerInterceptor
             userPrincipal.setId(jwtTokenProvider.getId(jwtToken));
             userPrincipal.setNickname(jwtTokenProvider.getNickname(jwtToken));
             userPrincipal.setUsername(jwtTokenProvider.getUsername(jwtToken));
+            System.out.println("//==LoginInterceptor()실행 끝==//");
             return true;
         }
     }

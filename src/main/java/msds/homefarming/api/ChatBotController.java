@@ -21,6 +21,7 @@ public class ChatBotController
     @PostMapping("/api/chatbot")
     public AnswerDto getChatBotAnswer(@RequestBody QuestionDto request)
     {
+        System.out.println("//==ChatBot Controller 진입!!==//");
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

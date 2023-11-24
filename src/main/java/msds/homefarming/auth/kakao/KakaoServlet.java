@@ -30,6 +30,7 @@ public class KakaoServlet extends HttpServlet
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println("//==KakaoServlet()실행==//");
         response.setStatus(HttpServletResponse.SC_FOUND);
 
         String KAKAO_CODE_REQUEST_QUERY_PARAMETER = "?"
