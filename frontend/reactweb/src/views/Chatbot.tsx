@@ -4,23 +4,65 @@ import COLOR from "styles/colors";
 import ThoughtBubble from "components/common/ThoughtBubble";
 import { ReactComponent as UpArrowIcon } from "assets/icons/icon_up-arrow.svg";
 import { FONT_STYLES } from "styles/fontStyle";
+import { postChat } from "api/chatbot";
+import { useRef, useState, useEffect } from "react";
 export default function Chatbot() {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const inputSwitch = useRef<boolean>(true);
+  const [totalChats, setTotalChats] = useState<
+    { chat: string; type: "answer" | "question" }[] | []
+  >([]);
+  useEffect(() => {
+    window.scrollTo({
+      top: containerRef.current?.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [totalChats]);
+
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    if (inputRef.current?.value) {
+      const question = inputRef.current.value;
+      setChat(question, "question");
+      setChat("", "answer");
+      inputSwitch.current = false;
+      inputRef.current.value = "";
+      const { answer } = await postChat(question);
+      setLastChat(answer);
+      inputSwitch.current = true;
+    }
+  };
+
+  const setChat = (newChat: string, type: "answer" | "question") => {
+    const chat = { chat: newChat, type };
+    setTotalChats((chats) => [...chats, chat]);
+  };
+
+  const setLastChat = (newChat: string) => {
+    const chat = { chat: newChat, type: "answer" };
+    setTotalChats((chats) => {
+      const cp = JSON.parse(JSON.stringify(chats));
+      cp[chats.length - 1] = chat;
+      return cp;
+    });
+  };
+
   return (
     <StyledContainer>
       <StyledHeader>
         <Header icon="previous" title="챗봇" />
       </StyledHeader>
-      <StyledBubbleContainer>
+      <StyledBubbleContainer ref={containerRef}>
         <StyledDate>2023.01.07 (화)</StyledDate>
-        <ThoughtBubble direction={"left"} txt={"안녕하세요"} />
-        <ThoughtBubble direction={"right"} txt={"안녕하세요 👋"} />
-        <ThoughtBubble direction={"left"} txt={"안녕하십니까"} />
-        <ThoughtBubble direction={"right"} txt={"반갑습니다"} />
+        {totalChats.map(({ chat, type }, idx) => (
+          <ThoughtBubble theme={type} txt={chat} key={idx} />
+        ))}
       </StyledBubbleContainer>
       <StyledInputWrapper>
-        <StyledInputContainer>
-          <StyledInput />
-          <StyledSendBtn>
+        <StyledInputContainer onSubmit={handleSubmit}>
+          <StyledInput ref={inputRef} />
+          <StyledSendBtn disabled={!inputSwitch.current}>
             <UpArrowIcon />
           </StyledSendBtn>
         </StyledInputContainer>
@@ -66,7 +108,7 @@ const StyledInputWrapper = styled.div`
   padding: 0.2rem 2rem 4rem 2rem;
 `;
 
-const StyledInputContainer = styled.div`
+const StyledInputContainer = styled.form`
   display: flex;
   background: ${COLOR.BG_GRAY_E4};
   padding: 0.8rem;
@@ -84,7 +126,8 @@ const StyledInput = styled.input`
 `;
 
 const StyledSendBtn = styled.button`
-  background: ${COLOR.BG_GREEN_28};
+  background: ${({ disabled }) =>
+    disabled ? `${COLOR.BG_GREEN_28}70` : COLOR.BG_GREEN_28};
   border-radius: 50%;
   width: 2.8rem;
   height: 2.8rem;

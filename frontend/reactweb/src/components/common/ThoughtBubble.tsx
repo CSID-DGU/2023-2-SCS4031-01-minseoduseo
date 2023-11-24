@@ -1,43 +1,67 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import COLOR from "styles/colors";
 import { FONT_STYLES } from "styles/fontStyle";
-interface directionType {
-  direction: "left" | "right";
+interface themeType {
+  theme: "answer" | "question";
   txt?: string;
   time?: Date;
 }
-export default function ThoughtBubble({ direction, txt, time }: directionType) {
+export default function ThoughtBubble({ theme, txt, time }: themeType) {
   return (
-    <StyledContainer direction={direction}>
-      <StyledTime direction={direction}>오후 1:00</StyledTime>
-      <StyledBubbleTriangle direction={direction} />
-      <StyledBubble direction={direction}>
-        <StyledInnerTxt direction={direction}>{txt}</StyledInnerTxt>
+    <StyledContainer theme={theme}>
+      <StyledTime theme={theme}>오후 1:00</StyledTime>
+      <StyledBubbleTriangle theme={theme} />
+      <StyledBubble theme={theme}>
+        <StyledInnerTxt theme={theme}>
+          {txt ? (
+            txt
+          ) : (
+            <StyledLoading>
+              <StyledDot />
+              <StyledDot />
+              <StyledDot />
+            </StyledLoading>
+          )}
+        </StyledInnerTxt>
       </StyledBubble>
     </StyledContainer>
   );
 }
 
-const StyledContainer = styled.section<directionType>`
+const float = keyframes`
+  0%{
+    transform: translateY(0)
+  }
+  50%{
+    transform: translateY(0)
+  }
+  75%{
+    transform: translateY(-0.9rem)
+  }
+  100%{
+    transform: translate(0)
+  }
+`;
+const StyledContainer = styled.section<themeType>`
   display: flex;
   gap: 0;
-  margin-left: ${({ direction }) => (direction === "left" ? 0 : "auto")};
+  margin-left: ${({ theme }) => (theme === "answer" ? 0 : "auto")};
 `;
 
-const StyledTime = styled.span<directionType>`
+const StyledTime = styled.span<themeType>`
   ${FONT_STYLES.PR_R};
   font-size: 1rem;
   color: ${COLOR.FONT_GRAY_9A};
   margin: auto 0.7rem 0.1rem 0.7rem;
-  order: ${({ direction }) => (direction === "left" ? 1 : -1)};
+  order: ${({ theme }) => (theme === "answer" ? 1 : -1)};
 `;
 
-const StyledBubbleTriangle = styled.div<directionType>`
+const StyledBubbleTriangle = styled.div<themeType>`
   width: 0;
   height: 0;
   border-style: solid;
-  ${({ direction }) => {
-    if (direction === "left") {
+  ${({ theme }) => {
+    if (theme === "answer") {
       return css`
         border-width: 0 0.6rem 1.3rem 0;
         border-color: transparent ${COLOR.BG_GREEN_28} transparent transparent;
@@ -52,11 +76,11 @@ const StyledBubbleTriangle = styled.div<directionType>`
   }}
 `;
 
-const StyledBubble = styled.div<directionType>`
+const StyledBubble = styled.div<themeType>`
   padding: 1.5rem;
   max-width: 23.5rem;
-  ${({ direction }) => {
-    if (direction === "left") {
+  ${({ theme }) => {
+    if (theme === "answer") {
       return css`
         background: ${COLOR.BG_GREEN_28};
         border-radius: 0 0.6rem 0.6rem;
@@ -70,11 +94,33 @@ const StyledBubble = styled.div<directionType>`
   }}
 `;
 
-const StyledInnerTxt = styled.div<directionType>`
+const StyledInnerTxt = styled.div<themeType>`
   word-wrap: break-word;
   font-size: 1.5rem;
   ${FONT_STYLES.PR_R};
   word-spacing: -0.05rem;
-  color: ${({ direction }) =>
-    direction === "left" ? "white" : COLOR.FONT_BLACK_24};
+  color: ${({ theme }) => (theme === "answer" ? "white" : COLOR.FONT_BLACK_24)};
+`;
+
+const StyledLoading = styled.ul`
+  display: flex;
+  gap: 0.8rem;
+  li:nth-child(1) {
+    animation-delay: 0;
+  }
+  li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  li:nth-child(3) {
+    animation-delay: 0.33s;
+  }
+`;
+
+const StyledDot = styled.li`
+  list-style: none;
+  height: 0.7rem;
+  width: 0.7rem;
+  background: ${COLOR.BG_GREEN_EE};
+  border-radius: 50%;
+  animation: ${float} 1.5s linear infinite;
 `;
