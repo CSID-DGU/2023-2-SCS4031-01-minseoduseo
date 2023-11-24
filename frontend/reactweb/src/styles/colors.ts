@@ -2,6 +2,7 @@ const COLOR = {
   BG_GRAY_E: "#eee",
   BG_GRAY_F: "#FFF",
   BG_GRAY_F5: "#f5f5f5",
+  BG_GRAY_E4: "#e4e4e4",
   BG_GREEN_DA: "rgb(227 247 238)",
   BG_GREEN_28: "#28C76F",
   BG_RED_DD: "#DD4B41",

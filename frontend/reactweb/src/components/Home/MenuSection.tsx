@@ -25,7 +25,7 @@ export default function MenuSection() {
           </StyledIconContainer>
         </StyledMainIcon>
       </Link>
-      <Link to={Routes.Enroll}>
+      <Link to={Routes.Chatbot}>
         <StyledMainIcon>
           <StyledIconContainer>
             <ChatIcon />

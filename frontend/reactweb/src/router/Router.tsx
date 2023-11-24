@@ -7,6 +7,7 @@ import DictDetail from "views/DictDetail";
 import PlantDiary from "views/PlantDiary";
 import DiaryDetail from "views/DiaryDetail";
 import DiaryEdit from "views/DiaryEdit";
+import Chatbot from "views/Chatbot";
 export default function Router() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ export default function Router() {
         <Route path="/diary/:id" element={<DiaryDetail />}></Route>
         <Route path="/diary/edit" element={<DiaryEdit />}></Route>
         <Route path="/diary/edit/:id" element={<DiaryEdit />}></Route>
+        <Route path="/chatbot" element={<Chatbot />}></Route>
       </Routes>
     </BrowserRouter>
   );
