@@ -122,5 +122,5 @@ const StyledDot = styled.li`
   width: 0.7rem;
   background: ${COLOR.BG_GREEN_EE};
   border-radius: 50%;
-  animation: ${float} 1.5s linear infinite;
+  animation: ${float} 1s ease-in-out infinite;
 `;
