@@ -1,7 +1,12 @@
 package msds.homefarming.api;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import msds.homefarming.auth.UserPrincipal;
+import msds.homefarming.domain.dto.chatbotDto.AnswerDto;
+import msds.homefarming.domain.dto.chatbotDto.QuestionDto;
 import msds.homefarming.exception.ChatbotTimeoutException;
+import msds.homefarming.service.ChatbotService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,9 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@RequiredArgsConstructor
 @RestController
 public class ChatBotController
 {
+    private final ChatbotService chatbotService;
+    private final UserPrincipal userPrincipal;
+
     @Value("${msds.chatbot.open-ai-uri}")
     private String AI_CHATBOT_URI;
 
@@ -31,6 +40,13 @@ public class ChatBotController
         try
         {
             ResponseEntity<AnswerDto> responseEntity = restTemplate.postForEntity(AI_CHATBOT_URI, requestEntity, AnswerDto.class);
+            //==챗봇 질문 저장==//
+            chatbotService.save(userPrincipal.getId(), "member",request.getQuestion());
+            //==챗봇 질문 저장끝==//
+
+            //==챗봇 응답 저장==//
+            chatbotService.save(userPrincipal.getId(), "ai", responseEntity.getBody().getAnswer());
+            //==챗봇 응답 저장끝==//
             return responseEntity.getBody();
         }
         catch (Exception e)
@@ -38,17 +54,5 @@ public class ChatBotController
             throw new ChatbotTimeoutException("채팅 응답시간이 1분을 초과했습니다. 다시 질문 해주세요.");
         }
     }
-
 }
 
-@Data
-class QuestionDto
-{
-    private String question;
-}
-
-@Data
-class AnswerDto
-{
-    private String answer;
-}

@@ -43,7 +43,6 @@ public class DiaryService
         String plantColor = memberPlantRepository
                 .findColor(memberId, requestDto.getPlantName());
 
-        //==식물 색 추가==//
         return new SaveDiaryResponseDto(
                 diary.getId(),
                 diary.getCreateDate(),
@@ -52,7 +51,6 @@ public class DiaryService
                 plantColor,
                 diary.getPlantName(),
                 diary.getContents());
-        //====//
     }
 
     //==일기 단건 조회==//
