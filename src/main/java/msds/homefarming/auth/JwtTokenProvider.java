@@ -2,6 +2,8 @@ package msds.homefarming.auth;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import msds.homefarming.domain.Member;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,21 @@ public class JwtTokenProvider
             return false;
         }
         return true;
+    }
+
+    //==request로부터 cookieName의 쿠키를 추출합니다.==//
+    public static String extractJwtToken(HttpServletRequest request, String cookieName)
+    {
+        Cookie[] cookies = request.getCookies();
+        if(cookies == null) return null;
+        for(Cookie cookie : cookies)
+        {
+            if(cookieName.equals(cookie.getName()))
+            {
+                return cookie.getValue();
+            }
+        }
+        return null;
     }
 
     public Long getId(String jwtToken)

@@ -106,9 +106,11 @@ public class KakaoCallbackServlet extends HttpServlet
 
         //==FE가 서버의 해당 경로와 하위 경로를 갈 때 쿠키를 주도록 함==//
         cookie.setPath("/");
-        //==이 도메인을 갈 때도 FE가 쿠키를 주도록 만듦==//
-        //==서버 배포시 반드시 기입할 것==//
-        cookie.setDomain("ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com");
+
+        //==여기서 도메인을 설정해야 해당 도메인에서 쿠키를 저장함==//
+        //==FE서버의 도메인 주소를 적어야 함==//
+//        cookie.setDomain("ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com");
+        cookie.setDomain("localhost");
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

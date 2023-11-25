@@ -2,6 +2,7 @@ package msds.homefarming.auth;
 
 import lombok.Getter;
 import lombok.Setter;
+import msds.homefarming.domain.Member;
 import org.springframework.stereotype.Component;
 
 @Getter
@@ -14,4 +15,11 @@ public class UserPrincipal
     private String username;
     private String nickname;
 
+    public void setPrincipal(Member member)
+    {
+        this.id = member.getId();
+        this.image = member.getImage();
+        this.username = member.getUsername();
+        this.nickname = member.getNickname();
+    }
 }
