@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/EventPermissionStrategy.h</key>
 		<data>
-		6S4P4ldKmiMxbmMaPvbEDaUG5eE=
+		8TQLrJJiXENXA0pzyX0MAehoib0=
 		</data>
 		<key>Headers/LocationPermissionStrategy.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/PermissionHandlerEnums.h</key>
 		<data>
-		xB+I7ZeXdv+WFt/pxSzAbrzCkz0=
+		U8k5oOlz+2h/dao+WXs/eXauWbw=
 		</data>
 		<key>Headers/PermissionHandlerPlugin.h</key>
 		<data>
@@ -169,11 +169,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6S4P4ldKmiMxbmMaPvbEDaUG5eE=
+			8TQLrJJiXENXA0pzyX0MAehoib0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zs4StRh2JrTsiJ7bY5MQGx1xFaD4/FoOuZ6VOal51z4=
+			RiIa+gGIv0FHQMMH403dbP13+CFGZakzWcX4vURlN14=
 			</data>
 		</dict>
 		<key>Headers/LocationPermissionStrategy.h</key>
@@ -213,11 +213,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xB+I7ZeXdv+WFt/pxSzAbrzCkz0=
+			U8k5oOlz+2h/dao+WXs/eXauWbw=
 			</data>
 			<key>hash2</key>
 			<data>
-			trhUUcjS3kY33rnWUsBZWjwrfjGYx2fC3+h6F5QZ5PM=
+			x+rDZPnYumpvC1L79AVPy2MyNwWVLhB0Kq4PU6K8UTA=
 			</data>
 		</dict>
 		<key>Headers/PermissionHandlerPlugin.h</key>
