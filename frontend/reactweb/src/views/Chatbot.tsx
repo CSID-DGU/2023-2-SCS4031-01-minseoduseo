@@ -121,7 +121,7 @@ const StyledInput = styled.input`
   background: transparent;
   flex-grow: 1;
   color: ${COLOR.FONT_BLACK_24};
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   ${FONT_STYLES.PR_R}
 `;
 
