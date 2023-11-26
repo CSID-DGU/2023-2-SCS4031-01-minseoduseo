@@ -33,9 +33,17 @@ public class CorsConfig implements Filter
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //==아래의 React서버URI에 대해서만 CORS정책을 적용함.==//
         //원래는 CORS_ALLOWED_ORIGIN이었음!
-        corsConfiguration.addAllowedOrigin("localhost:3000");
-        corsConfiguration.addAllowedOrigin("localhost:53729");
-        corsConfiguration.addAllowedOrigin("http://172.30.1.9:3000/");
+
+        //==1.원래 CORS설정==//
+//        corsConfiguration.addAllowedOrigin("localhost:3000");
+//        corsConfiguration.addAllowedOrigin("localhost:53729");
+//        corsConfiguration.addAllowedOrigin("http://172.30.1.9:3000/");
+        //==1. 원래 CORS설정 끝==//
+        
+        //==2. 새로운 CORS 설정==//
+        corsConfiguration.addAllowedOriginPattern("*");
+        //====//
+        
 //        corsConfiguration.addAllowedOrigin("https://accounts.kakao.com");
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
