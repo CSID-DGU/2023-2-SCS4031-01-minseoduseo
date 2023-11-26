@@ -4,16 +4,42 @@ import CalendarItem from "components/PlantDiary/CalendarItem";
 import { ReactComponent as PlusIcon } from "assets/icons/icon_plus.svg";
 import { FONT_STYLES } from "styles/fontStyle";
 import getCalendar from "utils/getCalendar";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
+interface listType {
+  id: number;
+  createDate: string;
+  title: string;
+  author: string;
+  color: string;
+  plantName: string;
+  contents: string;
+}
 interface calendarProps {
   currYM: { month: number; year: number };
+  list: listType[] | [];
 }
-export default function Calendar({ currYM }: calendarProps) {
+
+const getlistbyDate = (diaries: listType[] | []) => {
+  const initial: { [date: number]: listType[] } = {};
+  diaries.forEach((diary) => {
+    const date = new Date(diary.createDate).getDate();
+    if (!initial[date]) {
+      initial[date] = [];
+    }
+    initial[date].push(diary);
+  });
+  return initial;
+};
+export default function Calendar({ currYM, list }: calendarProps) {
   const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
   const navigate = useNavigate();
+  const [listBydate, setListByDate] = useState<{ [date: number]: listType[] }>(
+    {}
+  );
   const [selDate, setSelDate] = useState(new Date().getDate());
+  useEffect(() => setListByDate(getlistbyDate(list)), [list]);
   const curDateTxt = useMemo(() => {
     const strYear = String(currYM.year).slice(-2);
     const strMonth = String(currYM.month).padStart(2, "0");
@@ -22,10 +48,10 @@ export default function Calendar({ currYM }: calendarProps) {
     const strDay = DAYS[day];
     return `${strYear}.${strMonth}.${strDate} (${strDay})`;
   }, [currYM, selDate]);
-
   const onSelect = (date: number | null) => {
     if (date) setSelDate(date);
   };
+
   return (
     <StyledContainer>
       <StyledCalendar>
@@ -47,7 +73,11 @@ export default function Calendar({ currYM }: calendarProps) {
                   >
                     {date}
                     <StyledSpotContainer>
-                      {/* <StyledSpot color="red" /> */}
+                      {date &&
+                        listBydate[date] &&
+                        listBydate[date].map(({ color }: listType) => (
+                          <StyledSpot color={color} key={color} />
+                        ))}
                     </StyledSpotContainer>
                   </StyledDate>
                 ))}
@@ -64,9 +94,10 @@ export default function Calendar({ currYM }: calendarProps) {
           </StyledBtn>
         </StyledPreviewHeader>
         <StyledPreviewContent>
-          <CalendarItem />
-          <CalendarItem />
-          <CalendarItem />
+          {listBydate[selDate] &&
+            listBydate[selDate].map(({ title, plantName, color }) => (
+              <CalendarItem {...{ color, plantName, title }} />
+            ))}
         </StyledPreviewContent>
       </StyledPreview>
     </StyledContainer>

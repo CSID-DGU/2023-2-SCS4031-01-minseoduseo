@@ -5,15 +5,29 @@ import SelectBtn from "components/PlantDiary/SelectBtn";
 import { ReactComponent as RightArrow } from "assets/icons/icon_right-arrow.svg";
 import { ReactComponent as LeftArrow } from "assets/icons/icon_left-arrow.svg";
 import { FONT_STYLES } from "styles/fontStyle";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DiaryList from "components/PlantDiary/DiaryList";
 import Calendar from "components/PlantDiary/Calendar";
+import { getDiaryList } from "api/diary";
 export default function PlantDiary() {
   const btnTxts = ["달력", "일기"];
+  const [totalList, setTotalList] = useState([]);
   const [curState, setCurState] = useState(btnTxts[0]);
   const [curDate, setCurDate] = useState(new Date());
   const nxtMonth = useMemo(() => curDate.getMonth() + 1, [curDate]);
   const preMonth = useMemo(() => curDate.getMonth() - 1, [curDate]);
+  const getTotalList = async () => {
+    const totalList = await getDiaryList({
+      year: curDate.getFullYear(),
+      month: curDate.getMonth() + 1,
+    });
+
+    setTotalList(totalList?.diaries);
+  };
+  useEffect(() => {
+    getTotalList();
+  }, [curDate]);
+
   const currYM = {
     year: curDate.getFullYear(),
     month: curDate.getMonth() + 1,
@@ -22,6 +36,7 @@ export default function PlantDiary() {
     const nxtMonthDate = new Date(curDate.setMonth(month));
     setCurDate(nxtMonthDate);
   };
+
   return (
     <StyledDiaryWrapper>
       <Header title="식물일지" icon="menu" />
@@ -36,7 +51,11 @@ export default function PlantDiary() {
           {currYM.year}년 {currYM.month}월
           <RightArrow onClick={() => setMonth(nxtMonth)} />
         </StyledSelectDate>
-        {curState === "달력" ? <Calendar currYM={currYM} /> : <DiaryList />}
+        {curState === "달력" ? (
+          <Calendar currYM={currYM} list={totalList} />
+        ) : (
+          <DiaryList list={totalList} />
+        )}
       </StyledDiaryContainer>
     </StyledDiaryWrapper>
   );

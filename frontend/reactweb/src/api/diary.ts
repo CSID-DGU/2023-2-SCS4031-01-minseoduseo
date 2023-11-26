@@ -18,13 +18,17 @@ interface putDiaryProps {
 const DIARY_URL = "/api/member/diary";
 
 const getDiaryList = async ({ year, month }: getDiaryListProps) => {
-  const { data } = await axiosInterface.get(`${DIARY_URL}/monthly`, {
-    params: {
-      year,
-      month,
-    },
-  });
-  return data;
+  try {
+    const { data } = await axiosInterface.get(`${DIARY_URL}/monthly`, {
+      params: {
+        year,
+        month,
+      },
+    });
+    return data;
+  } catch (e: any) {
+    return [];
+  }
 };
 
 const postDiary = async ({
