@@ -3,7 +3,19 @@ import CommonBtn from "components/common/CommonBtn";
 import Diary from "components/PlantDiary/Diary";
 import Routes from "router/Routes";
 import { useNavigate } from "react-router-dom";
-export default function DiaryList() {
+interface listType {
+  id: number;
+  createDate: string;
+  title: string;
+  author: string;
+  color: string;
+  plantName: string;
+  contents: string;
+}
+interface diaryListProps {
+  list: listType[] | [];
+}
+export default function DiaryList({ list }: diaryListProps) {
   const diaryTxt = {
     title: "고구마 식물일지",
     date: "2021년 07월 21일(월) 오후 24:00",
@@ -14,8 +26,9 @@ export default function DiaryList() {
   const navigate = useNavigate();
   return (
     <StContainer>
-      <Diary {...diaryTxt} />
-      <Diary {...diaryTxt} />
+      {list.map(({ createDate, title, color, plantName, contents }) => (
+        <Diary {...{ createDate, title, color, plantName, contents }} />
+      ))}
       <StyledBtnContainer>
         <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />
       </StyledBtnContainer>

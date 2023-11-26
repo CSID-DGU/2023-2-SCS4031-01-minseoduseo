@@ -4,18 +4,35 @@ import Header from "components/common/Header";
 import { FONT_STYLES } from "styles/fontStyle";
 import Tag from "components/common/Tag";
 import CommonBtn from "components/common/CommonBtn";
+import { useRef } from "react";
+import { postDiary } from "api/diary";
 export default function DiaryEdit() {
+  const dateRef = useRef<HTMLInputElement>(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const textArea = useRef<HTMLTextAreaElement>(null);
+  const handleSubmit = () => {
+    const title = titleRef.current?.value;
+    const contents = textArea.current?.value;
+    const date = textArea.current?.value;
+    if (title && contents && date) {
+      postDiary({
+        title,
+        plantName: "고구마",
+        contents,
+      });
+    }
+  };
   return (
     <StyledContainer>
       <Header title="일기 작성" icon="previous" />
       <StyledMain>
         <div>
           <StyledInputLabel>날짜</StyledInputLabel>
-          <StyledInput type="date" />
+          <StyledInput type="date" ref={dateRef} />
         </div>
         <div>
           <StyledInputLabel>제목</StyledInputLabel>
-          <StyledInput placeholder="제목을 입력해주세요" />
+          <StyledInput placeholder="제목을 입력해주세요" ref={titleRef} />
         </div>
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>
@@ -25,11 +42,11 @@ export default function DiaryEdit() {
         </div>
         <div className="grow-flex">
           <StyledInputLabel>내용</StyledInputLabel>
-          <StyledTextArea />
+          <StyledTextArea ref={textArea} />
         </div>
       </StyledMain>
       <StyledBtnContainer>
-        <CommonBtn label="저장" />
+        <CommonBtn label="저장" handler={handleSubmit} />
       </StyledBtnContainer>
     </StyledContainer>
   );
