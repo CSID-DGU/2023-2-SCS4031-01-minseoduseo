@@ -14,7 +14,8 @@
 ## 백엔드 개발 스택
 
 ## AI 개발 스택 - 식물 잎 데이터를 기반으로 한 질병 진단 모델
-[Repository Link](https://github.com/hongseoi/crops-plant-disease-classification)
+[AI 개발](https://github.com/hongseoi/crops-plant-disease-classification)
+[Flask 기반 API 생성](https://github.com/hongseoi/pytorch-flask-api)
 
 
 ## AI 개발 스택 - chatbot
