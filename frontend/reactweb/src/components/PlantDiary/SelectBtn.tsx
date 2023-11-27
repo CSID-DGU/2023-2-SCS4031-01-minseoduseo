@@ -28,13 +28,13 @@ interface StyledBtnProps {
 const StyledContainer = styled.div`
   display: flex;
   gap: 1rem;
-  padding: 0 6rem;
 `;
 
 const StyledBtn = styled.button<StyledBtnProps>`
   border-radius: 1.8rem;
   width: 100%;
-  height: 3.7rem;
+  height: 3.9rem;
+  font-size: 1.5rem;
   box-shadow: 0px 3px 4px 0px rgba(13, 63, 103, 0.1);
   color: white;
   background-color: ${(props) =>

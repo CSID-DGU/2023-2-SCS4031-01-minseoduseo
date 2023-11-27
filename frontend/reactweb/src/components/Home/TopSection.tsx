@@ -3,9 +3,12 @@ import { ReactComponent as Main } from "assets/icons/icon_main.svg";
 import COLOR from "styles/colors";
 import styled from "styled-components";
 import { FONT_STYLES } from "styles/fontStyle";
+import { useNavigate } from "react-router-dom";
+import Routes from "router/Routes";
 
 export default function TopSection() {
   const diseaseEx = ["노균병", "흡수병", "잿빛곰팡이병", "빗자루병"];
+  const navigate = useNavigate();
   return (
     <StyledTopSection>
       <Main className="main-svg" />
@@ -13,7 +16,7 @@ export default function TopSection() {
         <StyledDiagnoseBar>
           <StyledDiagnoseTxt>식물 질병을 진단해보세요!</StyledDiagnoseTxt>
           <StyledCameraBtn>
-            <RequestCamera type="file" accept="image/*" capture />
+            <RequestCamera onClick={() => navigate(Routes.DiagAI)} />
             <Camera />
           </StyledCameraBtn>
         </StyledDiagnoseBar>
@@ -57,7 +60,8 @@ const StyledDiagnoseTxt = styled.h5`
   flex-grow: 1;
   padding-left: 1.5rem;
   font-size: 1.5rem;
-  color: ${COLOR.FONT_GRAY_BA};
+  ${FONT_STYLES.PR_R}
+  color: ${COLOR.FONT_GRAY_AB};
 `;
 const StyledCameraBtn = styled.button`
   position: relative;
@@ -69,7 +73,7 @@ const StyledCameraBtn = styled.button`
   box-shadow: 0px 3px 5px 0px rgba(13, 63, 103, 0.1);
 `;
 
-const RequestCamera = styled.input`
+const RequestCamera = styled.div`
   position: absolute;
   left: 0;
   top: 0;

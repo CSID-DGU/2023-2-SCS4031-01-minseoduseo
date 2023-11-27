@@ -41,11 +41,13 @@ export default function PlantDiary() {
     <StyledDiaryWrapper>
       <Header title="식물일지" icon="menu" />
       <StyledDiaryContainer>
-        <SelectBtn
-          BtnTxt={btnTxts}
-          Selected={curState}
-          handler={(name) => setCurState(name)}
-        />
+        <StyledSelectBtn>
+          <SelectBtn
+            BtnTxt={btnTxts}
+            Selected={curState}
+            handler={(name) => setCurState(name)}
+          />
+        </StyledSelectBtn>
         <StyledSelectDate>
           <LeftArrow onClick={() => setMonth(preMonth)} />
           {currYM.year}년 {currYM.month}월
@@ -72,11 +74,16 @@ const StyledDiaryContainer = styled.main`
   margin-top: 1rem;
   padding: 0 2rem;
 `;
+
+const StyledSelectBtn = styled.div`
+  padding: 0 6rem;
+`;
+
 const StyledSelectDate = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.PR_R}
 `;

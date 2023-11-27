@@ -115,9 +115,9 @@ const StyledCalendar = styled.section`
   flex-direction: column;
   background-color: white;
   border-radius: 1.8rem;
-  width: 95%;
+  width: 86vw;
   margin: 0 auto;
-  height: 30rem;
+  height: 86vw;
   padding: 2.3rem 2rem 1.75rem 2rem;
   box-shadow: 0.2rem 1rem 1.2rem 0rem rgba(13, 63, 103, 0.1);
 `;
@@ -150,6 +150,8 @@ const StyledDayContainer = styled.div`
 const StyledDay = styled.h2<dayType>`
   flex: 0 0 0;
   margin: 0 auto;
+  font-size: 1.4rem;
+  ${FONT_STYLES.GM_M}
   color: ${({ day }) => {
     if (day === "일") return COLOR.BTN_RED_F8;
     else if (day === "토") return "#3E85F1";
@@ -160,7 +162,7 @@ const StyledWeekContainer = styled.div`
   height: -webkit-fill-available;
   height: -moz-available;
   display: grid;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 1fr);
 `;
 const StyledWeek = styled.div`
   display: flex;

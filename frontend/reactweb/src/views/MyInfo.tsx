@@ -8,6 +8,7 @@ import COLOR from "styles/colors";
 import PlusIcon from "components/MyInfo/PlusIcon";
 import { Link } from "react-router-dom";
 import Routes from "router/Routes";
+import { FONT_STYLES } from "styles/fontStyle";
 export default function MyInfo() {
   const plantList = [
     { type: "토마토", name: "토맹이", color: COLOR.BG_RED_DD },
@@ -67,7 +68,9 @@ const StyledProfile = styled.div`
 `;
 const StyledProfileName = styled.h2`
   margin-top: -4rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.04rem;
+  ${FONT_STYLES.GM_M}
 `;
 const StyledPlantLi = styled.section`
   display: flex;
@@ -76,8 +79,10 @@ const StyledPlantLi = styled.section`
   padding: 0 2rem;
 `;
 const StyledPlantTxt = styled.h4`
-  margin-top: 11.8rem;
+  margin-top: 10.8rem;
   color: ${COLOR.FONT_BLACK_1F};
+  ${FONT_STYLES.PR_M}
+  letter-spacing: -0.03rem;
   font-size: 1.6rem;
 `;
 const StyledPlant = styled.div`
