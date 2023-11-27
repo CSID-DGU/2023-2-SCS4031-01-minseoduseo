@@ -21,3 +21,8 @@ declare module "*.png" {
   const path: string;
   export default path;
 }
+
+declare module "*.csv" {
+  const value: any;
+  export default value;
+}

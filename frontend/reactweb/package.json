@@ -17,6 +17,7 @@
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-papaparse": "^4.4.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.0",
