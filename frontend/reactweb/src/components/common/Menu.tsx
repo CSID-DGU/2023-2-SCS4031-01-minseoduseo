@@ -35,7 +35,7 @@ const menuLinks = [
   {
     txt: "식물 진단",
     Icon: MagnifyIcon,
-    link: "/",
+    link: Routes.DiagAI,
   },
   {
     txt: "챗봇",
@@ -131,4 +131,6 @@ const StyledMenuItem = styled.div`
 const StyledMenuTxt = styled.h4`
   color: white;
   font-size: 1.6rem;
+  ${FONT_STYLES.PR_R};
+  letter-spacing: -0.08rem;
 `;
