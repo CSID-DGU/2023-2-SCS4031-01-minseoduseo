@@ -9,7 +9,10 @@ export default function DiaryEdit() {
     <StyledContainer>
       <Header title="일기 작성" icon="previous" />
       <StyledMain>
-        <StyledDate>2021년 07월 21일(월) 24:00</StyledDate>
+        <div>
+          <StyledInputLabel>날짜</StyledInputLabel>
+          <StyledInput type="date" />
+        </div>
         <div>
           <StyledInputLabel>제목</StyledInputLabel>
           <StyledInput placeholder="제목을 입력해주세요" />
@@ -51,14 +54,6 @@ const StyledMain = styled.main`
   }
 `;
 
-const StyledDate = styled.section`
-  color: ${COLOR.FONT_GRAY_9A};
-  ${FONT_STYLES.PR_R};
-  letter-spacing: -0.03rem;
-  font-size: 1.2rem;
-  margin-left: auto;
-`;
-
 const StyledBtnContainer = styled.div`
   display: flex;
   gap: 1.1rem;
@@ -81,12 +76,19 @@ const StyledTagContainer = styled.div`
 
 const StyledInput = styled.input`
   height: 5rem;
-  padding: 1.4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: -webkit-fill-available;
+  min-width: -moz-fill-available;
   width: 100%;
-  font-size: 1.5rem;
-  background-color: ${COLOR.BG_GRAY_F5};
+  padding: 1.4rem 2rem;
+  font-size: 1.6rem;
   border-radius: 1.6rem;
+  background-color: ${COLOR.BG_GRAY_F5};
+  ${FONT_STYLES.PR_R}
   &::placeholder {
+    font-size: 1.4rem;
     color: ${COLOR.PLACEHOLDER_GRAY_C1};
   }
 `;
@@ -95,7 +97,8 @@ const StyledTextArea = styled.textarea`
   flex-grow: 1;
   padding: 1.4rem 2rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  ${FONT_STYLES.PR_R}
   background-color: ${COLOR.BG_GRAY_F5};
   border-radius: 1.6rem;
   border: unset;
