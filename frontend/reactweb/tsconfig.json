@@ -26,7 +26,8 @@
     //컴파일할 폴더 입력. src의 모든파일 확인함
     "src",
     "src/components",
-    "custom.d.ts"
+    "custom.d.ts",
+    "src/assets/files"
   ],
   "exclude": ["node_modules"]
 }

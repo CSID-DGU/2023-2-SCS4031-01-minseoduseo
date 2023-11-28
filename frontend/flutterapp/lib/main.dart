@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Permission.camera.request();
   runApp(MaterialApp(home: new MyApp()));
 }
 
@@ -77,7 +78,7 @@ class _MyAppState extends State<MyApp> {
             InAppWebView(
               key: webViewKey,
               initialUrlRequest:
-                  URLRequest(url: Uri.parse("http://192.168.200.111:3000")),
+                  URLRequest(url: Uri.parse("http://172.30.1.9:3000")),
               initialOptions: options,
               pullToRefreshController: pullToRefreshController,
               onWebViewCreated: (controller) {
@@ -96,6 +97,7 @@ class _MyAppState extends State<MyApp> {
                     action: PermissionRequestResponseAction.GRANT);
               },
               shouldOverrideUrlLoading: (controller, navigationAction) async {
+                print(navigationAction.request.url);
                 var uri = navigationAction.request.url!;
 
                 if (![
