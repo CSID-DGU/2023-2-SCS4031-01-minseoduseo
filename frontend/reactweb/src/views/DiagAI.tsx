@@ -56,6 +56,7 @@ export default function DiagAI() {
         console.log(symptoms);
         if (label === diseaseLabel) {
           setDisease(disease);
+          if (disease === "정상") return;
           resultTxt.current[0].contents = reason;
           resultTxt.current[1].contents = symptoms;
           solveTxt.current[0].contents = solution;
