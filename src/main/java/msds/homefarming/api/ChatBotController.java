@@ -44,7 +44,7 @@ public class ChatBotController
             ResponseEntity<AnswerDto> responseEntity = restTemplate.postForEntity(AI_CHATBOT_URI, requestEntity, AnswerDto.class);
             //==챗봇 질문 저장==//
             chatbotService.save(userPrincipal.getId(), "member",request.getQuestion());
-            //==챗봇 질문 저장끝==//
+            //==챗봇 질문 저장끝==///
 
             //==챗봇 응답 저장==//
             chatbotService.save(userPrincipal.getId(), "ai", responseEntity.getBody().getAnswer());
