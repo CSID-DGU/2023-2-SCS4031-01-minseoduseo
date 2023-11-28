@@ -72,8 +72,9 @@ public class KakaoCallbackServlet extends HttpServlet
                 .build()
                 .post()
                 .getAccessToken();
-        System.out.println("1.카카오에 AccessToken요청 후 받은 토큰 == " + accessToken);
-        
+//        System.out.println("1.카카오에 AccessToken요청 후 받은 토큰 == " + accessToken);
+        log.info("[카카오] 1.카카오에 AccessToken 후 받은 토큰 : {}", accessToken);
+
         //== 2.카카오에 사용자 정보 요청==//
         Map<String, String> miHeaders = Map.of(
                 "Content-Type", APPLICATION_FORM_URLENCODED_VALUE,
@@ -91,15 +92,17 @@ public class KakaoCallbackServlet extends HttpServlet
                 "kakao_" + kakaoMember.getId(),
                 kakaoMember.getNickname());
 
-        System.out.println("2.카카오에 회원정보 요청 후 받은 회원이름 == " + memberEntity.getNickname());
+//        System.out.println("2.카카오에 회원정보 요청 후 받은 회원이름 == " + memberEntity.getNickname());
+        log.info("[카카오] 2.카카오에 회원정보 요청 후 받은 회원이름 : {}", memberEntity.getNickname());
 
         //== 3.처음 로그인 시 강제 회원가입==//
-        if(!isExist(memberEntity)) memberService.join(memberEntity);
+        if (!isExist(memberEntity)) memberService.join(memberEntity);
 
         String jwtToken = jwtTokenProvider.createJwtToken(
                 memberService.findByUsername(memberEntity.getUsername()));
 
-        System.out.println("3. 받은 회원정보를 바탕으로 생성한 JWT토큰 == " + jwtToken);
+//        System.out.println("3. 받은 회원정보를 바탕으로 생성한 JWT토큰 == " + jwtToken);
+        log.info("[카카오] 3.카카오서버로부터 받은 회원정보로 생성한 JWT토큰 : {}", jwtToken);
 
         Cookie cookie = new Cookie("Authorization", jwtToken);
         cookie.setMaxAge(36000); //10시간
@@ -109,6 +112,7 @@ public class KakaoCallbackServlet extends HttpServlet
 
         //==여기서 도메인을 설정해야 해당 도메인에서 쿠키를 저장함==//
         //==FE서버의 도메인 주소를 적어야 함==//
+        //==로컬에서 FE를 돌릴 때는 쿠키는 들어오지만 저장을 안해서 작동안함==//
 //        cookie.setDomain("ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com");
         cookie.setDomain("localhost");
 
@@ -143,9 +147,9 @@ class KakaoAccessTokenRequest
         body.forEach(reqBody::add);
 
         return new RestTemplate().postForObject(
-                        uri,
-                        new HttpEntity<>(reqBody, reqHeaders),
-                        KakaoAccessTokenResponseDto.class);
+                uri,
+                new HttpEntity<>(reqBody, reqHeaders),
+                KakaoAccessTokenResponseDto.class);
     }
 }
 
