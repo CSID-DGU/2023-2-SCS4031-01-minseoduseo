@@ -31,6 +31,17 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/frontend/flutterapp/build/
+/frontend/flutterapp/.dart_tool/
+/frontend/flutterapp/.packages
+/frontend/flutterapp/.pub-cache/
+/frontend/flutterapp/.pub/
+/frontend/flutterapp/.flutter-plugins
+/frontend/flutterapp/.flutter-plugins-dependencies
+/frontend/flutterapp/.idea/
+/frontend/flutterapp/.metadata
+
+
 
 # Symbolication related
 app.*.symbols
