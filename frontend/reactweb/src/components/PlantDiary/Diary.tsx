@@ -4,27 +4,27 @@ import Tag from "components/common/Tag";
 import { FONT_STYLES } from "styles/fontStyle";
 interface diaryProps {
   title: string;
-  date: string;
-  content: string;
-  tag: string;
+  createDate: string;
+  contents: string;
+  plantName: string;
   color: string;
 }
 export default function Diary({
   title,
-  date,
-  content,
-  tag,
+  createDate,
+  contents,
+  plantName,
   color,
 }: diaryProps) {
   return (
     <StyledDiaryContainer>
       <StyledDiary>
         <StyledTitle>{title}</StyledTitle>
-        <StyledDate>{date}</StyledDate>
-        <StyledContent>{content}</StyledContent>
+        <StyledDate>{createDate}</StyledDate>
+        <StyledContent>{contents}</StyledContent>
       </StyledDiary>
       <StyledTag>
-        <Tag type={tag} color={color} />
+        <Tag type={plantName} color={color} />
       </StyledTag>
     </StyledDiaryContainer>
   );

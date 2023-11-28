@@ -13,6 +13,7 @@ export default function TopSection() {
         <StyledDiagnoseBar>
           <StyledDiagnoseTxt>식물 질병을 진단해보세요!</StyledDiagnoseTxt>
           <StyledCameraBtn>
+            <RequestCamera type="file" accept="image/*" capture />
             <Camera />
           </StyledCameraBtn>
         </StyledDiagnoseBar>
@@ -59,12 +60,22 @@ const StyledDiagnoseTxt = styled.h5`
   color: ${COLOR.FONT_GRAY_BA};
 `;
 const StyledCameraBtn = styled.button`
+  position: relative;
   width: 4.8rem;
   height: 4.8rem;
   border-radius: 1.8rem;
   padding: 1.2rem;
   background-color: white;
   box-shadow: 0px 3px 5px 0px rgba(13, 63, 103, 0.1);
+`;
+
+const RequestCamera = styled.input`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 `;
 const StyledDiseaseContainer = styled.div`
   margin-top: 2rem;

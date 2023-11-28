@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import Tag from "components/common/Tag";
 import { FONT_STYLES } from "styles/fontStyle";
-
-export default function CalendarItem() {
+interface calendarItemProps {
+  title: string;
+  plantName: string;
+  color: string;
+}
+export default function CalendarItem({
+  title,
+  plantName,
+  color,
+}: calendarItemProps) {
   return (
     <StyledContainer>
-      <StyledTitle>고구마 식물일지 3일차</StyledTitle>
-      <Tag type="고구마" color="#863241" />
+      <StyledTitle>{title}</StyledTitle>
+      <Tag type={plantName} color={color} />
     </StyledContainer>
   );
 }
