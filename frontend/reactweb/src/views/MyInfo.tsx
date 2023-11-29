@@ -40,17 +40,19 @@ export default function MyInfo() {
         </StyledProfile>
         <StyledPlantLi>
           <StyledPlantTxt>내 식물 리스트</StyledPlantTxt>
-          {plantList.map(({ id, name, nickname, color }) => {
-            return (
-              <StyledPlant key={id}>
-                <PlantProfile />
-                <StyledPlantNameContainer>
-                  <Tag type={name} color={color} />
-                  <StyledName>{nickname}</StyledName>
-                </StyledPlantNameContainer>
-              </StyledPlant>
-            );
-          })}
+          {plantList.map(
+            ({ id, name, nickname, color }) =>
+              name &&
+              nickname && (
+                <StyledPlant key={id}>
+                  <PlantProfile />
+                  <StyledPlantNameContainer>
+                    <Tag type={name} color={color} />
+                    <StyledName>{nickname}</StyledName>
+                  </StyledPlantNameContainer>
+                </StyledPlant>
+              )
+          )}
         </StyledPlantLi>
       </StyledInfoContainer>
       <Link to={Routes.Enroll}>
