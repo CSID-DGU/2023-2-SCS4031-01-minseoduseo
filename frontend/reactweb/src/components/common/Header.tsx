@@ -6,6 +6,7 @@ import COLOR from "styles/colors";
 import { useNavigate } from "react-router-dom";
 import Menu from "./Menu";
 import { useState } from "react";
+import Routes from "router/Routes";
 interface HeaderParams {
   title: string;
   icon: "previous" | "menu";
@@ -19,7 +20,7 @@ export default function Header({ title, icon, color }: HeaderParams) {
       {icon === "menu" ? (
         <MenuBar onClick={() => setIsOpened(true)} />
       ) : (
-        <Previous onClick={() => navigate(-1)} />
+        <Previous onClick={() => navigate(Routes.Home)} />
       )}
       <StyledTitle color={color}>{title}</StyledTitle>
       {isOpened && (

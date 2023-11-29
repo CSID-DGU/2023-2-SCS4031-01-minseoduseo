@@ -32,7 +32,7 @@ export default function Enroll() {
   const navigate = useNavigate();
   return (
     <StyledEnrollWrapper onSubmit={(e) => handleSubmit(e)}>
-      <Header title="작물 등록" icon="previous" />
+      <Header title="작물 등록" icon="menu" />
       <StyledEnrollContainer>
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>

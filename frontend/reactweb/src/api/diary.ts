@@ -3,7 +3,7 @@ interface postDiaryProps {
   title: string;
   plantName: string;
   contents: string;
-  date?: Date;
+  date?: string;
 }
 interface getDiaryListProps {
   year: number;
@@ -37,8 +37,9 @@ const postDiary = async ({
   contents,
   date,
 }: postDiaryProps) => {
+  console.log(date);
   const { data } = await axiosInterface.post(`${DIARY_URL}`, {
-    createDate: date ?? currentTime,
+    createDate: date,
     title,
     plantName,
     contents,

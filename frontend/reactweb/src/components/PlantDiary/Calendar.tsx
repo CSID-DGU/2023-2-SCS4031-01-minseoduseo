@@ -63,11 +63,12 @@ export default function Calendar({ currYM, list }: calendarProps) {
           ))}
         </StyledDayContainer>
         <StyledWeekContainer>
-          {getCalendar(currYM.year, currYM.month).map((dates) => {
+          {getCalendar(currYM.year, currYM.month).map((dates, index) => {
             return (
-              <StyledWeek>
-                {dates.map((date) => (
+              <StyledWeek key={index}>
+                {dates.map((date, index) => (
                   <StyledDate
+                    key={index}
                     selected={selDate === date}
                     onClick={() => onSelect(date)}
                   >
@@ -75,8 +76,8 @@ export default function Calendar({ currYM, list }: calendarProps) {
                     <StyledSpotContainer>
                       {date &&
                         listBydate[date] &&
-                        listBydate[date].map(({ color }: listType) => (
-                          <StyledSpot color={color} key={color} />
+                        listBydate[date].map(({ color, id }: listType) => (
+                          <StyledSpot color={color} key={id} />
                         ))}
                     </StyledSpotContainer>
                   </StyledDate>
@@ -95,8 +96,8 @@ export default function Calendar({ currYM, list }: calendarProps) {
         </StyledPreviewHeader>
         <StyledPreviewContent>
           {listBydate[selDate] &&
-            listBydate[selDate].map(({ title, plantName, color }) => (
-              <CalendarItem {...{ color, plantName, title }} />
+            listBydate[selDate].map(({ title, plantName, color }, index) => (
+              <CalendarItem {...{ color, plantName, title }} key={index} />
             ))}
         </StyledPreviewContent>
       </StyledPreview>

@@ -14,7 +14,11 @@ export default function SelectBtn({
     <StyledContainer>
       {BtnTxt.map((txt) => {
         return (
-          <StyledBtn selected={Selected === txt} onClick={() => handler(txt)}>
+          <StyledBtn
+            selected={Selected === txt}
+            onClick={() => handler(txt)}
+            key={txt}
+          >
             {txt}
           </StyledBtn>
         );

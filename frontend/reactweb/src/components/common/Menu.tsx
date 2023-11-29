@@ -65,7 +65,7 @@ export default function Menu() {
         <StyledMenuContainer>
           {menuLinks.map(({ txt, Icon, link }) => {
             return (
-              <Link to={link}>
+              <Link to={link} key={link}>
                 <StyledMenuItem>
                   <Icon />
                   <StyledMenuTxt>{txt}</StyledMenuTxt>

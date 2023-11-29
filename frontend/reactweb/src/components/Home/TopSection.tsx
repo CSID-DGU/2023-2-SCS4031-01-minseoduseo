@@ -22,7 +22,7 @@ export default function TopSection() {
         </StyledDiagnoseBar>
         <StyledDiseaseContainer>
           {diseaseEx.map((disease) => (
-            <StyledDisease>{disease}</StyledDisease>
+            <StyledDisease key={disease}>{disease}</StyledDisease>
           ))}
         </StyledDiseaseContainer>
       </StyledDiagnose>
