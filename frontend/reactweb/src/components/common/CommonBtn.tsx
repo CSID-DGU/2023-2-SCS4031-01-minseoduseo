@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import COLOR from "styles/colors";
 interface btnParams {
-  type?: "cancel" | "delete";
+  theme?: "cancel" | "delete";
   label: string;
+  type?: "button" | "submit";
   handler?: () => void;
 }
-export default function CommonBtn({ type, label, handler }: btnParams) {
+export default function CommonBtn({ theme, label, handler, type }: btnParams) {
   let TxtColor = "";
   let bgcolor = "";
-  switch (type) {
+  switch (theme) {
     case "cancel":
       TxtColor = COLOR.BTN_GRAY_97;
       break;
@@ -19,7 +20,7 @@ export default function CommonBtn({ type, label, handler }: btnParams) {
       TxtColor = COLOR.BG_GRAY_F;
   }
 
-  switch (type) {
+  switch (theme) {
     case "cancel":
     case "delete":
       bgcolor = COLOR.BG_GRAY_F;
@@ -29,7 +30,12 @@ export default function CommonBtn({ type, label, handler }: btnParams) {
   }
 
   return (
-    <Button color={TxtColor} bgcolor={bgcolor} onClick={handler}>
+    <Button
+      color={TxtColor}
+      bgcolor={bgcolor}
+      onClick={handler}
+      type={type ?? "button"}
+    >
       {label}
     </Button>
   );

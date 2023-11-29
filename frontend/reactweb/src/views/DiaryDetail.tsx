@@ -18,7 +18,7 @@ export default function DiaryDetail() {
         </StyledContent>
       </StyledMain>
       <StyledBtnContainer>
-        <CommonBtn label="삭제" type="delete" />
+        <CommonBtn label="삭제" theme="delete" />
         <CommonBtn label="수정" />
       </StyledBtnContainer>
     </StyledContainer>
