@@ -26,8 +26,11 @@ export default function DiaryList({ list }: diaryListProps) {
   const navigate = useNavigate();
   return (
     <StContainer>
-      {list.map(({ createDate, title, color, plantName, contents }) => (
-        <Diary {...{ createDate, title, color, plantName, contents }} />
+      {list.map(({ createDate, title, color, plantName, contents }, index) => (
+        <Diary
+          {...{ createDate, title, color, plantName, contents }}
+          key={index}
+        />
       ))}
       <StyledBtnContainer>
         <CommonBtn label="글쓰기" handler={() => navigate(Routes.DiaryWrite)} />

@@ -11,14 +11,14 @@ export default function DiaryDetail() {
       <StyledMain>
         <StyledDate>2021년 07월 21일(월) 오후 24:00</StyledDate>
         <StyledTitle>고구마 식물일지</StyledTitle>
-        <Tag type="고구마" color="#8A3141" />
+        <Tag type="토마토" color="#8A3141" />
         <StyledContent>
           오늘 고구마 잎 3개 정도 떡잎이 나왔어요... 앞으로도 물 잘 주면 더 쑥쑥
           자라겠죠?
         </StyledContent>
       </StyledMain>
       <StyledBtnContainer>
-        <CommonBtn label="삭제" type="delete" />
+        <CommonBtn label="삭제" theme="delete" />
         <CommonBtn label="수정" />
       </StyledBtnContainer>
     </StyledContainer>

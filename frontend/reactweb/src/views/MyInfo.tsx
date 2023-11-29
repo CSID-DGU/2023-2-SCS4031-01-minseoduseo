@@ -9,11 +9,27 @@ import PlusIcon from "components/MyInfo/PlusIcon";
 import { Link } from "react-router-dom";
 import Routes from "router/Routes";
 import { FONT_STYLES } from "styles/fontStyle";
+import { useEffect, useState } from "react";
+import { getPlants } from "api/myPlant";
+interface plantListType {
+  name: string;
+  nickname: string;
+  color: string;
+  id?: number;
+  image: string;
+  creatDate?: string;
+  owner?: string;
+}
 export default function MyInfo() {
-  const plantList = [
-    { type: "토마토", name: "토맹이", color: COLOR.BG_RED_DD },
-    { type: "가지", name: "가지가지", color: COLOR.BG_PURPLE_88 },
-  ];
+  useEffect(() => {
+    getPlantList();
+  }, []);
+  const getPlantList = async () => {
+    const res = await getPlants();
+    setPlantList(res.plantList);
+  };
+  const [plantList, setPlantList] = useState<plantListType[] | []>([]);
+
   return (
     <StyledInfoWrapper>
       <Header icon="previous" title="내 식물" color={COLOR.BG_GRAY_F} />
@@ -24,17 +40,19 @@ export default function MyInfo() {
         </StyledProfile>
         <StyledPlantLi>
           <StyledPlantTxt>내 식물 리스트</StyledPlantTxt>
-          {plantList.map(({ name, type, color }) => {
-            return (
-              <StyledPlant>
-                <PlantProfile />
-                <StyledPlantNameContainer>
-                  <Tag type={type} color={color} />
-                  <StyledName>{name}</StyledName>
-                </StyledPlantNameContainer>
-              </StyledPlant>
-            );
-          })}
+          {plantList.map(
+            ({ id, name, nickname, color }) =>
+              name &&
+              nickname && (
+                <StyledPlant key={id}>
+                  <PlantProfile />
+                  <StyledPlantNameContainer>
+                    <Tag type={name} color={color} />
+                    <StyledName>{nickname}</StyledName>
+                  </StyledPlantNameContainer>
+                </StyledPlant>
+              )
+          )}
         </StyledPlantLi>
       </StyledInfoContainer>
       <Link to={Routes.Enroll}>
