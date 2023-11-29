@@ -4,22 +4,29 @@ import Header from "components/common/Header";
 import { FONT_STYLES } from "styles/fontStyle";
 import Tag from "components/common/Tag";
 import CommonBtn from "components/common/CommonBtn";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { postDiary } from "api/diary";
+import CommonModal from "components/common/CommonModal";
+import { useNavigate } from "react-router-dom";
+import Routes from "router/Routes";
 export default function DiaryEdit() {
   const dateRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
-  const handleSubmit = () => {
+  const [modalActive, setmodalActive] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const handleSubmit = async () => {
     const title = titleRef.current?.value;
     const contents = textArea.current?.value;
-    const date = textArea.current?.value;
+    const date = dateRef.current?.value;
     if (title && contents && date) {
-      postDiary({
+      await postDiary({
         title,
-        plantName: "고구마",
+        plantName: "토마토",
         contents,
+        date: new Date(date).toJSON(),
       });
+      setmodalActive(true);
     }
   };
   return (
@@ -37,7 +44,7 @@ export default function DiaryEdit() {
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>
           <StyledTagContainer>
-            <Tag type="고구마" color="#8A3141" />
+            <Tag type="토마토" color="#8A3141" />
           </StyledTagContainer>
         </div>
         <div className="grow-flex">
@@ -48,6 +55,13 @@ export default function DiaryEdit() {
       <StyledBtnContainer>
         <CommonBtn label="저장" handler={handleSubmit} />
       </StyledBtnContainer>
+      {modalActive && (
+        <CommonModal
+          contents="일지 저장 완료!"
+          btnTxt="확인"
+          handler={() => navigate(Routes.Diary)}
+        />
+      )}
     </StyledContainer>
   );
 }
