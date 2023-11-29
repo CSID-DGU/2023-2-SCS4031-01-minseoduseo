@@ -4,16 +4,34 @@ import Header from "components/common/Header";
 import CommonBtn from "components/common/CommonBtn";
 import { FONT_STYLES } from "styles/fontStyle";
 import { useNavigate } from "react-router-dom";
+import Routes from "router/Routes";
 import { ColorResult, SliderPicker } from "react-color";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { postPlant } from "api/myPlant";
+import CommonModal from "components/common/CommonModal";
 export default function Enroll() {
-  const [currentColor, setCurrentColor] = useState<string>();
+  const [modalActive, setModalActive] = useState<boolean>(false);
+  const [currentColor, setCurrentColor] = useState<string>("#ffff");
   const handleChange = (result: ColorResult) => {
     setCurrentColor(result.hex);
   };
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const nameInput = form[0] as HTMLInputElement;
+    const nicknameInput = form[1] as HTMLInputElement;
+    const dateInput = form[2] as HTMLInputElement;
+    const res = await postPlant({
+      color: currentColor,
+      nickname: nicknameInput.value,
+      name: nameInput.value,
+      createDate: new Date(dateInput.value).toJSON(),
+    });
+    setModalActive(true);
+  };
   const navigate = useNavigate();
   return (
-    <StyledEnrollWrapper>
+    <StyledEnrollWrapper onSubmit={(e) => handleSubmit(e)}>
       <Header title="작물 등록" icon="previous" />
       <StyledEnrollContainer>
         <div>
@@ -35,14 +53,21 @@ export default function Enroll() {
           <StyledInput placeholder="작물명을 입력해주세요" type="date" />
         </div>
         <StyledBtnContainer>
-          <CommonBtn label="취소" type="cancel" handler={() => navigate(-1)} />
-          <CommonBtn label="저장" />
+          <CommonBtn label="취소" theme="cancel" handler={() => navigate(-1)} />
+          <CommonBtn label="저장" type="submit" />
         </StyledBtnContainer>
       </StyledEnrollContainer>
+      {modalActive && (
+        <CommonModal
+          contents="식물을 등록하였습니다."
+          btnTxt="확인"
+          handler={() => navigate(Routes.MyInfo)}
+        />
+      )}
     </StyledEnrollWrapper>
   );
 }
-const StyledEnrollWrapper = styled.div`
+const StyledEnrollWrapper = styled.form`
   width: 100%;
   height: 100%;
   display: flex;
