@@ -4,7 +4,13 @@ import Header from "components/common/Header";
 import CommonBtn from "components/common/CommonBtn";
 import { FONT_STYLES } from "styles/fontStyle";
 import { useNavigate } from "react-router-dom";
+import { ColorResult, SliderPicker } from "react-color";
+import { useState } from "react";
 export default function Enroll() {
+  const [currentColor, setCurrentColor] = useState<string>();
+  const handleChange = (result: ColorResult) => {
+    setCurrentColor(result.hex);
+  };
   const navigate = useNavigate();
   return (
     <StyledEnrollWrapper>
@@ -19,8 +25,14 @@ export default function Enroll() {
           <StyledInput placeholder="식물 이름을 입력해주세요" />
         </div>
         <div>
+          <StyledInputLabel>작물 태그 색상</StyledInputLabel>
+          <StyledColorChange>
+            <SliderPicker onChange={handleChange} color={currentColor} />
+          </StyledColorChange>
+        </div>
+        <div>
           <StyledInputLabel>날짜</StyledInputLabel>
-          <StyledInput placeholder="작물명을 입력해주세요" />
+          <StyledInput placeholder="작물명을 입력해주세요" type="date" />
         </div>
         <StyledBtnContainer>
           <CommonBtn label="취소" type="cancel" handler={() => navigate(-1)} />
@@ -48,15 +60,16 @@ const StyledEnrollContainer = styled.main`
 
 const StyledInputLabel = styled.h5`
   margin-bottom: 1rem;
-  font-size: 1.3rem;
-  ${FONT_STYLES.GM_M}
+  font-size: 1.5rem;
+  ${FONT_STYLES.PR_M}
 `;
 
 const StyledInput = styled.input`
   height: 5rem;
   padding: 1.4rem 2rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  ${FONT_STYLES.PR_R}
   background-color: ${COLOR.BG_GRAY_F5};
   border-radius: 1.6rem;
   &::placeholder {
@@ -69,4 +82,10 @@ const StyledBtnContainer = styled.div`
   margin-top: auto;
   gap: 1.1rem;
   margin-bottom: 1rem;
+`;
+
+const StyledColorChange = styled.div`
+  border-radius: 1.6rem;
+  padding: 1.7rem;
+  background: ${COLOR.BG_GRAY_F5};
 `;
