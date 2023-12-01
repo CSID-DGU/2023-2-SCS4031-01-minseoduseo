@@ -16,7 +16,9 @@
 
 
 ## System Architecture
+ <a href="https://ibb.co/YB5LXm0"><img src="https://i.ibb.co/F4QDX2H/arc1.png" alt="arc1" border="0"></a>
 
+<a href="https://ibb.co/hfSCHfD"><img src="https://i.ibb.co/xHN3GHJ/arc2.png" alt="arc2" border="0"></a>
 
 ## 프론트엔드 개발 스택
 
@@ -79,8 +81,8 @@
 인공지능 기반 서비스를 이용하여 작물을 처음 키워보는 사람도 작물을 효과적으로 관리할 수 있습니다.
 
 ## References
-- AI
-
+- [AI - pytorch](https://github.com/avinassh/pytorch-flask-api)
+  
 
 ## Team Members
 | 이름 | 역할 |
