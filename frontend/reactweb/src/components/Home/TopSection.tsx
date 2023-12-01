@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
 
 export default function TopSection() {
-  const diseaseEx = ["노균병", "흡수병", "잿빛곰팡이병", "빗자루병"];
+  const diseaseEx = ["#원인", "#해결법", "#증상", "#개선제"];
   const navigate = useNavigate();
   return (
     <StyledTopSection>
