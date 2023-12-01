@@ -53,8 +53,9 @@
 
 
 ## 인원
-
-- 강민지
-- 문서연
-- 이두용
-- 홍서이
+| 이름 | 역할 |
+|---|---|
+| 강민지 | AI Developer |
+| 문서연 | Frontend Developer |
+| 이두용 | Backend Developer | 
+| 홍서이 | AI Developer | 
