@@ -1,0 +1,73 @@
+@import url("./fonts.scss");
+
+* {
+  box-sizing: border-box;
+  font-family: "HakgyoansimWoojuR";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+.App,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input,
+textarea {
+  border: unset;
+  &:focus {
+    outline: unset;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: unset;
+  cursor: pointer;
+}
+
+@keyframes moveForward {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveBackward {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

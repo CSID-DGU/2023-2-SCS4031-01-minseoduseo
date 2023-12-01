@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/react": "^18.2.33",
+    "@types/react-color": "^3.0.10",
+    "axios": "^1.6.2",
+    "react-color": "^2.19.3"
+  }
+}
