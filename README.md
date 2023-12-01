@@ -30,33 +30,34 @@
 ## 백엔드 개발 스택
 
 ## AI 개발 스택 - 식물 잎 데이터를 기반으로 한 질병 진단 모델
+### Repository Link
 - [AI 개발](https://github.com/hongseoi/crops-plant-disease-classification)
 - [Flask 기반 API 생성](https://github.com/hongseoi/pytorch-flask-api)
 
-## Skills
+### Skills
 | 역할 | 종류 |
 |---|---|
 | Language | Python |
 | Framework | Pytorch |
 | Version control | Git, GitHub | 
 
-## Full Process
+### Full Process
 
-### 1. 식물여부 이진분류 모델 생성
+#### 1. 식물여부 이진분류 모델 생성
 식물인지, 식물이 아닌지 판단하는 모델
 - dataset: imageNet(mini)
 - model: CNN
 - output: binary class("plant", "non-plant")
 
 
-### 2. Image segemtation model 생성
+#### 2. Image segemtation model 생성
 1의 결과가 식물일 경우 맨앞의 잎만 남도록 배경을 제거하는 segmentation 수행
 - dataset: 기존 식물 이미지 데이터
 - model: U-Net
 - output: segmented image
 
 
-### 3. fine-grained classification model
+#### 3. fine-grained classification model
 2의 결과물에 대해서 28개 라벨에 대해 진단하는 식물 질병 진단 모델
 - dataset: segmentated 식물잎 이미지 데이터
 - model: ResNet
@@ -68,7 +69,12 @@
 
 
 ## Expected Outcomes
--
+- **궁금한 작물에 대한 정보를 한 눈에 확인할 수 있습니다**
+식물도감, 챗봇 등의 기능을 활용해 작물에 대한 정보를 앱 내에서 한번에 확인할 수 있습니다.
+
+
+- **작물을 보다 전문적으로 키울 수 있습니다**
+인공지능 기반 서비스를 이용하여 작물을 처음 키워보는 사람도 작물을 효과적으로 관리할 수 있습니다.
 
 ## References
 - AI
