@@ -49,7 +49,7 @@ export default function Enroll() {
           </StyledColorChange>
         </div>
         <div>
-          <StyledInputLabel>날짜</StyledInputLabel>
+          <StyledInputLabel>키운 날짜</StyledInputLabel>
           <StyledInput placeholder="작물명을 입력해주세요" type="date" />
         </div>
         <StyledBtnContainer>
