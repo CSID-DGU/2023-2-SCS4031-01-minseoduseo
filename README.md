@@ -1,5 +1,19 @@
 # 2023-2-SCS4031-01-minseoduseo
 
+## About
+### 1. 프로젝트명
+
+### 2. 프로젝트 목표
+
+### 3. 요구분석
+---
+
+## Guides
+- License: MIT
+
+## System Architecture
+
+
 ## 프론트엔드 개발 스택
 
 | 역할                 | 종류                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -47,12 +61,18 @@
 - output: 28개 label
 
 
----
-## AI 개발 스택 - chatbot
+## Project Result
+- main 화면
 
 
+## Expected Outcomes
+-
 
-## 인원
+## References
+- AI
+
+
+## Team Members
 | 이름 | 역할 |
 |---|---|
 | 강민지 | AI Developer |
