@@ -81,8 +81,8 @@
 인공지능 기반 서비스를 이용하여 작물을 처음 키워보는 사람도 작물을 효과적으로 관리할 수 있습니다.
 
 ## References
-- AI
-
+- [AI - pytorch](https://github.com/avinassh/pytorch-flask-api)
+  
 
 ## Team Members
 | 이름 | 역할 |
