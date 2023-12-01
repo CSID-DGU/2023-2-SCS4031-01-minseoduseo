@@ -16,7 +16,7 @@
 
 
 ## System Architecture
-
+ <a href="https://ibb.co/YB5LXm0"><img src="https://i.ibb.co/F4QDX2H/arc1.png" alt="arc1" border="0"></a>
 
 ## 프론트엔드 개발 스택
 
