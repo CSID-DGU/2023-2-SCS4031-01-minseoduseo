@@ -109,7 +109,31 @@ yarn start
 
 - <b>로그인 이후 메인화면</b>
  : 질병진단, 식물도감, 식물일지, 챗봇, 내 식물 관리 버튼이 보여집니다.
-<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/home.png" width="300" height="500">  </p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/blob/main/doc/home.png?raw=true" width="300" height="500">  </p>
+
+- <b>좌측 상단 메뉴 바 클릭시</b>
+ : 좌측 상단 버튼을 누르면 앱에서 제공하는 기능들을 한 눈에 볼 수 있고 클릭 시 각 기능을 이용할 수 있습니다. 
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/menu.png" width="300" height="500">  </p>
+## Expected Outcomes
+
+- #### 👉 각 기능들
+: 식물 질병 진단
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/disease.png" width="300" height="500">  </p>
+: 식물도감
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/disease.png" width="300" height="500">  </p>
+: 식물일지
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/disease.png" width="300" height="500">  </p>
+: 챗봇
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/chatbot1.png" width="300" height="500">  </p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/chatbot2.png" width="300" height="500">  </p>
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/disease.png" width="300" height="500">  </p>
+: 내 식물 관리
+<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/disease.png" width="300" height="500">  </p>
+
+
+
+
+
 ## Expected Outcomes
 - **궁금한 작물에 대한 정보를 한 눈에 확인할 수 있습니다**
 식물도감, 챗봇 등의 기능을 활용해 작물에 대한 정보를 앱 내에서 한번에 확인할 수 있습니다.
