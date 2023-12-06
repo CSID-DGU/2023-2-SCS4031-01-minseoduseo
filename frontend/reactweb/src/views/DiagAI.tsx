@@ -8,6 +8,7 @@ import { FONT_STYLES } from "styles/fontStyle";
 import SelectBtn from "components/PlantDiary/SelectBtn";
 import Result from "components/DiagAI/Result";
 import useReadCSV from "utils/getLabels";
+import CommonModal from "components/common/CommonModal";
 
 export default function DiagAI() {
   const labels = useReadCSV();
@@ -22,6 +23,8 @@ export default function DiagAI() {
   ]);
   const [curState, setCurState] = useState(BTN_TXT[0]);
   const [disease, setDisease] = useState("");
+  const [isPlant, setIsPlant] = useState(true);
+  const [percent, setPercent] = useState<number>(0);
   const txtByType = useMemo(
     () => (curState === BTN_TXT[0] ? resultTxt.current : solveTxt.current),
     [curState]
@@ -42,6 +45,10 @@ export default function DiagAI() {
         },
       }
     );
+    if (data.top1_class === "nonplant") {
+      setIsPlant(false);
+    }
+    setPercent(Math.round(data.top1_percent * 100));
     const diseaseLabel = data.top1_class as string;
     labels?.forEach(
       ({
@@ -53,10 +60,10 @@ export default function DiagAI() {
         solution,
         symptoms,
       }) => {
-        console.log(symptoms);
         if (label === diseaseLabel) {
-          setDisease(disease);
+          setDisease(`${disease} (${plant_name})`);
           if (disease === "정상") return;
+
           resultTxt.current[0].contents = reason;
           resultTxt.current[1].contents = symptoms;
           solveTxt.current[0].contents = solution;
@@ -93,7 +100,7 @@ export default function DiagAI() {
         ) : (
           <StyledResult>
             <StyledName>{disease}</StyledName>
-            <StyledPercent>정확도 약 80%</StyledPercent>
+            <StyledPercent>정확도 약 {percent}%</StyledPercent>
             <StyledBtnResult>
               <SelectBtn
                 BtnTxt={BTN_TXT}
@@ -109,6 +116,15 @@ export default function DiagAI() {
           </StyledResult>
         )}
       </StyledBottom>
+      {!isPlant && (
+        <CommonModal
+          contents="해당 사진은 식물이 아닙니다."
+          btnTxt={["확인"]}
+          confirmHandler={() => {
+            setIsPlant(true);
+          }}
+        ></CommonModal>
+      )}
     </StyledContainer>
   );
 }

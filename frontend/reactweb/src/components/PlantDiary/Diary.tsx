@@ -2,6 +2,7 @@ import styled from "styled-components";
 import COLOR from "styles/colors";
 import Tag from "components/common/Tag";
 import { FONT_STYLES } from "styles/fontStyle";
+import { fromJSONtoDateStr } from "utils/getDate";
 interface diaryProps {
   title: string;
   createDate: string;
@@ -20,7 +21,7 @@ export default function Diary({
     <StyledDiaryContainer>
       <StyledDiary>
         <StyledTitle>{title}</StyledTitle>
-        <StyledDate>{createDate}</StyledDate>
+        <StyledDate>{fromJSONtoDateStr(createDate, true)}</StyledDate>
         <StyledContent>{contents}</StyledContent>
       </StyledDiary>
       <StyledTag>
@@ -55,6 +56,8 @@ const StyledContent = styled.div`
   color: ${COLOR.FONT_GRAY_40};
   font-size: 1.4rem;
   ${FONT_STYLES.PR_R}
+  max-height: 1.7rem;
+  overflow: hidden;
   letter-spacing: -0.036rem;
 `;
 const StyledTag = styled.div`

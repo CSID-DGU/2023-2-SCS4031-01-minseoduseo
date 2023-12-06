@@ -5,7 +5,7 @@ import { ReactComponent as PlusIcon } from "assets/icons/icon_plus.svg";
 import { FONT_STYLES } from "styles/fontStyle";
 import getCalendar from "utils/getCalendar";
 import { useState, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
 interface listType {
   id: number;
@@ -96,9 +96,13 @@ export default function Calendar({ currYM, list }: calendarProps) {
         </StyledPreviewHeader>
         <StyledPreviewContent>
           {listBydate[selDate] &&
-            listBydate[selDate].map(({ title, plantName, color }, index) => (
-              <CalendarItem {...{ color, plantName, title }} key={index} />
-            ))}
+            listBydate[selDate].map(
+              ({ title, plantName, color, id }, index) => (
+                <Link to={`/diary/${id}`}>
+                  <CalendarItem {...{ color, plantName, title }} key={index} />
+                </Link>
+              )
+            )}
         </StyledPreviewContent>
       </StyledPreview>
     </StyledContainer>

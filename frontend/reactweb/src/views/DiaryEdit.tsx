@@ -9,10 +9,12 @@ import { postDiary } from "api/diary";
 import CommonModal from "components/common/CommonModal";
 import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
+import TagDropDown from "components/common/TagDropDown";
 export default function DiaryEdit() {
   const dateRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
+  const [selectedName, setSelectedName] = useState<string>("");
   const [modalActive, setmodalActive] = useState<boolean>(false);
   const navigate = useNavigate();
   const handleSubmit = async () => {
@@ -22,7 +24,7 @@ export default function DiaryEdit() {
     if (title && contents && date) {
       await postDiary({
         title,
-        plantName: "토마토",
+        plantName: selectedName,
         contents,
         date: new Date(date).toJSON(),
       });
@@ -43,9 +45,7 @@ export default function DiaryEdit() {
         </div>
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>
-          <StyledTagContainer>
-            <Tag type="토마토" color="#8A3141" />
-          </StyledTagContainer>
+          <TagDropDown handler={(plantname) => setSelectedName(plantname)} />
         </div>
         <div className="grow-flex">
           <StyledInputLabel>내용</StyledInputLabel>

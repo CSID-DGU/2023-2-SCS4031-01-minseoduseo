@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInterface = axios.create({
   baseURL: "http://msds-capstone.store",
-  timeout: 100000,
+  timeout: 1000000,
 });
 
 axiosInterface.interceptors.request.use(
