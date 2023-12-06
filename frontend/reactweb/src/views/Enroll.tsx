@@ -2,45 +2,115 @@ import COLOR from "styles/colors";
 import styled from "styled-components";
 import Header from "components/common/Header";
 import CommonBtn from "components/common/CommonBtn";
-import { FONT_STYLES } from "styles/fontStyle";
-import { useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
+import { FONT_STYLES } from "styles/fontStyle";
+import { useNavigate, useParams } from "react-router-dom";
 import { ColorResult, SliderPicker } from "react-color";
-import { FormEvent, useState } from "react";
-import { postPlant } from "api/myPlant";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { deletePlant, getPlantDetail, postPlant, putPlant } from "api/myPlant";
 import CommonModal from "components/common/CommonModal";
+import modalTxtAsset from "assets/json/modalTxt.json";
 export default function Enroll() {
+  const params = useParams();
+  useEffect(() => {
+    if (params.plantId) {
+      setPlantInfo();
+    }
+  }, []);
+  const setPlantInfo = async () => {
+    const info = await getPlantDetail(Number(params.plantId));
+    setCurrentColor(info.color);
+    if (nickNameRef.current && nameRef.current && dateRef.current) {
+      nickNameRef.current.value = info.nickname;
+      nameRef.current.value = info.name;
+      const createdDate = new Date(info.creatDate);
+      dateRef.current.value = String(
+        `${createdDate.getFullYear()}-${String(
+          createdDate.getMonth() + 1
+        ).padStart(2, "0")}-${String(createdDate.getDate()).padStart(2, "0")}`
+      );
+    }
+  };
+
   const [modalActive, setModalActive] = useState<boolean>(false);
   const [currentColor, setCurrentColor] = useState<string>("#ffff");
+  const modalTxt = useRef<{
+    contents: string;
+    btnTxt: string[];
+    cancelHandler?: () => void;
+    confirmHandler: () => void;
+  }>({
+    contents: "",
+    btnTxt: ["확인"],
+    confirmHandler: () => {},
+  });
+  const nickNameRef = useRef<HTMLInputElement | null>(null);
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const dateRef = useRef<HTMLInputElement | null>(null);
   const handleChange = (result: ColorResult) => {
     setCurrentColor(result.hex);
   };
+  const handleDelBtn = () => {
+    modalTxt.current = {
+      ...modalTxtAsset.plantDelete,
+      cancelHandler: () => {
+        setModalActive(false);
+      },
+      confirmHandler: async () => {
+        await deletePlant(Number(params.plantId));
+        navigate(Routes.MyInfo);
+      },
+    };
+    setModalActive(true);
+  };
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const nameInput = form[0] as HTMLInputElement;
-    const nicknameInput = form[1] as HTMLInputElement;
-    const dateInput = form[2] as HTMLInputElement;
-    const res = await postPlant({
+    if (!(nickNameRef.current && nameRef.current && dateRef.current)) return;
+
+    const plantInfo = {
       color: currentColor,
-      nickname: nicknameInput.value,
-      name: nameInput.value,
-      createDate: new Date(dateInput.value).toJSON(),
-    });
+      nickname: nickNameRef.current.value,
+      name: nameRef.current.value,
+      createDate: new Date(dateRef.current.value).toJSON(),
+    };
+
+    if (params.plantId) {
+      await putPlant(Number(params.plantId), plantInfo);
+      modalTxt.current = {
+        ...modalTxtAsset.plantModify,
+        confirmHandler: () => {
+          setModalActive(false);
+        },
+      };
+    } else {
+      await postPlant(plantInfo);
+      modalTxt.current = {
+        ...modalTxtAsset.plantEnrollment,
+        confirmHandler: () => {
+          navigate(Routes.MyInfo);
+        },
+      };
+    }
     setModalActive(true);
   };
   const navigate = useNavigate();
   return (
     <StyledEnrollWrapper onSubmit={(e) => handleSubmit(e)}>
-      <Header title="작물 등록" icon="menu" />
+      <Header
+        title={params.plantId ? "작물 상세" : "작물 등록"}
+        icon="previous"
+      />
       <StyledEnrollContainer>
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>
-          <StyledInput placeholder="작물명을 입력해주세요" />
+          <StyledInput placeholder="작물명을 입력해주세요" ref={nameRef} />
         </div>
         <div>
           <StyledInputLabel>작물 이름</StyledInputLabel>
-          <StyledInput placeholder="식물 이름을 입력해주세요" />
+          <StyledInput
+            placeholder="식물 이름을 입력해주세요"
+            ref={nickNameRef}
+          />
         </div>
         <div>
           <StyledInputLabel>작물 태그 색상</StyledInputLabel>
@@ -50,20 +120,30 @@ export default function Enroll() {
         </div>
         <div>
           <StyledInputLabel>키운 날짜</StyledInputLabel>
-          <StyledInput placeholder="작물명을 입력해주세요" type="date" />
+          <StyledInput
+            placeholder="작물명을 입력해주세요"
+            type="date"
+            ref={dateRef}
+          />
         </div>
         <StyledBtnContainer>
-          <CommonBtn label="취소" theme="cancel" handler={() => navigate(-1)} />
-          <CommonBtn label="저장" type="submit" />
+          {params.plantId ? (
+            <CommonBtn
+              label="삭제"
+              theme="delete"
+              handler={() => handleDelBtn()}
+            />
+          ) : (
+            <CommonBtn
+              label="취소"
+              theme="cancel"
+              handler={() => navigate(-1)}
+            />
+          )}
+          <CommonBtn label={params.plantId ? "수정" : "저장"} type="submit" />
         </StyledBtnContainer>
       </StyledEnrollContainer>
-      {modalActive && (
-        <CommonModal
-          contents="식물을 등록하였습니다."
-          btnTxt="확인"
-          handler={() => navigate(Routes.MyInfo)}
-        />
-      )}
+      {modalActive && <CommonModal {...modalTxt.current} />}
     </StyledEnrollWrapper>
   );
 }

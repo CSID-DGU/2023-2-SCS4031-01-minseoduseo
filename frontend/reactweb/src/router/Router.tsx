@@ -16,6 +16,7 @@ export default function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/my-info" element={<MyInfo />}></Route>
         <Route path="/my-info/enroll" element={<Enroll />}></Route>
+        <Route path="/my-info/enroll/:plantId" element={<Enroll />}></Route>
         <Route path="/dict" element={<Dict />}></Route>
         <Route path="/dict/:id" element={<DictDetail />}></Route>
         <Route path="/diary" element={<PlantDiary />}></Route>

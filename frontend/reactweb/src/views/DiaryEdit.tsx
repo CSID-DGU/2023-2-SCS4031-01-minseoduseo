@@ -58,8 +58,8 @@ export default function DiaryEdit() {
       {modalActive && (
         <CommonModal
           contents="일지 저장 완료!"
-          btnTxt="확인"
-          handler={() => navigate(Routes.Diary)}
+          btnTxt={["확인"]}
+          confirmHandler={() => navigate(Routes.Diary)}
         />
       )}
     </StyledContainer>

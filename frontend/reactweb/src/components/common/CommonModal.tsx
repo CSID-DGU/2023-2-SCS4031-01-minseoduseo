@@ -1,17 +1,36 @@
-import styled from "styled-components";
+import { styled, css } from "styled-components";
 import COLOR from "styles/colors";
 import { FONT_STYLES } from "styles/fontStyle";
 interface modalProps {
   contents: string;
-  btnTxt: string;
-  handler: () => void;
+  btnTxt: string[];
+  cancelHandler?: () => void;
+  confirmHandler: () => void;
 }
-export default function CommonModal({ contents, btnTxt, handler }: modalProps) {
+export default function CommonModal({
+  contents,
+  btnTxt,
+  cancelHandler,
+  confirmHandler,
+}: modalProps) {
   return (
     <StyledBg>
       <StyledContainer>
         <StyledContents>{contents}</StyledContents>
-        <StyledBtn onClick={handler}>{btnTxt}</StyledBtn>
+        <StyledBtnContainer>
+          {btnTxt.map((txt, index) => (
+            <StyledBtn
+              theme={btnTxt.length >= 2 && index === 0 ? "cancel" : "confirm"}
+              onClick={
+                btnTxt.length >= 2 && index === 0
+                  ? cancelHandler
+                  : confirmHandler
+              }
+            >
+              {txt}
+            </StyledBtn>
+          ))}
+        </StyledBtnContainer>
       </StyledContainer>
     </StyledBg>
   );
@@ -51,11 +70,34 @@ const StyledContents = styled.div`
   padding-bottom: 1.4rem;
 `;
 
-const StyledBtn = styled.button`
+interface StyledBtnContainerProps {
+  theme: string;
+}
+
+const StyledBtnContainer = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+`;
+
+const StyledBtn = styled.button<StyledBtnContainerProps>`
+  ${({ theme }) => {
+    if (theme === "cancel") {
+      return css`
+        background: white;
+        color: ${COLOR.BTN_GRAY_97};
+        border: 0.1rem solid ${COLOR.BTN_GRAY_97};
+      `;
+    } else {
+      return css`
+        background: ${COLOR.BG_GREEN_28};
+        color: white;
+      `;
+    }
+  }}
   height: 4rem;
   width: 100%;
-  color: white;
+  flex: 1 0 0;
   ${FONT_STYLES.GM_M}
   border-radius: 1rem;
-  background: ${COLOR.BG_GREEN_28};
 `;

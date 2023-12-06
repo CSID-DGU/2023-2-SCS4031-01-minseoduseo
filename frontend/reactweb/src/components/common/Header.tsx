@@ -20,7 +20,7 @@ export default function Header({ title, icon, color }: HeaderParams) {
       {icon === "menu" ? (
         <MenuBar onClick={() => setIsOpened(true)} />
       ) : (
-        <Previous onClick={() => navigate(Routes.Home)} />
+        <Previous onClick={() => navigate(-1)} />
       )}
       <StyledTitle color={color}>{title}</StyledTitle>
       {isOpened && (

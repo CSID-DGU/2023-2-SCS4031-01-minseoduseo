@@ -6,7 +6,7 @@ import Tag from "components/common/Tag";
 import styled from "styled-components";
 import COLOR from "styles/colors";
 import PlusIcon from "components/MyInfo/PlusIcon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Routes from "router/Routes";
 import { FONT_STYLES } from "styles/fontStyle";
 import { useEffect, useState } from "react";
@@ -24,6 +24,7 @@ export default function MyInfo() {
   useEffect(() => {
     getPlantList();
   }, []);
+  const navigate = useNavigate();
   const getPlantList = async () => {
     const res = await getPlants();
     setPlantList(res.plantList);
@@ -44,7 +45,10 @@ export default function MyInfo() {
             ({ id, name, nickname, color }) =>
               name &&
               nickname && (
-                <StyledPlant key={id}>
+                <StyledPlant
+                  key={id}
+                  onClick={() => navigate(`/my-info/enroll/${id}`)}
+                >
                   <PlantProfile />
                   <StyledPlantNameContainer>
                     <Tag type={name} color={color} />
@@ -111,6 +115,7 @@ const StyledPlant = styled.div`
   background-color: white;
   border-radius: 1.8rem;
   box-shadow: 0px 6px 5px 0px rgba(13, 63, 103, 0.1);
+  cursor: pointer;
 `;
 const StyledPlantNameContainer = styled.div``;
 const StyledName = styled.div`
