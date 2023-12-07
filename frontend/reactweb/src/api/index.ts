@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const axiosInterface = axios.create({
-  baseURL: "/",
   timeout: 1000000,
 });
 
