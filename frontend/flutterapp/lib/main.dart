@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
             InAppWebView(
               key: webViewKey,
               initialUrlRequest:
-                  URLRequest(url: Uri.parse("http://msds-capstone.store")),
+                  URLRequest(url: Uri.parse("https://capstone-msds.store/")),
               initialOptions: options,
               pullToRefreshController: pullToRefreshController,
               onWebViewCreated: (controller) {
