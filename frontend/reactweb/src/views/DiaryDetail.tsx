@@ -5,12 +5,17 @@ import { FONT_STYLES } from "styles/fontStyle";
 import Tag from "components/common/Tag";
 import CommonBtn from "components/common/CommonBtn";
 import { useEffect, useState } from "react";
-import { getDiary } from "api/diary";
+import { delDiary, getDiary } from "api/diary";
 import { useParams } from "react-router-dom";
 import { fromJSONtoDateStr } from "utils/getDate";
+import { useNavigate } from "react-router-dom";
+import ModalTxtJSON from "assets/json/modalTxt.json";
 import TagDropDown from "components/common/TagDropDown";
+import Routes from "router/Routes";
+import CommonModal from "components/common/CommonModal";
 export default function DiaryDetail() {
   const params = useParams();
+  const navigate = useNavigate();
   interface contentsType {
     id: number;
     createDate: string;
@@ -33,6 +38,11 @@ export default function DiaryDetail() {
     const diaryDetail = await getDiary(Number(params.id));
     setContents(diaryDetail as contentsType);
   };
+  const deleteDiary = async () => {
+    await delDiary(contents.id);
+    navigate(Routes.Diary);
+  };
+  const [modalActive, setModalActive] = useState<boolean>(false);
   useEffect(() => {
     setDiaryDetail();
   }, []);
@@ -46,9 +56,31 @@ export default function DiaryDetail() {
         <StyledContent>{contents.contents}</StyledContent>
       </StyledMain>
       <StyledBtnContainer>
-        <CommonBtn label="삭제" theme="delete" />
-        <CommonBtn label="수정" />
+        <CommonBtn
+          label="삭제"
+          theme="delete"
+          handler={() => {
+            setModalActive(true);
+          }}
+        />
+        <CommonBtn
+          label="수정"
+          handler={() => {
+            navigate(`/diary/edit/${contents.id}`);
+          }}
+        />
       </StyledBtnContainer>
+      {modalActive && (
+        <CommonModal
+          {...ModalTxtJSON.diaryDelete}
+          confirmHandler={() => {
+            deleteDiary();
+          }}
+          cancelHandler={() => {
+            setModalActive(false);
+          }}
+        />
+      )}
     </StyledContainer>
   );
 }
