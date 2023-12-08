@@ -45,7 +45,7 @@ const menuLinks = [
   {
     txt: "설정",
     Icon: SettingIcon,
-    link: "/",
+    link: "/kakao/login",
   },
 ];
 

@@ -2,32 +2,51 @@ import COLOR from "styles/colors";
 import styled from "styled-components";
 import Header from "components/common/Header";
 import { FONT_STYLES } from "styles/fontStyle";
-import Tag from "components/common/Tag";
 import CommonBtn from "components/common/CommonBtn";
-import { useRef, useState } from "react";
-import { postDiary } from "api/diary";
+import React, { useEffect, useState } from "react";
+import { getDiary, postDiary, putDiary } from "api/diary";
 import CommonModal from "components/common/CommonModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Routes from "router/Routes";
 import TagDropDown from "components/common/TagDropDown";
+import { fromJSONtoDateStr } from "utils/getDate";
 export default function DiaryEdit() {
-  const dateRef = useRef<HTMLInputElement>(null);
-  const titleRef = useRef<HTMLInputElement>(null);
-  const textArea = useRef<HTMLTextAreaElement>(null);
-  const [selectedName, setSelectedName] = useState<string>("");
+  useEffect(() => {
+    if (params.id) {
+      setDiary();
+    }
+  }, []);
+  const params = useParams();
+  const [date, setDate] = useState<string | undefined>(String(new Date()));
+  const [title, setTitle] = useState<string>("");
+  const [textArea, setTextArea] = useState<string>("");
+  const [selectedTag, setSelectedTag] = useState<{
+    color: string;
+    name: string;
+  }>({ color: "", name: "" });
   const [modalActive, setmodalActive] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const setDiary = async () => {
+    const diary = await getDiary(Number(params.id));
+    setTitle(diary.title);
+    setTextArea(diary.contents);
+    setDate(fromJSONtoDateStr(diary.createDate));
+    setSelectedTag({ name: diary.plantName, color: diary.color });
+  };
   const handleSubmit = async () => {
-    const title = titleRef.current?.value;
-    const contents = textArea.current?.value;
-    const date = dateRef.current?.value;
-    if (title && contents && date) {
-      await postDiary({
+    if (title && textArea && date && selectedTag) {
+      const diary = {
         title,
-        plantName: selectedName,
-        contents,
+        plantName: selectedTag.name,
+        contents: textArea,
         date: new Date(date).toJSON(),
-      });
+      };
+      if (params.id) {
+        putDiary({ ...diary, diaryId: Number(params.id) });
+      } else {
+        await postDiary(diary);
+      }
       setmodalActive(true);
     }
   };
@@ -37,19 +56,41 @@ export default function DiaryEdit() {
       <StyledMain>
         <div>
           <StyledInputLabel>날짜</StyledInputLabel>
-          <StyledInput type="date" ref={dateRef} />
+          <StyledInput
+            type="date"
+            value={date}
+            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+              setDate(e.currentTarget.value);
+            }}
+          />
         </div>
         <div>
           <StyledInputLabel>제목</StyledInputLabel>
-          <StyledInput placeholder="제목을 입력해주세요" ref={titleRef} />
+          <StyledInput
+            placeholder="제목을 입력해주세요"
+            value={title}
+            onChange={(e: React.FormEvent<HTMLInputElement>) =>
+              setTitle(e.currentTarget.value)
+            }
+          />
         </div>
         <div>
           <StyledInputLabel>작물종</StyledInputLabel>
-          <TagDropDown handler={(plantname) => setSelectedName(plantname)} />
+          <TagDropDown
+            handler={(plantname, plantColor) =>
+              setSelectedTag({ color: plantColor, name: plantname })
+            }
+            selectedPlant={selectedTag}
+          />
         </div>
         <div className="grow-flex">
           <StyledInputLabel>내용</StyledInputLabel>
-          <StyledTextArea ref={textArea} />
+          <StyledTextArea
+            value={textArea}
+            onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
+              setTextArea(e.currentTarget.value);
+            }}
+          />
         </div>
       </StyledMain>
       <StyledBtnContainer>

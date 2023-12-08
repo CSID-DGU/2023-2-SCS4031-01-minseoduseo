@@ -5,8 +5,10 @@ import styled from "styled-components";
 
 export default function TagDropDown({
   handler,
+  selectedPlant,
 }: {
-  handler: (plantname: string) => void;
+  handler: (plantname: string, plantcolor: string) => void;
+  selectedPlant?: { color: string; name: string };
 }) {
   useEffect(() => {
     setPlants();
@@ -24,21 +26,19 @@ export default function TagDropDown({
     const plants = await getPlants();
     setPlantList(plants.plantList);
   };
-  const [selectedTag, setSelectedTag] = useState<plantType>();
   const [plantList, setPlantList] = useState<plantType[] | null>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleTagSelect = (plant: plantType) => {
-    setSelectedTag(plant);
     setIsOpen(false);
-    handler(plant.name);
+    handler(plant.name, plant.color);
   };
   return (
     <StyledTagDropDown>
       <StyledSelectedTag onClick={() => setIsOpen(true)}>
         {plantList && (
           <Tag
-            color={selectedTag?.color ?? plantList[0].color}
-            type={selectedTag?.name ?? plantList[0].name}
+            color={selectedPlant?.color ?? plantList[0].color}
+            type={selectedPlant?.name ?? plantList[0].name}
           ></Tag>
         )}
       </StyledSelectedTag>
