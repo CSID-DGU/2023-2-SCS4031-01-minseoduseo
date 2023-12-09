@@ -65,7 +65,7 @@ const putDiary = async ({
   const { data } = await axiosInterface.put(
     `${DIARY_URL}`,
     {
-      modifyDate: currentTime,
+      createDate: currentTime,
       title,
       plantName,
       contents,
