@@ -37,7 +37,7 @@ export default function DiagAI() {
     const imgSrc = URL.createObjectURL(image);
     setSrc(imgSrc);
     const { data } = await axios.post(
-      "http://43.202.176.11:5000/predict",
+      "https://msds-plant-ai.store/predict",
       formData,
       {
         headers: {
