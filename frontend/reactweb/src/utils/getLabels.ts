@@ -35,5 +35,4 @@ async function readCSV<T>(csvData: string): Promise<LabelType<T>[]> {
     });
   });
 }
-
 export default readCSV;

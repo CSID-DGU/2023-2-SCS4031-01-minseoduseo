@@ -24,7 +24,7 @@ export default function DiagAI() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await readCSV<Data[]>(diagLabel);
+      const result = await readCSV<Data>(diagLabel);
       setLables(result);
     };
 
