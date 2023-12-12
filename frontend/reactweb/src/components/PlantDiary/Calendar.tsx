@@ -98,8 +98,8 @@ export default function Calendar({ currYM, list }: calendarProps) {
           {listBydate[selDate] &&
             listBydate[selDate].map(
               ({ title, plantName, color, id }, index) => (
-                <Link to={`/diary/${id}`}>
-                  <CalendarItem {...{ color, plantName, title }} key={index} />
+                <Link to={`/diary/${id}`} key={id}>
+                  <CalendarItem {...{ color, plantName, title }} />
                 </Link>
               )
             )}

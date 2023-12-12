@@ -1,17 +1,36 @@
 import styled from "styled-components";
 import Header from "components/common/Header";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import COLOR from "styles/colors";
 import { ReactComponent as Camera } from "assets/icons/icon_camera.svg";
 import axios from "axios";
 import { FONT_STYLES } from "styles/fontStyle";
 import SelectBtn from "components/PlantDiary/SelectBtn";
 import Result from "components/DiagAI/Result";
-import useReadCSV from "utils/getLabels";
+import readCSV from "utils/getLabels";
 import CommonModal from "components/common/CommonModal";
-
+import diagLabel from "assets/files/label_data.csv";
+type Data = {
+  label: string;
+  plant_name: string;
+  disease: string;
+  reason: string;
+  solution: string;
+  symptoms: string;
+  medicine: string;
+};
 export default function DiagAI() {
-  const labels = useReadCSV();
+  const [labels, setLables] = useState<Data[] | undefined>(undefined);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await readCSV<Data>(diagLabel);
+      setLables(result);
+    };
+
+    fetchData();
+  }, []);
+
   const BTN_TXT = ["원인 및 증상", "해결 방법"];
   const resultTxt = useRef([
     { title: "원인", contents: "" },
@@ -50,7 +69,7 @@ export default function DiagAI() {
     }
     setPercent(Math.round(data.top1_percent * 100));
     const diseaseLabel = data.top1_class as string;
-    labels?.forEach(
+    (await labels)?.forEach(
       ({
         label,
         disease,
@@ -109,7 +128,7 @@ export default function DiagAI() {
               />
               <StyledResultsContainer>
                 {txtByType.map(({ title, contents }) => (
-                  <Result title={title} contents={contents} />
+                  <Result title={title} contents={contents} key={title} />
                 ))}
               </StyledResultsContainer>
             </StyledBtnResult>

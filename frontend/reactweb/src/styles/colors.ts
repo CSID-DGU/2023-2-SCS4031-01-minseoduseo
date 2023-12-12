@@ -21,6 +21,8 @@ const COLOR = {
   FONT_GREEN_13: "#13c262",
   FONT_BLACK_1F: "#1f1f1f",
   FONT_BLACK_24: "#242424",
+  FONT_GREEN_BD: "#0e514abd",
+  FONT_GREEN_BA: "#364533ba",
   BTN_GRAY_97: "#979797",
   BTN_GRAY_D8: "#d8d3d3",
   BTN_RED_F8: "#F85B5B",
