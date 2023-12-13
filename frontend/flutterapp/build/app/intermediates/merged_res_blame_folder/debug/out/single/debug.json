@@ -1,27 +1,27 @@
 [
     {
-        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.example.minseoduseo.app-main-22:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xhdpi_ic_logo.png.flat",
+        "source": "com.example.minseoduseo.app-main-22:/mipmap-xhdpi/ic_logo.png"
     },
     {
-        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.example.minseoduseo.app-main-22:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.example.minseoduseo.app-main-22:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.example.minseoduseo.app-main-22:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xxxhdpi_ic_logo.png.flat",
+        "source": "com.example.minseoduseo.app-main-22:/mipmap-xxxhdpi/ic_logo.png"
     },
     {
         "merged": "com.example.minseoduseo.app-merged_res-28:/drawable_launch_background.xml.flat",
         "source": "com.example.minseoduseo.app-main-22:/drawable/launch_background.xml"
     },
     {
-        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.example.minseoduseo.app-main-22:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-xxhdpi_ic_logo.png.flat",
+        "source": "com.example.minseoduseo.app-main-22:/mipmap-xxhdpi/ic_logo.png"
+    },
+    {
+        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-hdpi_ic_logo.png.flat",
+        "source": "com.example.minseoduseo.app-main-22:/mipmap-hdpi/ic_logo.png"
+    },
+    {
+        "merged": "com.example.minseoduseo.app-merged_res-28:/mipmap-mdpi_ic_logo.png.flat",
+        "source": "com.example.minseoduseo.app-main-22:/mipmap-mdpi/ic_logo.png"
     },
     {
         "merged": "com.example.minseoduseo.app-merged_res-28:/drawable-v21_launch_background.xml.flat",
