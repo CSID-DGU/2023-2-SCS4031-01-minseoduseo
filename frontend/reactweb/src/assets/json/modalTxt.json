@@ -26,5 +26,9 @@
   "diaryDelete": {
     "contents": "일기를 삭제하시겠습니까?",
     "btnTxt": ["취소", "확인"]
+  },
+  "logout": {
+    "contents": "로그아웃 하시겠습니까?",
+    "btnTxt": ["취소", "확인"]
   }
 }

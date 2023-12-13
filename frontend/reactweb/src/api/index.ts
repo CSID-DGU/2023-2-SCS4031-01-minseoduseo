@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const axiosInterface = axios.create({
+  baseURL: "https://capstone-msds.store",
   timeout: 1000000,
 });
 

@@ -11,6 +11,7 @@ import Routes from "router/Routes";
 import { FONT_STYLES } from "styles/fontStyle";
 import { useEffect, useState } from "react";
 import { getPlants } from "api/myPlant";
+import { getInfo } from "api/auth";
 interface plantListType {
   name: string;
   nickname: string;
@@ -20,24 +21,39 @@ interface plantListType {
   creatDate?: string;
   owner?: string;
 }
+
+interface userInfoType {
+  id: number;
+  image: string;
+  username: string;
+  nickname: string;
+}
 export default function MyInfo() {
   useEffect(() => {
     getPlantList();
+    setInfo();
   }, []);
+
   const navigate = useNavigate();
+  const [plantList, setPlantList] = useState<plantListType[] | []>([]);
+  const [userInfo, setUserInfo] = useState<userInfoType | undefined>();
+
   const getPlantList = async () => {
     const res = await getPlants();
     setPlantList(res.plantList);
   };
-  const [plantList, setPlantList] = useState<plantListType[] | []>([]);
 
+  const setInfo = async () => {
+    const data: userInfoType = await getInfo();
+    setUserInfo(data);
+  };
   return (
     <StyledInfoWrapper>
       <Header icon="previous" title="내 식물" color={COLOR.BG_GRAY_F} />
       <StyledInfoContainer>
         <StyledProfile>
           <Profile />
-          <StyledProfileName>홈 가드너</StyledProfileName>
+          <StyledProfileName>{userInfo?.nickname} 님 </StyledProfileName>
         </StyledProfile>
         <StyledPlantLi>
           <StyledPlantTxt>내 식물 리스트</StyledPlantTxt>

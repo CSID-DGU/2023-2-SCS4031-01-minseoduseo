@@ -20,6 +20,7 @@ export default function CommonModal({
         <StyledBtnContainer>
           {btnTxt.map((txt, index) => (
             <StyledBtn
+              key={index}
               theme={btnTxt.length >= 2 && index === 0 ? "cancel" : "confirm"}
               onClick={
                 btnTxt.length >= 2 && index === 0
@@ -46,6 +47,7 @@ const StyledBg = styled.div`
   right: 0;
   bottom: 0;
   background-color: #0000007d;
+  z-index: 9999;
 `;
 
 const StyledContainer = styled.div`
@@ -58,6 +60,7 @@ const StyledContainer = styled.div`
   background-color: white;
   border-radius: 1.6rem;
   padding: 1.6rem;
+  z-index: 10000;
 `;
 
 const StyledContents = styled.div`
