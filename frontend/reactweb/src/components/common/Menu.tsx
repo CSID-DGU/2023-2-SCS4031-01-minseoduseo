@@ -61,7 +61,7 @@ export default function Menu() {
       setUserInfo(data);
     };
     setInfo();
-  });
+  }, []);
   const [userInfo, setUserInfo] = useState<userInfoType | undefined>();
   const modalTxt = useRef<{
     contents: string;
