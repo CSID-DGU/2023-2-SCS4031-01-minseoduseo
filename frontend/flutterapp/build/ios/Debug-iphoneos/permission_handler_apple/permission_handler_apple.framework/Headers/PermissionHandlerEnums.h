@@ -5,15 +5,15 @@
 //  Created by Razvan Lung on 15/02/2019.
 //
 
-// ios: [PermissionGroupCalendar, PermissionGroupCalendarWriteOnly]
-// Info.plist: [NSCalendarsUsageDescription, NSCalendarWriteOnlyAccessUsageDescription]
+// ios: PermissionGroupCalendar
+// Info.plist: NSCalendarsUsageDescription
 // dart: PermissionGroup.calendar
 #ifndef PERMISSION_EVENTS
     #define PERMISSION_EVENTS 0
 #endif
 
 // ios: PermissionGroupReminders
-// Info.plist: NSRemindersFullAccessUsageDescription
+// Info.plist: NSRemindersUsageDescription
 // dart: PermissionGroup.reminders
 #ifndef PERMISSION_REMINDERS
     #define PERMISSION_REMINDERS 0
@@ -110,13 +110,6 @@
     #define PERMISSION_CRITICAL_ALERTS 0
 #endif
 
-// ios: PermissionGroupCalendarFullAccess
-// Info.plist: [NSCalendarFullAccessUsageDescription]
-// dart: PermissionGroup.calendarFullAccess
-#ifndef PERMISSION_EVENTS_FULL_ACCESS
-    #define PERMISSION_EVENTS_FULL_ACCESS 0
-#endif
-
 typedef NS_ENUM(int, PermissionGroup) {
     PermissionGroupCalendar = 0,
     PermissionGroupCamera,
@@ -153,9 +146,7 @@ typedef NS_ENUM(int, PermissionGroup) {
     PermissiongroupVideos,
     PermissionGroupAudio,
     PermissionGroupScheduleExactAlarm,
-    PermissionGroupSensorsAlways,
-    PermissionGroupCalendarWriteOnly,
-    PermissionGroupCalendarFullAccess
+    PermissionGroupSensorsAlways
 };
 
 typedef NS_ENUM(int, PermissionStatus) {

@@ -13,177 +13,202 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
-15-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:25-67
-16
-17    <queries>
-17-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-13:15
-18        <intent>
-18-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
-19            <action android:name="android.support.customtabs.action.CustomTabsService" />
-19-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-90
-19-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-87
-20        </intent>
-21    </queries>
-22
-23    <permission
-23-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
-24        android:name="com.example.minseoduseo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-24-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
-25        android:protectionLevel="signature" />
-25-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
-26
-27    <uses-permission android:name="com.example.minseoduseo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-27-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
-27-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
-28
-29    <application
-30        android:name="android.app.Application"
-31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-31-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
-32        android:debuggable="true"
-33        android:icon="@mipmap/ic_launcher"
-34        android:label="minseoduseo"
-35        android:usesCleartextTraffic="true" >
-36        <activity
-37            android:name="com.example.minseoduseo.MainActivity"
-38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-39            android:exported="true"
-40            android:hardwareAccelerated="true"
-41            android:launchMode="singleTop"
-42            android:theme="@style/LaunchTheme"
-43            android:windowSoftInputMode="adjustResize" >
-44
-45            <!--
-46                 Specifies an Android theme to apply to this Activity as soon as
-47                 the Android process has started. This theme is visible to the user
-48                 while the Flutter UI initializes. After that, this theme continues
-49                 to determine the Window background behind the Flutter UI.
-50            -->
-51            <meta-data
-52                android:name="io.flutter.embedding.android.NormalTheme"
-53                android:resource="@style/NormalTheme" />
-54
-55            <intent-filter>
-56                <action android:name="android.intent.action.MAIN" />
-57
-58                <category android:name="android.intent.category.LAUNCHER" />
-59            </intent-filter>
-60        </activity>
-61        <!--
-62             Don't delete the meta-data below.
-63             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-64        -->
-65        <meta-data
-66            android:name="flutterEmbedding"
-67            android:value="2" />
-68
-69        <activity
-69-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-20:47
-70            android:name="com.pichillilorenzo.flutter_inappwebview.in_app_browser.InAppBrowserActivity"
-70-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-104
-71            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
-71-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-137
-72            android:exported="false"
-72-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-37
-73            android:theme="@style/AppTheme" />
-73-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
-74        <activity
-74-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-24:55
-75            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivity"
-75-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-112
-76            android:exported="false"
-76-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
-77            android:theme="@style/ThemeTransparent" />
-77-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-52
-78        <activity
-78-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-28:55
-79            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivity"
-79-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-106
-80            android:exported="false"
-80-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-37
-81            android:theme="@style/ThemeTransparent" />
-81-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-52
-82        <activity
-82-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:29:9-33:55
-83            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance"
-83-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-126
-84            android:exported="false"
-84-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-37
-85            android:launchMode="singleInstance"
-85-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-48
-86            android:theme="@style/ThemeTransparent" />
-86-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-52
-87        <activity
-87-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:34:9-38:55
-88            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivitySingleInstance"
-88-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-120
-89            android:exported="false"
-89-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
-90            android:launchMode="singleInstance"
-90-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-48
-91            android:theme="@style/ThemeTransparent" />
-91-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-52
-92
-93        <receiver
-93-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:40:9-43:40
-94            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ActionBroadcastReceiver"
-94-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-111
-95            android:enabled="true"
-95-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-35
-96            android:exported="false" />
-96-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-37
-97
-98        <meta-data
-98-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:45:9-47:36
-99            android:name="io.flutter.embedded_views_preview"
-99-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-61
-100            android:value="true" />
-100-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-33
-101
+15-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:8-69
+15-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:25-67
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:45:9-69
+16-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:45:26-66
+17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+17-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:46:9-75
+17-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:46:26-72
+18    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+18-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:47:9-84
+18-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:47:26-81
+19    <uses-permission android:name="android.permission.VIDEO_CAPTURE" />
+19-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:48:9-76
+19-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:48:26-73
+20    <uses-permission android:name="android.permission.AUDIO_CAPTURE" />
+20-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:49:9-76
+20-->/Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:49:26-73
+21
+22    <queries>
+22-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-13:15
+23        <intent>
+23-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
+24            <action android:name="android.support.customtabs.action.CustomTabsService" />
+24-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-90
+24-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-87
+25        </intent>
+26    </queries>
+27
+28    <permission
+28-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+29        android:name="com.example.minseoduseo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+29-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+30        android:protectionLevel="signature" />
+30-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+31
+32    <uses-permission android:name="com.example.minseoduseo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+32-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+32-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+33
+34    <application
+35        android:name="android.app.Application"
+36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+36-->[androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+37        android:debuggable="true"
+38        android:icon="@mipmap/ic_launcher"
+39        android:label="싱그리"
+40        android:usesCleartextTraffic="true" >
+41        <provider
+42            android:name="com.pichillilorenzo.flutter_inappwebview.InAppWebViewFileProvider"
+43            android:authorities="com.example.minseoduseo.flutter_inappwebview.fileprovider"
+44            android:exported="false"
+45            android:grantUriPermissions="true" >
+46            <meta-data
+47                android:name="android.support.FILE_PROVIDER_PATHS"
+48                android:resource="@xml/provider_paths" />
+49        </provider>
+50
+51        <activity
+52            android:name="com.example.minseoduseo.MainActivity"
+53            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+54            android:exported="true"
+55            android:hardwareAccelerated="true"
+56            android:launchMode="singleTop"
+57            android:theme="@style/LaunchTheme"
+58            android:windowSoftInputMode="adjustResize" >
+59
+60            <!--
+61                 Specifies an Android theme to apply to this Activity as soon as
+62                 the Android process has started. This theme is visible to the user
+63                 while the Flutter UI initializes. After that, this theme continues
+64                 to determine the Window background behind the Flutter UI.
+65            -->
+66            <meta-data
+67                android:name="io.flutter.embedding.android.NormalTheme"
+68                android:resource="@style/NormalTheme" />
+69
+70            <intent-filter>
+71                <action android:name="android.intent.action.MAIN" />
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+74            </intent-filter>
+75        </activity>
+76        <!--
+77             Don't delete the meta-data below.
+78             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+79        -->
+80        <meta-data
+81            android:name="flutterEmbedding"
+82            android:value="2" />
+83
+84        <activity
+84-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-20:47
+85            android:name="com.pichillilorenzo.flutter_inappwebview.in_app_browser.InAppBrowserActivity"
+85-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-104
+86            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+86-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-137
+87            android:exported="false"
+87-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-37
+88            android:theme="@style/AppTheme" />
+88-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
+89        <activity
+89-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-24:55
+90            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivity"
+90-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-112
+91            android:exported="false"
+91-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
+92            android:theme="@style/ThemeTransparent" />
+92-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-52
+93        <activity
+93-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-28:55
+94            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivity"
+94-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-106
+95            android:exported="false"
+95-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-37
+96            android:theme="@style/ThemeTransparent" />
+96-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-52
+97        <activity
+97-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:29:9-33:55
+98            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance"
+98-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-126
+99            android:exported="false"
+99-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-37
+100            android:launchMode="singleInstance"
+100-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-48
+101            android:theme="@style/ThemeTransparent" />
+101-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-52
 102        <activity
-102-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
-103            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-103-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+102-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:34:9-38:55
+103            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivitySingleInstance"
+103-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-120
 104            android:exported="false"
-104-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
-105            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-105-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
-106
-107        <uses-library
-107-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-108            android:name="androidx.window.extensions"
-108-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-109            android:required="false" />
-109-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-110        <uses-library
-110-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-111            android:name="androidx.window.sidecar"
-111-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-112            android:required="false" />
-112-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-113
-114        <provider
-114-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-115            android:name="androidx.startup.InitializationProvider"
-115-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-116            android:authorities="com.example.minseoduseo.androidx-startup"
-116-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-117            android:exported="false" >
-117-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-118            <meta-data
-118-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-119                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-119-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-120                android:value="androidx.startup" />
-120-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-121            <meta-data
-121-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-122                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-122-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-123                android:value="androidx.startup" />
-123-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-124        </provider>
-125    </application>
-126
-127</manifest>
+104-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
+105            android:launchMode="singleInstance"
+105-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-48
+106            android:theme="@style/ThemeTransparent" />
+106-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-52
+107
+108        <receiver
+108-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:40:9-43:40
+109            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ActionBroadcastReceiver"
+109-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-111
+110            android:enabled="true"
+110-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-35
+111            android:exported="false" />
+111-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-37
+112
+113        <meta-data
+113-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:45:9-47:36
+114            android:name="io.flutter.embedded_views_preview"
+114-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-61
+115            android:value="true" />
+115-->[:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-33
+116
+117        <activity
+117-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+118            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+118-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+119            android:exported="false"
+119-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+120            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+120-->[:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+121
+122        <uses-library
+122-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+123            android:name="androidx.window.extensions"
+123-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+124            android:required="false" />
+124-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+125        <uses-library
+125-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+126            android:name="androidx.window.sidecar"
+126-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+127            android:required="false" />
+127-->[androidx.window:window:1.0.0-beta04] /Users/munseoyeon/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+128
+129        <provider
+129-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+130            android:name="androidx.startup.InitializationProvider"
+130-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+131            android:authorities="com.example.minseoduseo.androidx-startup"
+131-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+132            android:exported="false" >
+132-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+133            <meta-data
+133-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+134                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+134-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+135                android:value="androidx.startup" />
+135-->[androidx.emoji2:emoji2:1.2.0] /Users/munseoyeon/.gradle/caches/transforms-3/e04bc3769bedd8dd6f8ca688986b0355/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+136            <meta-data
+136-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+137                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+137-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+138                android:value="androidx.startup" />
+138-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/munseoyeon/.gradle/caches/transforms-3/8c1e738388b632b23acecc5b0cf3e292/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+139        </provider>
+140    </application>
+141
+142</manifest>

@@ -6,7 +6,6 @@ import { ReactComponent as EditIcon } from "assets/icons/icon_edit.svg";
 import { ReactComponent as TreeIcon } from "assets/icons/icon_tree.svg";
 import { ReactComponent as MagnifyIcon } from "assets/icons/icon_magnifier.svg";
 import { ReactComponent as MsgIcon } from "assets/icons/icon_msg.svg";
-import { ReactComponent as SettingIcon } from "assets/icons/icon_setting.svg";
 import { ReactComponent as UserIcon } from "assets/icons/icon_user.svg";
 import { ReactComponent as HomeIcon } from "assets/icons/icon_home.svg";
 import Routes from "router/Routes";
@@ -84,7 +83,7 @@ export default function Menu() {
         <StyledProfileContainer>
           <StyledProfile>
             {userInfo ? (
-              <StyledProfileImg src={userInfo.image} alt="프로필 사진" />
+              <StyledProfileImg bgSrc={userInfo.image} />
             ) : (
               <SmallProfile />
             )}
@@ -141,10 +140,15 @@ const StyledProfileContainer = styled.div`
 `;
 const StyledProfile = styled.div``;
 
-const StyledProfileImg = styled.img`
+interface StyledProfileProps {
+  bgSrc: string;
+}
+const StyledProfileImg = styled.div<StyledProfileProps>`
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
+  background-size: cover;
+  background-image: ${({ bgSrc }) => `url(${bgSrc})`};
 `;
 const StyledProfileTxt = styled.div`
   flex-shrink: 0;

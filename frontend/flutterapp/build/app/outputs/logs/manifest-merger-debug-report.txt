@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:2:5-34:19
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:2:5-43:19
 MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
 MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
 MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
@@ -21,12 +21,16 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/muns
 		ADDED from [androidx.core:core:1.10.1] /Users/munseoyeon/.gradle/caches/transforms-3/c4988ff80110f75080a936fc6f044848/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
 	android:name
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
+provider#com.pichillilorenzo.flutter_inappwebview.InAppWebViewFileProvider
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:8:9-16:20
+	android:authorities
+		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
-MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
 MERGED from [:permission_handler_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_inappwebview] /Users/munseoyeon/plantweb/frontend/flutterapp/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-50:12
 MERGED from [:url_launcher_android] /Users/munseoyeon/plantweb/frontend/flutterapp/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
@@ -69,24 +73,44 @@ INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/deb
 INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:1-50:12
 		INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
-MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
-MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:8-69
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:8-69
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:8-69
+MERGED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:8-69
 	android:name
-		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:35:25-67
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:44:25-67
+uses-permission#android.permission.CAMERA
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:45:9-69
+	android:name
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:45:26-66
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:46:9-75
+	android:name
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:46:26-72
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:47:9-84
+	android:name
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:47:26-81
+uses-permission#android.permission.VIDEO_CAPTURE
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:48:9-76
+	android:name
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:48:26-73
+uses-permission#android.permission.AUDIO_CAPTURE
+ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:49:9-76
+	android:name
+		ADDED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml:49:26-73
 uses-sdk
 INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/munseoyeon/plantweb/frontend/flutterapp/android/app/src/main/AndroidManifest.xml

@@ -8,12 +8,12 @@ import 'package:permission_handler/permission_handler.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Permission.camera.request();
-  runApp(MaterialApp(home: new MyApp()));
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -129,7 +129,7 @@ class _MyAppState extends State<MyApp> {
                 }
                 setState(() {
                   this.progress = progress / 100;
-                  urlController.text = this.url;
+                  urlController.text = url;
                 });
               },
               onUpdateVisitedHistory: (controller, url, androidIsReload) {
