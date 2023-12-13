@@ -119,7 +119,9 @@ export default function DiagAI() {
         ) : (
           <StyledResult>
             <StyledName>{disease}</StyledName>
-            <StyledPercent>정확도 약 {percent}%</StyledPercent>
+            <StyledPercent>
+              정확도 약 96%, 전체 라벨 중 해당 라벨일 확률: 약 {percent}%
+            </StyledPercent>
             <StyledBtnResult>
               <SelectBtn
                 BtnTxt={BTN_TXT}
@@ -177,7 +179,8 @@ const StyledDefaultTxt = styled.h3`
   align-items: center;
   gap: 0.7rem;
   position: absolute;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  ${FONT_STYLES.GM_M}
   color: ${COLOR.FONT_GRAY_AB};
   .svg {
     color: ${COLOR.FONT_GRAY_AB};

@@ -27,5 +27,5 @@ const StyledTitle = styled.h4`
 const StyledContents = styled.div`
   font-size: 1.6rem;
   ${FONT_STYLES.PR_R}
-  line-height: 100%;
+  word-break: keep-all;
 `;
