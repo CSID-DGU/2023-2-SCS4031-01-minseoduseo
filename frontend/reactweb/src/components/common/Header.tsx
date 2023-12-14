@@ -1,9 +1,10 @@
 import { FONT_STYLES } from "styles/fontStyle";
 import { ReactComponent as MenuBar } from "assets/icons/icon_hamburger.svg";
+import { ReactComponent as Logo } from "assets/icons/Icon_logo.svg";
 import styled from "styled-components";
 import { ReactComponent as Previous } from "assets/icons/icon_previous.svg";
 import COLOR from "styles/colors";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Menu from "./Menu";
 import { useState } from "react";
 import Routes from "router/Routes";
@@ -14,6 +15,7 @@ interface HeaderParams {
 }
 export default function Header({ title, icon, color }: HeaderParams) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpened, setIsOpened] = useState(false);
   return (
     <StyledHeader color={color}>
@@ -22,7 +24,10 @@ export default function Header({ title, icon, color }: HeaderParams) {
       ) : (
         <Previous onClick={() => navigate(-1)} />
       )}
-      <StyledTitle color={color}>{title}</StyledTitle>
+      <StyledTitleWrapper>
+        <StyledTitle color={color}>{title}</StyledTitle>
+        {location.pathname === "/" && <Logo />}
+      </StyledTitleWrapper>
       {isOpened && (
         <div>
           <Menu />
@@ -52,7 +57,7 @@ const StyledTitle = styled.h1`
 
 const StyledHeader = styled.header`
   display: flex;
-  gap: 2.8rem;
+  gap: 2rem;
   align-items: center;
   padding: 1.9rem 1.5rem 1rem 1.5rem;
   > svg {
@@ -60,4 +65,10 @@ const StyledHeader = styled.header`
     fill: ${(props) => props.color || COLOR.FONT_BLACK_24};
     cursor: pointer;
   }
+`;
+
+const StyledTitleWrapper = styled.div`
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
 `;

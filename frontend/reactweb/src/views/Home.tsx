@@ -8,7 +8,7 @@ import Header from "components/common/Header";
 export default function Home() {
   return (
     <StyledMainContainer>
-      <Header icon="menu" title="민서두서" />
+      <Header icon="menu" title="싱그리" />
       <StyledMain>
         <TopSection />
         <MenuSection />
