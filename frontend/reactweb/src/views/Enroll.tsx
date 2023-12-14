@@ -99,6 +99,7 @@ export default function Enroll() {
       <Header
         title={params.plantId ? "작물 상세" : "작물 등록"}
         icon="previous"
+        link={Routes.MyInfo}
       />
       <StyledEnrollContainer>
         <div>

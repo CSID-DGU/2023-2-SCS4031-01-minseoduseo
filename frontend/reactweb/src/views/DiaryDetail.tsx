@@ -48,7 +48,7 @@ export default function DiaryDetail() {
   }, []);
   return (
     <StyledContainer>
-      <Header title="일기 상세" icon="previous" />
+      <Header title="일기 상세" icon="previous" link={Routes.Diary} />
       <StyledMain>
         <StyledDate>{fromJSONtoDateStr(contents.createDate, true)}</StyledDate>
         <StyledTitle>{contents.title}</StyledTitle>

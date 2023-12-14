@@ -10,6 +10,7 @@ import readCSV from "utils/getLabels";
 import plantData from "assets/files/plant_data.csv";
 import data from "assets/json/plantList.json";
 import { FONT_STYLES } from "styles/fontStyle";
+import Routes from "router/Routes";
 type PlantData = {
   image: string;
   plantName: string;
@@ -62,7 +63,7 @@ export default function Dict() {
       }}
     >
       <StyledSearchContainer>
-        <Previous onClick={() => navigate(-1)} />
+        <Previous onClick={() => navigate(Routes.Home)} />
         <StyledSearchBar>
           <SearchIcon />
           <StyledSearchInput
