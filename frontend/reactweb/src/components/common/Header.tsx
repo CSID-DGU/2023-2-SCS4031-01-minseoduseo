@@ -12,8 +12,9 @@ interface HeaderParams {
   title: string;
   icon: "previous" | "menu";
   color?: string;
+  link?: string;
 }
-export default function Header({ title, icon, color }: HeaderParams) {
+export default function Header({ title, icon, color, link }: HeaderParams) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpened, setIsOpened] = useState(false);
@@ -22,7 +23,12 @@ export default function Header({ title, icon, color }: HeaderParams) {
       {icon === "menu" ? (
         <MenuBar onClick={() => setIsOpened(true)} />
       ) : (
-        <Previous onClick={() => navigate(-1)} />
+        <Previous
+          onClick={() => {
+            if (link) navigate(link);
+            else navigate(Routes.Home);
+          }}
+        />
       )}
       <StyledTitleWrapper>
         <StyledTitle color={color}>{title}</StyledTitle>

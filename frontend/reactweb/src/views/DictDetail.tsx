@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import readCSV from "utils/getLabels";
 import plantData from "assets/files/plant_data.csv";
 import { useParams } from "react-router-dom";
+import Routes from "router/Routes";
 interface dictionaryItemProps {
   plantName: string;
   image: string;
@@ -58,7 +59,12 @@ export default function DictDetail() {
   return (
     <StyledContainer>
       <StyledTop bgimg={dictionary?.image ?? ""}>
-        <Header title="이전으로" icon="previous" color="white" />
+        <Header
+          title="이전으로"
+          icon="previous"
+          color="white"
+          link={Routes.Dictionary}
+        />
       </StyledTop>
       <StyledMain>
         <StyledDesc>
