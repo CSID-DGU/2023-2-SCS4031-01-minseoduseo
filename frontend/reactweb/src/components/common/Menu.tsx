@@ -9,7 +9,7 @@ import { ReactComponent as MsgIcon } from "assets/icons/icon_msg.svg";
 import { ReactComponent as UserIcon } from "assets/icons/icon_user.svg";
 import { ReactComponent as HomeIcon } from "assets/icons/icon_home.svg";
 import Routes from "router/Routes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import modalTxtAsset from "assets/json/modalTxt.json";
 import CommonModal from "./CommonModal";
 import { getLogout } from "api/social";
@@ -61,6 +61,7 @@ export default function Menu() {
     };
     setInfo();
   }, []);
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<userInfoType | undefined>();
   const modalTxt = useRef<{
     contents: string;
@@ -70,7 +71,7 @@ export default function Menu() {
   }>({
     ...modalTxtAsset.logout,
     confirmHandler: async () => {
-      await getLogout();
+      navigate("/kakao/logout");
     },
     cancelHandler: () => {
       setModalActive(false);

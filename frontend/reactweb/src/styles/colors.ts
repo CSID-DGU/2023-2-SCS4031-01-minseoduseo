@@ -27,5 +27,6 @@ const COLOR = {
   BTN_GRAY_D8: "#d8d3d3",
   BTN_RED_F8: "#F85B5B",
   BORDER_GREEN_8A: "#8ACC92",
+  LOGO_KAKAO: "#FEE500",
 };
 export default COLOR;
