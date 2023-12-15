@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <StyledMainContainer>
       <Header icon="menu" title="싱그리" />
+
       <StyledMain>
         <TopSection />
         <MenuSection />

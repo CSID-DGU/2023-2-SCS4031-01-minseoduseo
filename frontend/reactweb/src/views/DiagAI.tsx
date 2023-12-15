@@ -10,6 +10,7 @@ import Result from "components/DiagAI/Result";
 import readCSV from "utils/getLabels";
 import CommonModal from "components/common/CommonModal";
 import diagLabel from "assets/files/label_data.csv";
+import Loading from "components/common/Loading";
 type Data = {
   label: string;
   plant_name: string;
@@ -44,6 +45,7 @@ export default function DiagAI() {
   const [disease, setDisease] = useState("");
   const [isPlant, setIsPlant] = useState(true);
   const [percent, setPercent] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState(false);
   const txtByType = useMemo(
     () => (curState === BTN_TXT[0] ? resultTxt.current : solveTxt.current),
     [curState]
@@ -55,6 +57,7 @@ export default function DiagAI() {
     formData.append("file", image);
     const imgSrc = URL.createObjectURL(image);
     setSrc(imgSrc);
+    setIsLoading(true);
     const { data } = await axios.post(
       "https://msds-plant-ai.store/predict",
       formData,
@@ -64,6 +67,7 @@ export default function DiagAI() {
         },
       }
     );
+
     if (data.top1_class === "nonplant") {
       setIsPlant(false);
     }
@@ -90,9 +94,12 @@ export default function DiagAI() {
         }
       }
     );
+
+    setIsLoading(false);
   };
   return (
     <StyledContainer>
+      {isLoading && <Loading />}
       <Header title="식물 진단" icon="previous" />
       <StyledImgContainer available={Boolean(src)}>
         <StyledImg src={src} />
