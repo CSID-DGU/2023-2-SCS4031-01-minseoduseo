@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jwt?serverTimezone=Asia/Seoul
+    username: root
+    password: endyd132!!
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+msds:
+  back:
+    home-uri: http://localhost:8080
+  front:
+    home-uri: http://localhost:8080
+  chatbot:
+    open-ai-uri: https://zzwa5nwag2.execute-api.ap-northeast-2.amazonaws.com/api/chatbot
+
+kakao:
+  auth:
+    redirect-uri: http://localhost:8080/kakao/callback
+    code-uri: https://kauth.kakao.com/oauth/authorize
+    client-id: f698ae044a771060c21588e56dcb50f0
+    response-type: code
+    token-uri: https://kauth.kakao.com/oauth/token
+    userinfo-uri: https://kapi.kakao.com/v2/user/me
+    grant-type: authorization_code
+
+naver:
+  auth:
+    redirect-uri: http://localhost:8080/naver/callback
+
+config:
+  cors:
+    allowed-origin: http://localhost:3000/

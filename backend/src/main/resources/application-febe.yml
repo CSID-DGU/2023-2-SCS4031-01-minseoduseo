@@ -1,0 +1,59 @@
+server:
+  port: 5000
+  servlet:
+    encoding:
+      charset: UTF-8
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://msds-febe-mysql.chhnvavqljlp.ap-northeast-2.rds.amazonaws.com:3306/febe
+    username: dyl0115
+    password: endyd132!!
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
+
+msds:
+  back:
+    #    home-uri: http://homefarm-env.eba-c9f3xbye.ap-northeast-2.elasticbeanstalk.com
+    home-uri: http://ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com:5000
+  front:
+    #    소셜 로그인 완료시 이 경로로 front 화면을 리다이렉트 시킴
+    #    home-uri: https://social-login-front.d2q2g823gv40cu.amplifyapp.com/
+    home-uri: http://ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com:3000
+  chatbot:
+    open-ai-uri: https://zzwa5nwag2.execute-api.ap-northeast-2.amazonaws.com/api/chatbot
+
+kakao:
+  auth:
+    #    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/kakao/callback
+    redirect-uri: http://ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com:5000/kakao/callback
+    code-uri: https://kauth.kakao.com/oauth/authorize
+    client-id: f698ae044a771060c21588e56dcb50f0
+    response-type: code
+    token-uri: https://kauth.kakao.com/oauth/token
+    userinfo-uri: https://kapi.kakao.com/v2/user/me
+    grant-type: authorization_code
+
+naver:
+  auth:
+    #    redirect-uri: http://msds-v2-nlb-fae0e679a067aaf3.elb.ap-northeast-2.amazonaws.com/naver/callback
+    redirect-uri: http://ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com:5000/naver/callback
+
+config:
+  cookie:
+
+  cors:
+    #    여기에 front 서버 홈 주소를 넣어야, cors에러가 안남.
+    #    credentials = true라서 반드시 적어야 함. 이 주소만 유일하게 cors 막음.
+    #    allowed-origin: https://social-login-front.d2q2g823gv40cu.amplifyapp.com/
+    allowed-origin: http://ec2-15-165-244-200.ap-northeast-2.compute.amazonaws.com:3000
