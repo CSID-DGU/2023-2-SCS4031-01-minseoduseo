@@ -1,0 +1,38 @@
+{
+  "plantEnrollment": {
+    "contents": "식물을 등록하였습니다.",
+    "btnTxt": ["확인"]
+  },
+  "plantEnrollmentFail": {
+    "contents": "식물 등록에 실패하였습니다.",
+    "btnTxt": ["확인"]
+  },
+  "plantModify": {
+    "contents": "식물을 수정하였습니다.",
+    "btnTxt": ["확인"]
+  },
+  "plantModifyFail": {
+    "contents": "식물 수정에 실패하였습니다.",
+    "btnTxt": ["확인"]
+  },
+  "plantDelete": {
+    "contents": "식물을 삭제하시겠습니까?",
+    "btnTxt": ["취소", "확인"]
+  },
+  "plantDeleteFail": {
+    "contents": "식물 삭제에 실패하였습니다.",
+    "btnTxt": ["확인"]
+  },
+  "diaryDelete": {
+    "contents": "일기를 삭제하시겠습니까?",
+    "btnTxt": ["취소", "확인"]
+  },
+  "logout": {
+    "contents": "로그아웃 하시겠습니까?",
+    "btnTxt": ["취소", "확인"]
+  },
+  "login": {
+    "contents": "카카오 로그인을 진행해주세요.",
+    "btnTxt": ["확인"]
+  }
+}

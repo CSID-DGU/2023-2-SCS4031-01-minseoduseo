@@ -1,36 +1,81 @@
 import COLOR from "styles/colors";
 import styled from "styled-components";
 import Header from "components/common/Header";
-import TOMATO_IMG from "assets/images/tomato.jpeg";
 import { FONT_STYLES } from "styles/fontStyle";
+import { useState, useEffect, useRef } from "react";
+import readCSV from "utils/getLabels";
+import plantData from "assets/files/plant_data.csv";
+import { useParams } from "react-router-dom";
+import Routes from "router/Routes";
+interface dictionaryItemProps {
+  plantName: string;
+  image: string;
+  plantingSeason: string;
+  seedingMethod: string;
+  wateringSchedule: string;
+  careMethod: string;
+  majorDiseases: string;
+  harvestingSeason: string;
+}
+
 export default function DictDetail() {
+  const curPlant = useParams();
+  const [dictionary, setDictionary] = useState<dictionaryItemProps>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await readCSV<dictionaryItemProps>(plantData);
+      const currentDict = data.find((props) => props.plantName === curPlant.id);
+      setDictionary(currentDict);
+    };
+    fetchData();
+  }, []);
   const characteristics = [
-    { title: "이름", content: "토마토" },
     {
-      title: "특징",
-      content:
-        "비타민 A, B₁ B₂C를 고루 함유하고 있고 특히, 비타민 C의 함량이 높아 피로회복은 물론 체력을 기르는 데에도 도움을 주는 건강식품",
+      title: "심는 시기",
+      contents: dictionary?.plantingSeason,
     },
     {
-      title: "물 주기",
-      content: "2~3일마다",
+      title: "파종법",
+      contents: dictionary?.seedingMethod,
+    },
+    {
+      title: "물주기",
+      contents: dictionary?.wateringSchedule,
+    },
+    {
+      title: "관리법",
+      contents: dictionary?.careMethod,
+    },
+    {
+      title: "주요질병",
+      contents: dictionary?.majorDiseases,
+    },
+    {
+      title: "수확 시기",
+      contents: dictionary?.harvestingSeason,
     },
   ];
   return (
     <StyledContainer>
-      <StyledTop bgimg={TOMATO_IMG}>
-        <Header title="이전으로" icon="previous" color="white" />
+      <StyledTop bgimg={dictionary?.image ?? ""}>
+        <Header
+          title="이전으로"
+          icon="previous"
+          color="white"
+          link={Routes.Dictionary}
+        />
       </StyledTop>
       <StyledMain>
         <StyledDesc>
-          <StyledDescName>토마토</StyledDescName>
-          <StyledDescLabel>tomato</StyledDescLabel>
+          <StyledDescName>{dictionary?.plantName}</StyledDescName>
+          <StyledDescLabel>{dictionary?.plantName} 도감</StyledDescLabel>
           <StyledDescItemContainer>
-            {characteristics.map(({ title, content }) => {
+            {characteristics.map(({ title, contents }) => {
               return (
                 <StyledDescItem key={title}>
                   <StyledDescTitle>{title}</StyledDescTitle>
-                  <StyledDescContent>{content}</StyledDescContent>
+                  <StyledDescContent>{contents}</StyledDescContent>
                 </StyledDescItem>
               );
             })}
@@ -71,7 +116,7 @@ const StyledDesc = styled.section`
 `;
 
 const StyledDescName = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: ${COLOR.FONT_BLACK_1F};
   ${FONT_STYLES.GM_M};
   margin-bottom: 0.2rem;
@@ -105,7 +150,7 @@ const StyledDescTitle = styled.h5`
 
 const StyledDescContent = styled.h5`
   ${FONT_STYLES.PR_R};
-  font-size: 1.4rem;
-  letter-spacing: -0.015rem;
+  font-size: 1.5rem;
+  word-break: keep-all;
   color: ${COLOR.FONT_GRAY_59};
 `;

@@ -1,16 +1,37 @@
 import styled from "styled-components";
 import Header from "components/common/Header";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import COLOR from "styles/colors";
 import { ReactComponent as Camera } from "assets/icons/icon_camera.svg";
 import axios from "axios";
 import { FONT_STYLES } from "styles/fontStyle";
 import SelectBtn from "components/PlantDiary/SelectBtn";
 import Result from "components/DiagAI/Result";
-import useReadCSV from "utils/getLabels";
-
+import readCSV from "utils/getLabels";
+import CommonModal from "components/common/CommonModal";
+import diagLabel from "assets/files/label_data.csv";
+import Loading from "components/common/Loading";
+type Data = {
+  label: string;
+  plant_name: string;
+  disease: string;
+  reason: string;
+  solution: string;
+  symptoms: string;
+  medicine: string;
+};
 export default function DiagAI() {
-  const labels = useReadCSV();
+  const [labels, setLables] = useState<Data[] | undefined>(undefined);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await readCSV<Data>(diagLabel);
+      setLables(result);
+    };
+
+    fetchData();
+  }, []);
+
   const BTN_TXT = ["원인 및 증상", "해결 방법"];
   const resultTxt = useRef([
     { title: "원인", contents: "" },
@@ -22,6 +43,9 @@ export default function DiagAI() {
   ]);
   const [curState, setCurState] = useState(BTN_TXT[0]);
   const [disease, setDisease] = useState("");
+  const [isPlant, setIsPlant] = useState(true);
+  const [percent, setPercent] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState(false);
   const txtByType = useMemo(
     () => (curState === BTN_TXT[0] ? resultTxt.current : solveTxt.current),
     [curState]
@@ -33,8 +57,9 @@ export default function DiagAI() {
     formData.append("file", image);
     const imgSrc = URL.createObjectURL(image);
     setSrc(imgSrc);
+    setIsLoading(true);
     const { data } = await axios.post(
-      "http://43.202.176.11:5000/predict",
+      "https://msds-plant-ai.store/predict",
       formData,
       {
         headers: {
@@ -42,8 +67,13 @@ export default function DiagAI() {
         },
       }
     );
+
+    if (data.top1_class === "nonplant") {
+      setIsPlant(false);
+    }
+    setPercent(Math.round(data.top1_percent * 100));
     const diseaseLabel = data.top1_class as string;
-    labels?.forEach(
+    (await labels)?.forEach(
       ({
         label,
         disease,
@@ -53,10 +83,10 @@ export default function DiagAI() {
         solution,
         symptoms,
       }) => {
-        console.log(symptoms);
         if (label === diseaseLabel) {
-          setDisease(disease);
+          setDisease(`${disease} (${plant_name})`);
           if (disease === "정상") return;
+
           resultTxt.current[0].contents = reason;
           resultTxt.current[1].contents = symptoms;
           solveTxt.current[0].contents = solution;
@@ -64,9 +94,12 @@ export default function DiagAI() {
         }
       }
     );
+
+    setIsLoading(false);
   };
   return (
     <StyledContainer>
+      {isLoading && <Loading />}
       <Header title="식물 진단" icon="previous" />
       <StyledImgContainer available={Boolean(src)}>
         <StyledImg src={src} />
@@ -93,7 +126,9 @@ export default function DiagAI() {
         ) : (
           <StyledResult>
             <StyledName>{disease}</StyledName>
-            <StyledPercent>정확도 약 80%</StyledPercent>
+            <StyledPercent>
+              정확도 약 96%, 전체 라벨 중 해당 라벨일 확률: 약 {percent}%
+            </StyledPercent>
             <StyledBtnResult>
               <SelectBtn
                 BtnTxt={BTN_TXT}
@@ -102,13 +137,22 @@ export default function DiagAI() {
               />
               <StyledResultsContainer>
                 {txtByType.map(({ title, contents }) => (
-                  <Result title={title} contents={contents} />
+                  <Result title={title} contents={contents} key={title} />
                 ))}
               </StyledResultsContainer>
             </StyledBtnResult>
           </StyledResult>
         )}
       </StyledBottom>
+      {!isPlant && (
+        <CommonModal
+          contents="해당 사진은 식물이 아닙니다."
+          btnTxt={["확인"]}
+          confirmHandler={() => {
+            setIsPlant(true);
+          }}
+        ></CommonModal>
+      )}
     </StyledContainer>
   );
 }
@@ -142,7 +186,8 @@ const StyledDefaultTxt = styled.h3`
   align-items: center;
   gap: 0.7rem;
   position: absolute;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  ${FONT_STYLES.GM_M}
   color: ${COLOR.FONT_GRAY_AB};
   .svg {
     color: ${COLOR.FONT_GRAY_AB};

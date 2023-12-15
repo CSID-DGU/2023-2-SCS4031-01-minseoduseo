@@ -1,6 +1,5 @@
 import Papa, { ParseResult } from "papaparse";
-import { useEffect, useState } from "react";
-import labels from "../assets/files/label_data.csv";
+
 type Data = {
   label: string;
   plant_name: string;
@@ -11,22 +10,29 @@ type Data = {
   medicine: string;
 };
 
-const useReadCSV = () => {
-  const [data, setData] = useState<Data[] | undefined>();
-  const getCSV = () =>
-    Papa.parse(labels, {
+type PlantData = {
+  plantName: string;
+  image: string;
+  plantingSeason: string;
+  seedingMethod: string;
+  wateringSchedule: string;
+  careMethod: string;
+  majorDiseases: string;
+  harvestingSeason: string;
+};
+
+type LabelType<T> = T extends { image: string } ? PlantData : Data;
+
+async function readCSV<T>(csvData: string): Promise<LabelType<T>[]> {
+  return new Promise((resolve) => {
+    Papa.parse(csvData, {
       delimiter: ",",
       download: true,
       header: true,
-      complete: (results: ParseResult<Data>) => {
-        setData(results.data); // Update this line
+      complete: (results: ParseResult<LabelType<T>>) => {
+        resolve(results.data || []);
       },
     });
-
-  useEffect(() => {
-    getCSV();
-  }, []);
-  return data;
-};
-
-export default useReadCSV;
+  });
+}
+export default readCSV;

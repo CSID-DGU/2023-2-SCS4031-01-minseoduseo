@@ -1,31 +1,66 @@
 import styled from "styled-components";
 import COLOR from "styles/colors";
-import TOMATO_IMG from "assets/images/tomato.jpeg";
 import { FONT_STYLES } from "styles/fontStyle";
 import { useNavigate } from "react-router-dom";
-
-export default function DictionaryItem() {
+interface dictionaryItemProps {
+  plantName: string;
+  image: string;
+  plantingSeason: string;
+  seedingMethod: string;
+  wateringSchedule: string;
+  careMethod: string;
+  majorDiseases: string;
+  harvestingSeason: string;
+}
+export default function DictionaryItem({
+  plantName,
+  image,
+  plantingSeason,
+  seedingMethod,
+  wateringSchedule,
+  careMethod,
+  majorDiseases,
+  harvestingSeason,
+}: dictionaryItemProps) {
   const navigate = useNavigate();
   const characteristics = [
-    { title: "이름", content: "토마토" },
     {
-      title: "특징",
-      content:
-        "비타민 A, B₁ B₂C를 고루 함유하고 있고 특히, 비타민 C의 함량이 높아 피로회복은 물론 체력을 기르는 데에도 도움을 주는 건강식품",
+      title: "심는 시기",
+      contents: plantingSeason,
+    },
+    {
+      title: "파종법",
+      contents: seedingMethod,
+    },
+    {
+      title: "물주기",
+      contents: wateringSchedule,
+    },
+    {
+      title: "관리법",
+      contents: careMethod,
+    },
+    {
+      title: "주요질병",
+      contents: majorDiseases,
+    },
+    {
+      title: "수확 시기",
+      contents: harvestingSeason,
     },
   ];
   return (
-    <StyledDictItem onClick={() => navigate("/dict/tomato")}>
-      <StyledImg bgimg={TOMATO_IMG} />
+    <StyledDictItem onClick={() => navigate(`/dict/${plantName}`)}>
+      <StyledImg bgimg={image} />
       <StyledDesc>
-        <StyledDescName>토마토</StyledDescName>
-        <StyledDescLabel>tomato</StyledDescLabel>
+        <StyledDescName>{plantName}</StyledDescName>
+        <StyledDescLabel>{plantName} 정보</StyledDescLabel>
         <StyledDescItemContainer>
-          {characteristics.map(({ title, content }) => {
+          {characteristics.map(({ title, contents }) => {
             return (
               <StyledDescItem key={title}>
                 <StyledDescTitle>{title}</StyledDescTitle>
-                <StyledDescContent>{content}</StyledDescContent>
+                <StyledDescContent>{contents}</StyledDescContent>
               </StyledDescItem>
             );
           })}
@@ -85,6 +120,7 @@ const StyledDescLabel = styled.h6`
 const StyledDescTitle = styled.h5`
   flex-shrink: 0;
   ${FONT_STYLES.GM_M};
+  width: 5rem;
   letter-spacing: -0.03rem;
   font-size: 1.2rem;
 `;
@@ -94,4 +130,10 @@ const StyledDescContent = styled.h5`
   font-size: 1.3rem;
   letter-spacing: -0.015rem;
   color: ${COLOR.FONT_GRAY_59};
+  overflow: hidden;
+  white-space: normal;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 `;
