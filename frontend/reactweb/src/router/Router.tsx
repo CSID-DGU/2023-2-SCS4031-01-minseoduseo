@@ -25,7 +25,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PrivateRoute />}>
+        <Route>
           <Route path="/" element={<Home />} />
           <Route path="/my-info" element={<MyInfo />}></Route>
           <Route path="/my-info/enroll" element={<Enroll />}></Route>
