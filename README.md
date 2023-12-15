@@ -103,9 +103,6 @@ yarn start
 
 ## Project Result
 #### 👉 메인화면
-- <b>로그인 이전 메인화면</b>
- : 소셜로그인 기능을 통해 로그인이 가능합니다. 
-<p align="center"><img src="https://github.com/CSID-DGU/2023-2-SCS4031-01-minseoduseo/doc/home.png" width="300" height="500">  </p>
 
 - <b>로그인 이후 메인화면</b>
  : 질병진단, 식물도감, 식물일지, 챗봇, 내 식물 관리 버튼이 보여집니다.
